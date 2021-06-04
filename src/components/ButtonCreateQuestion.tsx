@@ -1,8 +1,9 @@
 import React from 'react'
+import { auth } from '../app/firebase';
 
 export const ButtonCreateQuestion = () => {
     const handleClick = () => {
-        console.log('Create new question');
+        auth.signInWithEmailAndPassword('leopold12d12@gmail.com', 'nusgpmfg79')
     }
     
     return (

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
+    "@firebase/webchannel-wrapper": "0.4.1",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
@@ -12,6 +13,7 @@
     "@types/node": "^12.20.14",
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
+    "firebase": "^8.6.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -45,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@firebase/firestore-types": "^2.3.0",
     "@tailwindcss/postcss7-compat": "^2.1.4",
     "@types/react-router-dom": "^5.1.7",
     "autoprefixer": "^9.8.6",
