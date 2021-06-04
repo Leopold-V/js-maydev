@@ -1,13 +1,23 @@
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
+import store from './app/store';
 import { Router } from './app/Router';
-import { HeaderBar } from './components/HeaderBar';
+
+import { PageLayout } from './components/PageLayout';
+import { UserProvider } from './context/UserProvider';
 
 function App() {
   return (
-    <div className='bg-background text-primary'>
-      <Router>
-        <HeaderBar />
-      </Router>
-    </div>
+    <Provider store={store}>
+      <UserProvider>
+        <BrowserRouter>
+          <PageLayout>
+            <Router />
+          </PageLayout>
+        </BrowserRouter>
+      </UserProvider>
+    </Provider>
   );
 }
 

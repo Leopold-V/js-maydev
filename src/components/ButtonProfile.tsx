@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { auth } from '../app/firebase';
 
 export const ButtonProfile = () => {
     const handleClick = () => {
-        console.log('Display profile menu');
+        auth.signOut()
     }
 
     return (

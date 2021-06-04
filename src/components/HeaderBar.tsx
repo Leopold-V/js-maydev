@@ -1,11 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ButtonCreateQuestion } from './ButtonCreateQuestion'
-import { ButtonNotif } from './ButtonNotif'
-import { ButtonProfile } from './ButtonProfile'
-import { SearchBar } from './SearchBar'
+import { useUser } from '../context/UserProvider';
+import { ButtonCreateQuestion } from './ButtonCreateQuestion';
+import { ButtonLogin } from './ButtonLogin';
+import { ButtonSignup } from './ButtonSignup';
+import { ButtonNotif } from './ButtonNotif';
+import { ButtonProfile } from './ButtonProfile';
+import { SearchBar } from './SearchBar';
 
 export const HeaderBar = () => {
+    const { user } = useUser();
     return (
         <div className="bg-gray sticky top-0">
             <nav className='h-14 w-10/12 py-2 mx-auto flex justify-between'>
@@ -15,11 +19,17 @@ export const HeaderBar = () => {
                     </div>
                     <SearchBar />
                 </div>
-                <div className="flex items-center space-x-4">
-                    <ButtonCreateQuestion />
-                    <ButtonNotif />
-                    <ButtonProfile />
-                </div>
+                {user ?
+                    (<div className="flex items-center space-x-4">
+                        <ButtonCreateQuestion />
+                        <ButtonNotif />
+                        <ButtonProfile />
+                    </div>) :
+                    (<div className="flex items-center space-x-4">
+                        <ButtonLogin />
+                        <ButtonSignup />
+                    </div>)
+                }
             </nav>
         </div>
     )

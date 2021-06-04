@@ -1,25 +1,20 @@
-import React, { ReactNode } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { PageLayout } from '../components/PageLayout';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom';
 
-//import { NotFound } from '../pages/NotFound';
-import { Home, Dashboard, ReadingList, Faq, About, Tags, NotFound } from '../pages';
+import { Home, Dashboard, ReadingList, Faq, About, Tags, NotFound, LoginPage, SignupPage } from '../pages';
 
-export const Router = ({children}: {children: ReactNode}) => {
+export const Router = () => {
     return (
-        <BrowserRouter>
-            {children}
-            <PageLayout>
-                <Switch>
-                    <Route exact path='/' component={Home} />
-                    <Route exact path='/dashboard' component={Dashboard}/>
-                    <Route exact path='/readinglist' component={ReadingList}/>
-                    <Route exact path='/faq' component={Faq}/>
-                    <Route exact path='/about' component={About}/>
-                    <Route exact path='/tags' component={Tags}/>
-                    <Route component={NotFound}/>
-                </Switch>
-            </PageLayout>
-        </BrowserRouter>
+        <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dashboard' component={Dashboard}/>
+            <Route exact path='/readinglist' component={ReadingList}/>
+            <Route exact path='/faq' component={Faq}/>
+            <Route exact path='/about' component={About}/>
+            <Route exact path='/tags' component={Tags}/>
+            <Route exact path='/login' component={LoginPage}/>
+            <Route exact path='/signup' component={SignupPage}/>
+            <Route component={NotFound}/>
+        </Switch>
     )
 }

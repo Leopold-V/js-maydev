@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const LoginSignup = () => {
+export const SignupPage = () => {
     return (
         <div>
-            LoginSignup page
+            Signup page
         </div>
     )
 }
