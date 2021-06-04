@@ -9,10 +9,10 @@ export const Home = () => {
             <div className="col-span-2">
                 <SideBar />
             </div>
-            <div className="col-span-6 bg-primary">
+            <div className="col-span-6">
                 <MainContent />
             </div>
-            <div className="col-span-2 bg-primary">
+            <div className="col-span-2 bg-gray">
                 <InfosBar />
             </div>
         </div>

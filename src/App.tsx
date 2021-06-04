@@ -1,4 +1,3 @@
-import './App.css';
 import { Router } from './app/Router';
 import { HeaderBar } from './components/HeaderBar';
 

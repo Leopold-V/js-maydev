@@ -1,14 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ButtonCreateQuestion } from './ButtonCreateQuestion'
+import { ButtonNotif } from './ButtonNotif'
+import { ButtonProfile } from './ButtonProfile'
+import { SearchBar } from './SearchBar'
 
 export const HeaderBar = () => {
     return (
-        <div className="bg-primary sticky top-0">
-            <nav className='h-14 w-10/12 mx-auto'>
-                <ul>
-                    <Link to='/'>Home</Link>
-                    <Link to='/dashboard'>Dashboard</Link>
-                </ul>
+        <div className="bg-gray sticky top-0">
+            <nav className='h-14 w-10/12 py-2 mx-auto flex justify-between'>
+                <div className="flex items-center space-x-4">
+                    <div className='bg-white hover:opacity-60 text-secondary rounded flex items-center px-1 justify-center h-10 transition duration-300'>
+                        <Link to='/' className="font-bold text-lg text-gray">Mdev</Link>
+                    </div>
+                    <SearchBar />
+                </div>
+                <div className="flex items-center space-x-4">
+                    <ButtonCreateQuestion />
+                    <ButtonNotif />
+                    <ButtonProfile />
+                </div>
             </nav>
         </div>
     )
