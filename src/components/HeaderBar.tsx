@@ -11,7 +11,7 @@ import { SearchBar } from './SearchBar';
 export const HeaderBar = () => {
     const { user } = useUser();
     return (
-        <div className="bg-gray sticky top-0">
+        <div className="bg-gray sticky top-0 z-50">
             <nav className='h-14 w-10/12 py-2 mx-auto flex justify-between'>
                 <div className="flex items-center space-x-4">
                     <div className='bg-white hover:opacity-60 text-secondary rounded flex items-center px-1 justify-center h-10 transition duration-300'>

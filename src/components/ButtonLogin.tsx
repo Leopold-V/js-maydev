@@ -1,7 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 
-
 export const ButtonLogin = () => {
     let history = useHistory();
 
@@ -10,7 +9,7 @@ export const ButtonLogin = () => {
     }
 
     return (
-        <button onClick={handleClick} className="btn-primary text-gray font-light">
+        <button onClick={handleClick} className="btn-primary text-gray">
            Login 
         </button>
     )
