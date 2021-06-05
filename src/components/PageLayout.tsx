@@ -5,7 +5,7 @@ export const PageLayout = ({children}: {children: ReactNode}) => {
     return (
         <div className='bg-background text-primary'>
             <HeaderBar />
-            <div className="relative w-10/12 mx-auto h-screen mt-4">
+            <div className="sm:w-11/12 lg:w-10/12 mx-auto h-screen mt-4">
                 {children}
             </div>
         </div>

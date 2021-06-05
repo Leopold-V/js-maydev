@@ -2,7 +2,7 @@ import React from 'react'
 
 export const QuestionsTimeFilter = () => {
     return (
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-2 sm:space-x-4">
             <li>
                 <button className="hover:bg-gray hover:text-blue border-b-4 border-transparent hover:border-primary
                  rounded transition duration-200 px-2 py-2">Feed</button>

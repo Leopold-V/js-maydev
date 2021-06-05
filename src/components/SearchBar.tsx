@@ -13,7 +13,7 @@ export const SearchBar = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="hidden md:block" onSubmit={handleSubmit}>
             <input
                 onChange={handleChange}
                 className="border shadow-lg border-gray-500 rounded py-2 px-4 bg-gray-light

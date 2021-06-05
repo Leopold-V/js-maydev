@@ -28,6 +28,9 @@ module.exports = {
       },
       borderColor: {
         'primary': '#7b78ff',
+      },
+      width: {
+        '112': '28rem'
       }
     },
   },

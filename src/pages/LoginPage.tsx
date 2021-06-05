@@ -30,7 +30,7 @@ export const LoginPage = () => {
 
     return (
         <div className="mt-16 flex items-center justify-center">
-            <div className="relative flex flex-col min-w-0 break-words w-96 mb-6 shadow-lg rounded-lg bg-gray-extra-light border-0">
+            <div className="flex flex-col min-w-0 break-words w-112 mb-6 shadow-lg rounded-lg bg-gray-extra-light border-0">
             <div className="rounded-t mb-0 px-6 py-6">    
             <div className="text-center mb-3">
                       <h6 className="text-gray text-sm font-bold">
