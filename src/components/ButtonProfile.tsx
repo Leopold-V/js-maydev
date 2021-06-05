@@ -1,9 +1,9 @@
 import React from 'react';
-import { auth } from '../app/firebase';
+import authServices from '../services/auth.services';
 
 export const ButtonProfile = () => {
     const handleClick = () => {
-        auth.signOut()
+        authServices.logout();
     }
 
     return (

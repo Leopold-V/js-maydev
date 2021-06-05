@@ -12,11 +12,10 @@ export const UserProvider = ({ children }: {children: ReactNode}) => {
       const unsubscribe = auth.onAuthStateChanged((userResult: any) => {
         if (userResult) {
           setUser(userResult);
-          setLoading(false);
         } else {
           setUser(false);
-          setLoading(false);
         }
+        setLoading(false);
       });
       return unsubscribe;
     }, []);
