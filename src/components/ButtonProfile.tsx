@@ -1,21 +1,17 @@
 import React from 'react';
-import authServices from '../services/auth.services';
 
-export const ButtonProfile = () => {
+export const ButtonProfile = ({ setShow }: { setShow: (show: any) => void}) => {
     const handleClick = () => {
-        authServices.logout();
+        setShow((show: boolean) => !show)
     }
 
     return (
-        <button onClick={handleClick}>
-            <svg width="30" height="30">
-                <circle 
-                    fill='#ffffff'
-                    r="15"
-                    cx="15"
-                    cy="15"
-                />
-            </svg>
+        <button className="w-8" onClick={handleClick}>
+            <img
+                className="w-full rounded-full"
+                alt="profile_picture"
+                src="https://randomuser.me/portraits/men/52.jpg"
+            />
         </button>
     )
 }

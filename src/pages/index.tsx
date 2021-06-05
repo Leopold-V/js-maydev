@@ -6,4 +6,6 @@ export { About } from './About';
 export { Tags } from './Tags';
 export { LoginPage } from './LoginPage';
 export { SignupPage } from './SignupPage';
+export { SettingsPage } from './SettingsPage';
+export { ProfilePage } from './ProfilePage';
 export { NotFound } from './NotFound';

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 
-import { Home, Dashboard, ReadingList, Faq, About, Tags, NotFound, LoginPage, SignupPage } from '../pages';
+import { Home, Dashboard, ReadingList, Faq, About, Tags, NotFound, LoginPage, SignupPage, SettingsPage, ProfilePage } from '../pages';
 
 export const Router = () => {
     return (
@@ -14,6 +14,8 @@ export const Router = () => {
             <Route exact path='/tags' component={Tags}/>
             <Route exact path='/login' component={LoginPage}/>
             <Route exact path='/signup' component={SignupPage}/>
+            <Route exact path='/settings' component={SettingsPage}/>
+            <Route exact path='/profile' component={ProfilePage}/>
             <Route component={NotFound}/>
         </Switch>
     )

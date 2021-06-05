@@ -12,7 +12,7 @@ export const Home = () => {
             <div className="col-span-6">
                 <MainContent />
             </div>
-            <div className="hidden lg:block col-span-2 bg-gray">
+            <div className="hidden lg:block col-span-2">
                 <InfosBar />
             </div>
         </div>
