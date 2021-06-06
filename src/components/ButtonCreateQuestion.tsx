@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const ButtonCreateQuestion = () => {
+
     return (
-        <button className="btn-primary text-gray font-light">
+        <Link to='/new' className="btn-primary text-gray font-light">
            New question 
-        </button>
+        </Link>
     )
 }

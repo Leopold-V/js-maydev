@@ -1,16 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export const ButtonLogin = () => {
-    let history = useHistory();
-
-    const handleClick = () => {
-        history.push('/login');
-    }
 
     return (
-        <button onClick={handleClick} className="btn-primary text-gray">
+        <Link to='/login' className="btn-primary text-gray">
            Login 
-        </button>
+        </Link>
     )
 }
