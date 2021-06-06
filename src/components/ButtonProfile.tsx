@@ -6,7 +6,7 @@ export const ButtonProfile = ({ setShow }: { setShow: (show: any) => void}) => {
     }
 
     return (
-        <button className="w-8" onClick={handleClick}>
+        <button className="w-8 focus:outline-none" onClick={handleClick}>
             <img
                 className="rounded-full"
                 alt="profile_picture"
