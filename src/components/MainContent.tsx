@@ -4,10 +4,6 @@ import { QuestionsList } from './QuestionsList'
 
 export const MainContent = () => {
 
-    // useEffect(() => {
-    //    console.log(currentUser);
-    // }, [currentUser])
-
     return (
         <div className="px-4 space-y-6">
             <QuestionsHeader />

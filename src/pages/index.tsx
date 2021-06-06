@@ -9,4 +9,5 @@ export { SignupPage } from './SignupPage';
 export { SettingsPage } from './SettingsPage';
 export { ProfilePage } from './ProfilePage';
 export { CreateQuestionPage } from './CreateQuestionPage';
+export { QuestionPage } from './QuestionPage';
 export { NotFound } from './NotFound';

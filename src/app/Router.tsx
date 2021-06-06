@@ -14,12 +14,14 @@ import {
   SettingsPage,
   ProfilePage,
   CreateQuestionPage,
+  QuestionPage
 } from "../pages";
 
 export const Router = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/question/:id" component={QuestionPage} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/readinglist" component={ReadingList} />
       <Route exact path="/faq" component={Faq} />

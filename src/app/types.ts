@@ -1,6 +1,6 @@
 export type questionType = {
     id: string,
-    author: string,
+    authorId: string,
     content: string,
-    date: Date
+    date: string
 }

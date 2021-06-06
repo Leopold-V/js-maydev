@@ -8,6 +8,7 @@ module.exports = {
       'muted': '#c2c6ca',
       'gray': '#1a2634',
       'gray-light': '#2e3a48',
+      'gray-extra-light': '#e2e8f0',
       'white': '#ffffff',
       'black': '#000000',
       'error': '#B91C1C'
