@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { userType } from "../app/types";
 
 export const QuestionsItem = ({
   title,
@@ -28,7 +30,7 @@ export const QuestionsItem = ({
             />
           </div>
           <div>
-            <div className="text-sm hover:text-white pb-1 transition duration-200">Leopold-V</div>
+            <div className="text-sm hover:text-white pb-1 transition duration-200">Username to fetch</div>
             <div className="text-xs text-muted hover:text-white pb-1 transition duration-200">
               {date}
             </div>
