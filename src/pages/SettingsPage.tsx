@@ -1,8 +1,8 @@
 import React from 'react'
-import { auth } from '../app/firebase';
+//import { auth } from '../app/firebase';
 
 export const SettingsPage = () => {
-    const handleUpdate = () => { 
+    /*const handleUpdate = () => { 
         const user = auth.currentUser;
         //@ts-ignore
         user.updateProfile({
@@ -13,7 +13,7 @@ export const SettingsPage = () => {
             console.log(user);
             console.log('Update successfull'); 
           })
-    }
+    }*/
 
     return (
         <div>

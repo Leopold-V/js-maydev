@@ -25,6 +25,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -52,6 +53,7 @@
     "@types/react-router-dom": "^5.1.7",
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.35",
+    "prettier": "2.3.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4"
   }
 }

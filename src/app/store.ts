@@ -5,7 +5,7 @@ import questionReducer from '../slices/questionSlice';
 const store = configureStore({
   reducer: {
     questions: questionReducer,
-    user: userReducer
+    user: userReducer,
   },
 });
 

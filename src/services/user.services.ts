@@ -9,4 +9,4 @@ export const getCurrentUser = async (id: string) => {
   } else {
     console.log('User not found');
   }
-}
+};

@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchQuestions, addQuestion } from '../actions/question.actions';
-import { questionType } from '../app/types';
 
 export const questionSlice = createSlice({
   name: 'project',
