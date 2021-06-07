@@ -12,6 +12,7 @@ import { ProfileDropwdown } from './ProfileDropwdown';
 
 export const HeaderBar = () => {
     const user = useSelector((state: any) => state.user.user);
+    const loading = useSelector((state: any) => state.user.loading);
     const [showProfileItems, setShowProfileItems] = useState(false);
 
     return (
@@ -23,7 +24,7 @@ export const HeaderBar = () => {
                     </div>
                     <SearchBar />
                 </div>
-                {user ?
+                {!loading && (user ?
                     (<div className="flex items-center space-x-4">
                         <ButtonCreateQuestion />
                         <ButtonNotif />
@@ -33,7 +34,7 @@ export const HeaderBar = () => {
                     (<div className="flex items-center space-x-4">
                         <ButtonLogin />
                         <ButtonSignup />
-                    </div>)
+                    </div>))
                 }
             </nav>
         </div>

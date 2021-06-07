@@ -5,7 +5,7 @@ export const questionSlice = createSlice({
   name: 'project',
   initialState: {
     questions: [],
-    loading: false,
+    loading: true,
     error: '',
   },
   reducers: {},
