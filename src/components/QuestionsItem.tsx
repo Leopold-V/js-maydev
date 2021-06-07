@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 export const QuestionsItem = ({
   content,
   authorId,
+  date
 }: {
   content: string;
   authorId: string;
+  date: string;
 }) => {
   const handleSave = () => {
     console.log("Save !");
@@ -26,7 +28,7 @@ export const QuestionsItem = ({
           <div>
             <div className="text-sm hover:text-white pb-1">Leopold-V</div>
             <div className="text-xs text-muted hover:text-white pb-1">
-              Jun 6 2021
+              {date}
             </div>
           </div>
         </div>

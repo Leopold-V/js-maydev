@@ -11,7 +11,7 @@ export const userSlice = createSlice({
   reducers: {
     loadUser: (state, action: any) => {
       state.loading = false;
-      state.user = action.payload.user;
+      state.user = action.payload;
       state.isAuthenticated = true;
     },
     noUser: (state) => {

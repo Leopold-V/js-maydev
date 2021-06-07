@@ -9,7 +9,7 @@ export const QuestionsList = () => {
     return (
         <div className="space-y-3">
             {questions.map((question) =>
-                <QuestionsItem content={question.content} authorId={question.authorId} />
+                <QuestionsItem key={question.id} content={question.content} authorId={question.authorId} date={question.date} />
             )}
         </div>
     )

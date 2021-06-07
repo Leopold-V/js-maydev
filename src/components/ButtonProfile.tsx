@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const ButtonProfile = ({ setShow }: { setShow: (show: any) => void}) => {
+    const avatar = useSelector((state: any) => state.user.user.photoURL)
+
     const handleClick = () => {
         setShow((show: boolean) => !show)
     }
@@ -10,7 +13,7 @@ export const ButtonProfile = ({ setShow }: { setShow: (show: any) => void}) => {
             <img
                 className="rounded-full"
                 alt="profile_picture"
-                src="https://randomuser.me/portraits/men/52.jpg"
+                src={avatar || "https://randomuser.me/portraits/men/52.jpg"}
             />
         </button>
     )

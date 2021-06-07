@@ -1,18 +1,12 @@
-import { auth } from '../app/firebase';
+import { db } from '../app/firebase';
 
-const getUser = () => {
-    auth.onAuthStateChanged((userResult: any) => {
-        if (userResult) {
-          return {user: userResult, isAuthenticated: true};
-        } else {
-          return {user: null, isAuthenticated: false};
-        }
-    });
+export const getCurrentUser = async (id: string) => {
+  const query = await db.collection('users').where('userId', '==', id).get();
+  if (!query.empty) {
+    const snapshot = query.docs[0];
+    const data = snapshot.data();
+    return data;
+  } else {
+    console.log('User not found');
+  }
 }
-
-
-const userServices = {
-    getUser
-}
-
-export default userServices;

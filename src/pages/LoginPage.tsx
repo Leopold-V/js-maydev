@@ -78,7 +78,7 @@ export const LoginPage = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="relative w-full mb-3">
                             <label
-                                className="block uppercase text-gray-light text-xs font-bold mb-2"
+                                className="block uppercase text-gray-100 text-xs font-bold mb-2"
                                 htmlFor="email"
                             >
                                 Email
@@ -86,7 +86,7 @@ export const LoginPage = () => {
                             <input
                                 type="email"
                                 name="email"
-                                className="border-0 px-3 py-3 placeholder-gray-400 text-gray-light bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                className="border-0 px-3 py-3 placeholder-gray-400 text-gray-200 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                 placeholder="Email"
                                 style={{ transition: "all .15s ease" }}
                                 value={input.email}
@@ -95,7 +95,7 @@ export const LoginPage = () => {
                         </div>
                         <div className="relative w-full mb-3">
                             <label
-                                className="block uppercase text-gray-light text-xs font-bold mb-2"
+                                className="block uppercase text-gray-100 text-xs font-bold mb-2"
                                 htmlFor="password"
                             >
                                 Password
@@ -103,7 +103,7 @@ export const LoginPage = () => {
                             <input
                                 name="password"
                                 type="password"
-                                className="border-0 px-3 py-3 placeholder-gray-400 text-gray bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                className="border-0 px-3 py-3 placeholder-gray-400 text-gray-200 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                 placeholder="Password"
                                 style={{ transition: "all .15s ease" }}
                                 value={input.password}
@@ -118,7 +118,7 @@ export const LoginPage = () => {
                                 className="form-checkbox border-0 rounded text-gray ml-1 w-5 h-5"
                                 style={{ transition: "all .15s ease" }}
                                 />
-                                <span className="ml-2 text-sm font-semibold text-gray-light">
+                                <span className="ml-2 text-sm font-semibold text-gray-100">
                                     Remember me
                                 </span>
                             </label>

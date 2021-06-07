@@ -5,6 +5,7 @@ import authServices from '../services/auth.services';
 export const ProfileDropwdown = ({ show, setShow }: { show: boolean, setShow: (show: any) => void }) => {
 
     const logout = () => {
+        setShow(false);
         authServices.logout();
     }
 
@@ -15,7 +16,7 @@ export const ProfileDropwdown = ({ show, setShow }: { show: boolean, setShow: (s
     if (!show) return null;
     return (
         <>
-            <div className="absolute z-10 top-14 right-6 bg-gray-light w-40 rounded border-2 border-gray-100">
+            <div className="absolute z-10 top-14 right-6 bg-gray-100 w-40 rounded border-2 border-gray-100">
                 <ul className="py-1 px-1">
                     <li className="hover:bg-gray hover:text-blue rounded transition duration-200">
                         <Link className="flex flex-col justify-center px-2 py-2" to='/profile'>
