@@ -20,8 +20,8 @@ export const LoginPage = () => {
         }
     };
 
-    const loginGithub = () => {
-        authServices.loginWithGithub();
+    const loginGithub = async () => {
+        await authServices.loginWithGithub();
     };
 
     const GoToRegister = () => {

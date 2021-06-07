@@ -8,9 +8,9 @@ import { auth } from './app/firebase';
 
 import { loadUser, noUser } from './slices/userSlice';
 import { fetchQuestions } from './actions/question.actions';
-import { getCurrentUser } from './services/user.services';
 
 import { PageLayout } from './components/PageLayout';
+import { getCurrentUser } from './services/user.services';
 
 function App() {
 
