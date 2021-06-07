@@ -1,9 +1,10 @@
 import React from 'react'
+import { MainLayout } from '../components/MainLayout'
 
 export const Faq = () => {
     return (
-        <div>
+        <MainLayout>
             Faq page
-        </div>
+        </MainLayout>
     )
 }

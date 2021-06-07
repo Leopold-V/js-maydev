@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 export const QuestionsItem = ({
   title,
-  content,
   authorId,
-  date
+  date,
+  tags,
 }: {
   title: string;
-  content: string;
   authorId: string;
   date: string;
+  tags: string[];
 }) => {
   const handleSave = () => {
     console.log("Save !");
@@ -28,20 +28,18 @@ export const QuestionsItem = ({
             />
           </div>
           <div>
-            <div className="text-sm hover:text-white pb-1">Leopold-V</div>
-            <div className="text-xs text-muted hover:text-white pb-1">
+            <div className="text-sm hover:text-white pb-1 transition duration-200">Leopold-V</div>
+            <div className="text-xs text-muted hover:text-white pb-1 transition duration-200">
               {date}
             </div>
           </div>
         </div>
-        <div className="text-white ml-10 hover:text-blue text-2xl font-bold py-3">
+        <div className="text-white ml-10 hover:text-blue text-2xl font-bold py-3 transition duration-200">
           {title}
         </div>
         <div className="flex justify-between">
           <ul className="flex items-center ml-10 space-x-2 text-muted text-sm">
-            <li>#javascript</li>
-            <li>#react</li>
-            <li>#beginner</li>
+            {tags.map((tag) => <li className="hover:text-white transition duration-200">#{tag}</li>)}
           </ul>
           <button onClick={handleSave} className="btn-secondary">
             Save

@@ -12,4 +12,5 @@ export type questionType = {
   authorId: string;
   content: string;
   date: string;
+  tags: string[];
 };

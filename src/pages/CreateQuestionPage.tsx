@@ -1,9 +1,20 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addQuestion } from '../actions/question.actions';
-import { InfosBar } from '../components/InfosBar';
-import { SideBar } from '../components/SideBar';
+
+import { MainLayout } from '../components/MainLayout';
+
+const dataTags = {
+  javascript: false,
+  react: false,
+  vue: false,
+  angular: false,
+  node: false,
+  express: false,
+  frontend: false,
+  backend: false,
+};
 
 const CreateQuestionHead = () => {
   return (
@@ -29,6 +40,7 @@ const CreateQuestionHead = () => {
 
 const CreateQuestionForm = () => {
   const [input, setInput] = useState({ title: '', content: '' });
+  const [tags, setTags] = useState(dataTags);
   const [error, setError] = useState('');
 
   const userId = useSelector((state: any) => state.user.user.userId);
@@ -39,13 +51,24 @@ const CreateQuestionForm = () => {
     if (!input.title || !input.content) {
       setError('Title or content is empty !');
     } else {
-      const newQuestion = { ...input, authorId: userId, date: new Date(Date.now()) };
+      const newTags = Object.entries(tags).filter((tag, i) => tag[1] === true).map((tag) => tag[0]);
+      const newQuestion = {
+        ...input,
+        authorId: userId,
+        date: new Date(Date.now()),
+        tags: newTags,
+      };
       dispatch(addQuestion(newQuestion));
     }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setInput((input) => ({ ...input, [e.target.name]: e.target.value }));
+  };
+
+  const addTags = (e: MouseEvent<HTMLLIElement>) => {
+    const target = e.target as HTMLLIElement;
+    setTags((tags: any) => ({ ...tags, [target.innerText]: !tags[target.innerText] }));
   };
 
   return (
@@ -60,7 +83,7 @@ const CreateQuestionForm = () => {
         className="border shadow-lg border-gray-500 rounded py-2 px-4 bg-gray-100
                     focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
                     h-10 w-4/5 placeholder-gray-500 transition duration-200"
-        placeholder="Search..."
+        placeholder="Ask anything ..."
         name="title"
         value={input.title}
       />
@@ -69,30 +92,50 @@ const CreateQuestionForm = () => {
         className="border shadow-lg border-gray-500 rounded py-2 px-4 bg-gray-100
                     focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
                     min-h-72 w-4/5 placeholder-gray-500 transition duration-200"
-        placeholder="Content..."
+        placeholder="Write a more detailed content here ..."
         name="content"
         value={input.content}
       />
+      <CreateQuestionTagsInput addTags={addTags} tags={tags} />
       <button className="btn-primary text-gray">Create</button>
     </form>
   );
 };
 
+const CreateQuestionTagsInput = ({
+  addTags,
+  tags,
+}: {
+  addTags: (e: MouseEvent<HTMLLIElement>) => void;
+  tags: any;
+}) => {
+  return (
+    <div className="py-2">
+      <h2 className="text-sm py-2">Add tags :</h2>
+      <ul className="flex flex-wrap justify-center items-center space-x-3 text-muted text-sm">
+        {Object.keys(dataTags).map((tag: string) => (
+          <li
+            key={tag}
+            onClick={addTags}
+            className={`${
+              tags[tag] ? 'bg-gray-200' : 'bg-gray-100'
+            } mb-2 py-1 px-2 rounded-xl hover:bg-gray-200 cursor-pointer transition duration-200`}
+          >
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 export const CreateQuestionPage = () => {
   return (
-    <div className="grid sm:grid-cols-8 lg:grid-cols-10 gap-x-4">
-        <div className="hidden sm:block col-span-2">
-            <SideBar />
-        </div>
-        <div className="col-span-6">
-            <CreateQuestionHead />
-            <div className="card">
-                <CreateQuestionForm />
-            </div>
-        </div>
-        <div className="hidden lg:block col-span-2">
-            <InfosBar />
-        </div>
-    </div>
+    <MainLayout>
+      <CreateQuestionHead />
+      <div className="card">
+        <CreateQuestionForm />
+      </div>
+    </MainLayout>
   );
 };

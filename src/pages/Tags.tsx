@@ -1,9 +1,10 @@
 import React from 'react'
+import { MainLayout } from '../components/MainLayout'
 
 export const Tags = () => {
     return (
-        <div>
+        <MainLayout>
             Tags page
-        </div>
+        </MainLayout>
     )
 }

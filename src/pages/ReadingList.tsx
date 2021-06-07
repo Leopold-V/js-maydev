@@ -1,9 +1,10 @@
 import React from 'react'
+import { MainLayout } from '../components/MainLayout'
 
 export const ReadingList = () => {
     return (
-        <div>
-            Reading page
-        </div>
+        <MainLayout>
+            Reading list page
+        </MainLayout>
     )
 }

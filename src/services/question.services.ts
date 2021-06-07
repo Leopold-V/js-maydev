@@ -1,7 +1,7 @@
 import { db } from '../app/firebase';
 import { questionType } from '../app/types';
 
-export const getAllQuestions = async () => {
+const getAllQuestions = async () => {
   const questions: questionType[] = [];
   try {
     const questionsList = await db.collection('questions').get();
@@ -13,3 +13,14 @@ export const getAllQuestions = async () => {
     return error.code;
   }
 };
+
+const addOneQuestion = async (data: questionType) => {
+  await db.collection('questions').add(data);
+}
+
+const questionServices = {
+  getAllQuestions,
+  addOneQuestion
+}
+
+export default questionServices;

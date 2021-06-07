@@ -10,7 +10,7 @@ import { loadUser, noUser } from './slices/userSlice';
 import { fetchQuestions } from './actions/question.actions';
 
 import { PageLayout } from './components/PageLayout';
-import { getCurrentUser } from './services/user.services';
+import userServices from './services/user.services';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((userResult: any) => {
       if (userResult) {
         (async () => {
-          const user = await getCurrentUser(userResult.uid);
+          const user = await userServices.getCurrentUser(userResult.uid);
           store.dispatch(loadUser(user));
         })()
       } else {
