@@ -7,7 +7,7 @@ export const ProfilePage = () => {
 
     return (
         <div className="w-full">
-            <div className="relative bg-gray rounded lg:w-9/12 flex flex-col items-center mx-auto mt-10 md:mt-20 py-4 px-3">
+            <div className="card relative rounded lg:w-9/12 flex flex-col items-center mx-auto mt-10 md:mt-20">
                 <div className="rounded-full absolute -top-8 md:-top-16 bg-background">
                     <div className="w-16 md:w-32 p-2">
                         <img

@@ -8,6 +8,7 @@ export type userType = {
 
 export type questionType = {
     id: string,
+    title: string,
     authorId: string,
     content: string,
     date: string

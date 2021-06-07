@@ -16,8 +16,9 @@ export const QuestionPage = (props: any) => {
                 <SideBar />
             </div>
             <div className="col-span-6">
-                <h1 className="text-white text-3xl font-extrabold py-3">{question.content}</h1>
+                <h1 className="text-white text-3xl font-extrabold py-3">{question.title}</h1>
                 <div>{question.date}</div>
+                <p>{question.content}</p>
             </div>
             <div className="hidden lg:block col-span-2">
                 <InfosBar />

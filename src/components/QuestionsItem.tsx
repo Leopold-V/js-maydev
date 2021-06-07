@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const QuestionsItem = ({
+  title,
   content,
   authorId,
   date
 }: {
+  title: string;
   content: string;
   authorId: string;
   date: string;
@@ -16,7 +18,7 @@ export const QuestionsItem = ({
 
   return (
     <Link to={`/question/${authorId}`}>
-      <div className="bg-gray rounded py-3 px-6">
+      <div className="card">
         <div className="flex items-center space-x-2">
           <div className="w-8">
             <img
@@ -33,7 +35,7 @@ export const QuestionsItem = ({
           </div>
         </div>
         <div className="text-white ml-10 hover:text-blue text-2xl font-bold py-3">
-          {content}
+          {title}
         </div>
         <div className="flex justify-between">
           <ul className="flex items-center ml-10 space-x-2 text-muted text-sm">
