@@ -18,7 +18,7 @@ export const QuestionsItem = ({
 
   return (
     <Link to={`/question/${authorId}`}>
-      <div className="card">
+      <div className="card my-2">
         <div className="flex items-center space-x-2">
           <div className="w-8">
             <img

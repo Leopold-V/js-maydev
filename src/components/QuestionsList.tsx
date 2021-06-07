@@ -7,7 +7,7 @@ export const QuestionsList = () => {
     const questions: questionType[] = useSelector((state: any) => state.questions.questions);
 
     return (
-        <div className="space-y-3">
+        <div className="">
             {questions.map((question) =>
                 <QuestionsItem key={question.id} title={question.title} content={question.content} authorId={question.authorId} date={question.date} />
             )}

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchQuestions } from '../actions/question.actions';
+import { fetchQuestions, addQuestion } from '../actions/question.actions';
+import { questionType } from '../app/types';
 
 export const questionSlice = createSlice({
   name: 'project',
@@ -18,6 +19,18 @@ export const questionSlice = createSlice({
       state.questions = action.payload;
     },
     [fetchQuestions.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [addQuestion.pending]: (state) => {
+      state.loading = true;
+    },
+    [addQuestion.fulfilled]: (state: any, action) => {
+      console.log(action.payload);
+      state.questions.push(action.payload);
+      state.loading = false;
+    },
+    [addQuestion.rejected]: (state: any, action) => {
       state.loading = false;
       state.error = action.payload;
     },
