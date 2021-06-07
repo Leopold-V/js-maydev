@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useUser } from '../context/UserProvider';
+import { useSelector } from 'react-redux';
+
 import { ButtonCreateQuestion } from './ButtonCreateQuestion';
 import { ButtonLogin } from './ButtonLogin';
 import { ButtonSignup } from './ButtonSignup';
@@ -10,7 +11,7 @@ import { SearchBar } from './SearchBar';
 import { ProfileDropwdown } from './ProfileDropwdown';
 
 export const HeaderBar = () => {
-    const { user } = useUser();
+    const user = useSelector((state: any) => state.user.user);
     const [showProfileItems, setShowProfileItems] = useState(false);
 
     return (

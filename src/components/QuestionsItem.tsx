@@ -39,7 +39,7 @@ export const QuestionsItem = ({
             <li>#react</li>
             <li>#beginner</li>
           </ul>
-          <button onClick={handleSave} className="btn-save w-16">
+          <button onClick={handleSave} className="btn-secondary">
             Save
           </button>
         </div>
