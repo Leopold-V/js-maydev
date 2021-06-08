@@ -18,7 +18,7 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((userResult: any) => {
       if (userResult) {
         (async () => {
-          const user = await userServices.getCurrentUser(userResult.uid);
+          const user = await userServices.getOneUser(userResult.uid);
           store.dispatch(loadUser(user));
         })()
       } else {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 export const ButtonProfile = ({ setShow }: { setShow: (show: any) => void}) => {
-    const avatar = useSelector((state: any) => state.user.user.avatar)
+    const avatar = useSelector((state: any) => state.user.user.avatar);
 
     const handleClick = () => {
         setShow((show: boolean) => !show)

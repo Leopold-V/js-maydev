@@ -80,7 +80,7 @@ const CreateQuestionForm = () => {
       )}
       <input
         onChange={handleChange}
-        className="border shadow-lg border-gray-500 rounded py-2 px-4 bg-gray-100
+        className="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100
                     focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
                     h-10 w-4/5 placeholder-gray-500 transition duration-200"
         placeholder="Ask anything ..."
@@ -89,9 +89,9 @@ const CreateQuestionForm = () => {
       />
       <textarea
         onChange={handleChange}
-        className="border shadow-lg border-gray-500 rounded py-2 px-4 bg-gray-100
+        className="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100
                     focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
-                    min-h-72 w-4/5 placeholder-gray-500 transition duration-200"
+                    min-h-72 w-4/5 placeholder-gray-500 resize-none transition duration-200"
         placeholder="Write a more detailed content here ..."
         name="content"
         value={input.content}

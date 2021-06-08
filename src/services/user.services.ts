@@ -1,6 +1,6 @@
 import { db } from '../app/firebase';
 
-const getCurrentUser = async (id: string) => {
+const getOneUser = async (id: string) => {
   const query = await db.collection('users').where('userId', '==', id).get();
   if (!query.empty) {
     const snapshot = query.docs[0];
@@ -12,7 +12,7 @@ const getCurrentUser = async (id: string) => {
 };
 
 const userServices = {
-  getCurrentUser,
+  getOneUser,
 }
 
 export default userServices;

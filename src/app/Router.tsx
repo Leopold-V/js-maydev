@@ -26,6 +26,7 @@ export const Router = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/question/:id" component={QuestionPage} />
+      <Route exact path="/profile/:id" component={ProfilePage} />
       <Route exact path="/faq" component={Faq} />
       <Route exact path="/about" component={About} />
       <Route exact path="/dashboard" render={() => !loading && (isAuth ? <Dashboard /> : <Redirect to='/login' />)} />
@@ -34,7 +35,6 @@ export const Router = () => {
       <Route exact path="/login" render={() => !loading && (!isAuth ? <LoginPage /> : <Redirect to='/' />)} />
       <Route exact path="/signup" render={() => !loading && (!isAuth ? <SignupPage /> : <Redirect to='/' />)} />
       <Route exact path="/settings" render={() => !loading && (isAuth ? <SettingsPage /> : <Redirect to='/login' />)} />
-      <Route exact path="/profile" render={() => !loading && (isAuth ? <ProfilePage /> : <Redirect to='/login' />)} />
       <Route exact path="/new" render={() => !loading && (isAuth ? <CreateQuestionPage /> : <Redirect to='/login' />)} />
       <Route component={NotFound} />
     </Switch>

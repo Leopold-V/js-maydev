@@ -11,6 +11,7 @@ export const QuestionsList = () => {
       {questions.map((question) => (
         <QuestionsItem
           key={question.id}
+          id={question.id}
           title={question.title}
           authorId={question.authorId}
           date={question.date}

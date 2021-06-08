@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { userType } from '../app/types';
 import authServices from '../services/auth.services';
 
 export const ProfileDropwdown = ({ show, setShow }: { show: boolean, setShow: (show: any) => void }) => {
-    const user = useSelector((state: any) => state.user.user);
+    const user: userType = useSelector((state: any) => state.user.user);
 
     const logout = () => {
         setShow(false);
@@ -21,7 +22,7 @@ export const ProfileDropwdown = ({ show, setShow }: { show: boolean, setShow: (s
             <div className="absolute z-10 top-14 right-6 bg-gray-100 w-40 rounded border-2 border-gray-100">
                 <ul className="py-1 px-1">
                     <li className="hover:bg-gray hover:text-blue rounded transition duration-200">
-                        <Link className="flex flex-col justify-center px-2 py-2" to='/profile'>
+                        <Link className="flex flex-col justify-center px-2 py-2" to={`/profile/${user.userId}`}>
                             <span className="overflow-hidden overflow-ellipsis">{user.email}</span>
                             <span className="text-sm text-muted overflow-hidden overflow-ellipsis">{user.username && '@'+user.username}</span>
                         </Link>

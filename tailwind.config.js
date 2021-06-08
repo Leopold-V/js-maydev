@@ -5,7 +5,7 @@ module.exports = {
     textColor: {
       'primary': '#dde0e2',
       'blue': '#7b78ff',
-      'muted': '#c2c6ca',
+      'muted': '#9da2a8',
       'gray': '#1a2634',
       'gray-100': '#2e3a48',
       'gray-200': '#444f5b',
