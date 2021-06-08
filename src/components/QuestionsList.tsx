@@ -1,11 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { questionType } from '../app/types';
 import { QuestionsItem } from './QuestionsItem';
 
-export const QuestionsList = () => {
-  const questions: questionType[] = useSelector((state: any) => state.questions.questions);
-
+export const QuestionsList = ({questions}: {questions: questionType[]}) => {
   return (
     <div className="">
       {questions.map((question) => (

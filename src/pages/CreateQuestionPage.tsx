@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 
 import { addQuestion } from '../actions/question.actions';
 
+import { CreateQuestionPreview } from '../components/CreateQuestionPreview';
 import { MainLayout } from '../components/MainLayout';
 
 const dataTags = {
@@ -17,20 +18,27 @@ const dataTags = {
   backend: false,
 };
 
-const CreateQuestionHead = () => {
+const CreateQuestionHead = ({ tab, setTab }: { tab: string; setTab: (tab: string) => void }) => {
+  const handleTab = (e: MouseEvent<HTMLButtonElement>) => {
+    const target = e.target as HTMLLIElement;
+    setTab(target.innerText);
+  };
+
   return (
     <div className="flex justify-between items-center">
       <h1 className="py-4 pl-2 md:pl-0">Create question</h1>
       <div className="space-x-1">
         <button
-          className="hover:bg-gray focus:outline-none hover:text-blue border-b-4 border-transparent focus:border-primary
-                rounded transition duration-200 px-2 py-1"
+          className={`hover:bg-gray focus:outline-none hover:text-blue border-b-4 border-transparent focus:border-primary
+          ${tab === 'Edit' ? 'border-primary' : ''} rounded transition duration-200 px-2 py-1`}
+          onClick={handleTab}
         >
           Edit
         </button>
         <button
-          className="hover:bg-gray focus:outline-none hover:text-blue border-b-4 border-transparent focus:border-primary
-                rounded transition duration-200 px-2 py-1"
+          className={`hover:bg-gray focus:outline-none hover:text-blue border-b-4 border-transparent focus:border-primary
+          ${tab === 'Preview' ? 'border-primary' : ''} rounded transition duration-200 px-2 py-1`}
+          onClick={handleTab}
         >
           Preview
         </button>
@@ -39,10 +47,18 @@ const CreateQuestionHead = () => {
   );
 };
 
-const CreateQuestionForm = () => {
+const CreateQuestionForm = ({
+  input,
+  setInput,
+  tags,
+  setTags,
+}: {
+  input: { title: string; content: string };
+  setInput: (input: any) => void;
+  tags: any;
+  setTags: (tags: any) => void;
+}) => {
   let history = useHistory();
-  const [input, setInput] = useState({ title: '', content: '' });
-  const [tags, setTags] = useState(dataTags);
   const [error, setError] = useState('');
 
   const userId = useSelector((state: any) => state.user.user.userId);
@@ -63,12 +79,12 @@ const CreateQuestionForm = () => {
         tags: newTags,
       };
       dispatch(addQuestion(newQuestion));
-      history.push(`/`)
+      history.push(`/`);
     }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    setInput((input) => ({ ...input, [e.target.name]: e.target.value }));
+    setInput((input: any) => ({ ...input, [e.target.name]: e.target.value }));
   };
 
   const addTags = (e: MouseEvent<HTMLLIElement>) => {
@@ -77,7 +93,7 @@ const CreateQuestionForm = () => {
   };
 
   return (
-    <form className="py-6 space-y-4 w-full flex flex-col items-center" onSubmit={handleSubmit}>
+    <form className="py-6 space-y-4 flex flex-col items-center" onSubmit={handleSubmit}>
       {error && (
         <div className="text-error w-56 mx-auto bg-error rounded p-2 text-center text-sm my-4">
           {error}
@@ -96,7 +112,7 @@ const CreateQuestionForm = () => {
         onChange={handleChange}
         className="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100
                     focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
-                    w-4/5 placeholder-gray-500 resize-none transition duration-200"
+                    w-4/5 h-72 placeholder-gray-500 resize-none transition duration-200"
         placeholder="Write a more detailed content here ..."
         name="content"
         value={input.content}
@@ -134,12 +150,22 @@ const CreateQuestionTagsInput = ({
   );
 };
 
+
+
 export const CreateQuestionPage = () => {
+  const [input, setInput] = useState({ title: '', content: '' });
+  const [tags, setTags] = useState(dataTags);
+  const [tab, setTab] = useState<string>('Edit');
+
   return (
     <MainLayout>
-      <CreateQuestionHead />
+      <CreateQuestionHead tab={tab} setTab={setTab} />
       <div className="card">
-        <CreateQuestionForm />
+        {tab === 'Edit' ? (
+          <CreateQuestionForm input={input} setInput={setInput} tags={tags} setTags={setTags} />
+        ) : (
+          <CreateQuestionPreview input={input} tags={tags} />
+        )}
       </div>
     </MainLayout>
   );

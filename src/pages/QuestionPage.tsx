@@ -35,6 +35,10 @@ export const QuestionPage = (props: any) => {
         setUser(user);
     };
 
+    const handleSave = () => {
+        console.log("Save !");
+    };
+
     useEffect(() => {
         question && loadAuthor(question.authorId);
     }, [question]);
@@ -44,7 +48,10 @@ export const QuestionPage = (props: any) => {
     if (!user) return <MainLayout><div className="card h-96"></div></MainLayout>;
     return (
         <MainLayout>
-            <div className="card space-y-3">
+            <div className="card relative space-y-3">
+                <button onClick={handleSave} className="btn-secondary absolute top-2 right-2">
+                    Save
+                </button>
                 <h1 className="text-white text-4xl font-extrabold py-3">{question.title}</h1>
                 <ul className="flex items-center space-x-2 text-muted text-sm">
                     {question.tags.map((tag: string, i: number) => <li key={i} className="hover:text-white text-sm transition duration-200">#{tag}</li>)}
@@ -58,7 +65,7 @@ export const QuestionPage = (props: any) => {
                             src={user.avatar || 'https://randomuser.me/portraits/men/52.jpg'}
                             />
                         </div>
-                        <div>{user.username}</div>
+                        <div>{user.username || 'Anonymous'}</div>
                     </Link>
                     <div className="text-muted text-sm">{question.date}</div>
                 </div>
