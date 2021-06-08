@@ -1,9 +1,13 @@
 08/06 Todo :
 
+- [x] reading list page => [] change the reading list in question instead of user
+    - [x] save question
+    - [x] remove question
 - [ ] page question
     - [x] mise en forme
     - [x] markdown to html parsing
     - [ ] systeme de commentaire
+    - [ ] button like
 - [x] page home
     - [x] add author username
     - [ ] time filter
@@ -14,8 +18,6 @@
     - [ ] update profil
 - [x] profile page
     - [x] add question lists of a user
-- [ ] reading list page
-    - [ ] save question
 - [ ] auth
     - [ ] Should add a username field to sign up
 - [ ] add skeletons placeholder

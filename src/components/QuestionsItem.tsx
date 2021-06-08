@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addQuestionToRead, removeQuestionToRead } from "../actions/user.actions";
 import userServices from "../services/user.services";
 
 export const QuestionsItem = ({
@@ -15,10 +17,16 @@ export const QuestionsItem = ({
   date: string;
   tags: string[];
 }) => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState<any>(null);
+  const currentUser = useSelector((state: any) => state.user.user);
 
   const handleSave = () => {
-    console.log("Save !");
+    dispatch(addQuestionToRead({questionId: id, user: user}));
+  };
+
+  const handleRemove = () => {
+    dispatch(removeQuestionToRead({questionId: id, user: user}));
   };
 
   const loadAuthor = async (id: string) => {
@@ -30,7 +38,7 @@ export const QuestionsItem = ({
     loadAuthor(authorId);
   }, [authorId]);
 
-  if (!user) return <div className="card h-40"></div>
+  if (!user) return <div className="card h-40 my-2"></div>
   return (
     <Link to={`/question/${id}`}>
       <div className="card my-2">
@@ -56,9 +64,11 @@ export const QuestionsItem = ({
           <ul className="flex items-center ml-10 space-x-2 text-muted text-sm">
             {tags.map((tag, i) => <li key={i} className="hover:text-white transition duration-200">#{tag}</li>)}
           </ul>
-          <button onClick={handleSave} className="btn-secondary">
+          {currentUser && (!currentUser.reading.includes(id) ? (<button onClick={handleSave} className="btn-secondary">
             Save
-          </button>
+          </button>) : (<button onClick={handleRemove} className="btn-secondary">
+            Remove
+          </button>))}
         </div>
       </div>
     </Link>

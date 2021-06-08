@@ -21,7 +21,7 @@ const addOneQuestion = async (data: questionType) => {
 
 const questionServices = {
   getAllQuestions,
-  addOneQuestion
+  addOneQuestion,
 }
 
 export default questionServices;

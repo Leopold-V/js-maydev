@@ -4,6 +4,7 @@ export type userType = {
   email: string;
   avatar: string;
   bio: string;
+  reading: string[];
 };
 
 export type questionType = {

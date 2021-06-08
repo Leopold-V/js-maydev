@@ -14,6 +14,7 @@ const register = async (email: string, password: string) => {
       email: userCredential.user.email,
       avatar: '',
       bio: '',
+      reading: [],
     };
     db.collection('users')
       .doc(userCredential.user.uid)
@@ -38,6 +39,7 @@ const loginWithGithub = async () => {
         email: profile.email,
         avatar: profile.avatar_url,
         bio: '',
+        reading: [],
       };
       db.collection('users')
         .doc(userCredential.user.uid)
