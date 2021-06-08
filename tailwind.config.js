@@ -34,7 +34,7 @@ module.exports = {
       },
       width: {
         '112': '28rem'
-      }
+      },
     },
   },
   variants: {

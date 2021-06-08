@@ -1,10 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { questionType } from '../app/types'
+import React, { ReactNode, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import gfm from 'remark-gfm';
+import '../markdown.css';
 
-import { MainLayout } from '../components/MainLayout'
-import userServices from '../services/user.services'
+import { questionType } from '../app/types';
+import userServices from '../services/user.services';
+
+import { MainLayout } from '../components/MainLayout';
+
+const components = {
+    code({node, inline, className, children, ...props}: {node: any, inline: any, className: string, children: ReactNode}) {
+      const match = /language-(\w+)/.exec(className || '')
+      return !inline && match ? (
+        <SyntaxHighlighter style={atomDark} language={match[1]} PreTag="div" children={String(children).replace(/\n$/, '')} {...props} />
+      ) : (
+        <code className={className} {...props} />
+      )
+    }
+}
 
 export const QuestionPage = (props: any) => {
     const questionId = props.match.params.id;
@@ -45,7 +62,13 @@ export const QuestionPage = (props: any) => {
                     </Link>
                     <div className="text-muted text-sm">{question.date}</div>
                 </div>
-                <section>{question.content}</section>
+                <ReactMarkdown
+                    className="markdown"
+                    remarkPlugins={[gfm]}
+                    children={question.content}
+                    //@ts-ignore
+                    components={components}
+                />
             </div>
         </MainLayout>
     )

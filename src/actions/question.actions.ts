@@ -18,13 +18,13 @@ export const fetchQuestions: any = createAsyncThunk(
   }
 );
 
-// Todo : question id should be in the return data
 export const addQuestion: any = createAsyncThunk(
   'questions/addQuestion',
   async (data: questionType, { rejectWithValue }) => {
     try {
-      await questionServices.addOneQuestion(data);
-      return { ...data, date: new Date(Date.now()).toString() };
+      const questionId = await questionServices.addOneQuestion(data);
+      console.log(questionId);
+      return { ...data, id: questionId, date: new Date(Date.now()).toString() };
     } catch (error) {
       return rejectWithValue(error.code);
     }

@@ -15,7 +15,8 @@ const getAllQuestions = async () => {
 };
 
 const addOneQuestion = async (data: questionType) => {
-  await db.collection('questions').add(data);
+  const docRef = await db.collection('questions').add(data);
+  return docRef.id;
 }
 
 const questionServices = {

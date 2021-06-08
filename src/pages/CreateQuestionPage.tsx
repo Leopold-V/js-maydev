@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 import { addQuestion } from '../actions/question.actions';
 
@@ -39,6 +40,7 @@ const CreateQuestionHead = () => {
 };
 
 const CreateQuestionForm = () => {
+  let history = useHistory();
   const [input, setInput] = useState({ title: '', content: '' });
   const [tags, setTags] = useState(dataTags);
   const [error, setError] = useState('');
@@ -51,7 +53,9 @@ const CreateQuestionForm = () => {
     if (!input.title || !input.content) {
       setError('Title or content is empty !');
     } else {
-      const newTags = Object.entries(tags).filter((tag, i) => tag[1] === true).map((tag) => tag[0]);
+      const newTags = Object.entries(tags)
+        .filter((tag) => tag[1] === true)
+        .map((tag) => tag[0]);
       const newQuestion = {
         ...input,
         authorId: userId,
@@ -59,6 +63,7 @@ const CreateQuestionForm = () => {
         tags: newTags,
       };
       dispatch(addQuestion(newQuestion));
+      history.push(`/`)
     }
   };
 
@@ -91,7 +96,7 @@ const CreateQuestionForm = () => {
         onChange={handleChange}
         className="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100
                     focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
-                    min-h-72 w-4/5 placeholder-gray-500 resize-none transition duration-200"
+                    w-4/5 placeholder-gray-500 resize-none transition duration-200"
         placeholder="Write a more detailed content here ..."
         name="content"
         value={input.content}
