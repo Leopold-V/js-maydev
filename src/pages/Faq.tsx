@@ -1,10 +1,6 @@
-import React from 'react'
-import { MainLayout } from '../components/MainLayout'
+import React from 'react';
+import { MainLayout } from '../components/MainLayout';
 
 export const Faq = () => {
-    return (
-        <MainLayout>
-            Faq page
-        </MainLayout>
-    )
-}
+  return <MainLayout>Faq page</MainLayout>;
+};

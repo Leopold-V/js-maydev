@@ -44,7 +44,6 @@ const CreateQuestionHead = ({ tab, setTab }: { tab: string; setTab: (tab: string
   );
 };
 
-
 export const CreateQuestionPage = () => {
   const [input, setInput] = useState({ title: '', content: '' });
   const [tags, setTags] = useState(dataTags);

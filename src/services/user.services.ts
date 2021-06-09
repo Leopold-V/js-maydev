@@ -13,6 +13,6 @@ const getOneUser = async (id: string) => {
 
 const userServices = {
   getOneUser,
-}
+};
 
 export default userServices;

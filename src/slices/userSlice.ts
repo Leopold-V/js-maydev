@@ -20,8 +20,7 @@ export const userSlice = createSlice({
       state.isAuthenticated = false;
     },
   },
-  extraReducers: {
-  },
+  extraReducers: {},
 });
 
 export const { loadUser, noUser } = userSlice.actions;
