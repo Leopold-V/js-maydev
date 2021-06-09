@@ -4,7 +4,6 @@ export type userType = {
   email: string;
   avatar: string;
   bio: string;
-  reading: string[];
 };
 
 export type questionType = {
@@ -14,4 +13,5 @@ export type questionType = {
   content: string;
   date: string;
   tags: string[];
+  reading: string[];
 };

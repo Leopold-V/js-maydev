@@ -8,11 +8,7 @@ export const QuestionsList = ({questions}: {questions: questionType[]}) => {
       {questions.map((question) => (
         <QuestionsItem
           key={question.id}
-          id={question.id}
-          title={question.title}
-          authorId={question.authorId}
-          date={question.date}
-          tags={question.tags}
+          question={question}
         />
       ))}
     </div>

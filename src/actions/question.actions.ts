@@ -31,3 +31,29 @@ export const addQuestion: any = createAsyncThunk(
   }
 );
 
+export const addQuestionToRead: any = createAsyncThunk(
+  'questions/addToReadQuestion',
+  async (data: {userId: string, question: questionType}, { rejectWithValue }) => {
+    const updatedList = [...data.question.reading, data.userId]
+    try {
+      await questionServices.updateReading({...data.question, reading: updatedList});
+      return {...data.question, reading: updatedList};
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);
+
+export const removeQuestionToRead: any = createAsyncThunk(
+  'questions/addToReadQuestion',
+  async (data: {userId: string, question: questionType}, { rejectWithValue }) => {
+    const updatedList = data.question.reading.filter((ele) => ele !== data.userId);
+    try {
+      await questionServices.updateReading({...data.question, reading: updatedList});
+      return {...data.question, reading: updatedList};
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);
+

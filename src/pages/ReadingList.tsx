@@ -1,12 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { auth } from '../app/firebase'
 import { questionType } from '../app/types'
 import { MainLayout } from '../components/MainLayout'
 import { QuestionsList } from '../components/QuestionsList'
 
 export const ReadingList = () => {
-    const readingList = useSelector((state: any) => state.user.user.reading);
-    const questions = useSelector((state: any) => state.questions.questions.filter((ele: questionType) => readingList.includes(ele.id)))
+    //@ts-ignore
+    const questions = useSelector((state: any) => state.questions.questions.filter((ele: any) => ele.reading.includes(auth.currentUser.uid)));
+    //const questions = useSelector((state: any) => state.questions.questions.filter((ele: questionType) => readingList.includes(ele.id)))
 
     return (
         <MainLayout>

@@ -73,6 +73,7 @@ export const CreateQuestionForm = ({
           authorId: userId,
           date: new Date(Date.now()),
           tags: newTags,
+          reading: [],
         };
         dispatch(addQuestion(newQuestion));
         history.push(`/`);

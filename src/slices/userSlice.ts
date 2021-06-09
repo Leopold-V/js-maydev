@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addQuestionToRead, removeQuestionToRead } from '../actions/user.actions';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -22,28 +21,6 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
-    [addQuestionToRead.pending]: (state: any, action) => {
-      state.loading = false;
-    },
-    [addQuestionToRead.fulfilled]: (state: any, action) => {
-      state.loading = false;
-      state.user.reading = action.payload;
-    },
-    [addQuestionToRead.rejected]: (state: any, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
-    [removeQuestionToRead.pending]: (state: any, action) => {
-      state.loading = false;
-    },
-    [removeQuestionToRead.fulfilled]: (state: any, action) => {
-      state.loading = false;
-      state.user.reading = action.payload;
-    },
-    [removeQuestionToRead.rejected]: (state: any, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
   },
 });
 

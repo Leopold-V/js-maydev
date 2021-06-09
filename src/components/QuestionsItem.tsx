@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addQuestionToRead, removeQuestionToRead } from "../actions/user.actions";
+import { addQuestionToRead, removeQuestionToRead } from "../actions/question.actions";
+import { questionType } from "../app/types";
 import userServices from "../services/user.services";
 
-export const QuestionsItem = ({
-  id,
-  title,
-  authorId,
-  date,
-  tags,
-}: {
-  id: string;
-  title: string;
-  authorId: string;
-  date: string;
-  tags: string[];
-}) => {
+export const QuestionsItem = ({question}: {question: questionType}) => {
   const dispatch = useDispatch();
   const [user, setUser] = useState<any>(null);
   const currentUser = useSelector((state: any) => state.user.user);
 
+  const {id, title, authorId, date, tags, reading} = question;
+
   const handleSave = () => {
-    dispatch(addQuestionToRead({questionId: id, user: user}));
+    dispatch(addQuestionToRead({userId: currentUser.userId, question: question}));
   };
 
   const handleRemove = () => {
-    dispatch(removeQuestionToRead({questionId: id, user: user}));
+    dispatch(removeQuestionToRead({userId: currentUser.userId, question: question}));
   };
 
   const loadAuthor = async (id: string) => {
@@ -64,7 +55,7 @@ export const QuestionsItem = ({
           <ul className="flex items-center ml-10 space-x-2 text-muted text-sm">
             {tags.map((tag, i) => <li key={i} className="hover:text-white transition duration-200">#{tag}</li>)}
           </ul>
-          {currentUser && (!currentUser.reading.includes(id) ? (<button onClick={handleSave} className="btn-secondary">
+          {currentUser && (!reading.includes(currentUser.userId) ? (<button onClick={handleSave} className="btn-secondary">
             Save
           </button>) : (<button onClick={handleRemove} className="btn-secondary">
             Remove

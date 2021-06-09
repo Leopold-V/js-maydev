@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
@@ -7,10 +7,11 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import gfm from 'remark-gfm';
 import '../markdown.css';
 
-import { questionType } from '../app/types';
+import { questionType, userType } from '../app/types';
 import userServices from '../services/user.services';
 
 import { MainLayout } from '../components/MainLayout';
+import { addQuestionToRead, removeQuestionToRead } from '../actions/question.actions';
 
 const components = {
     code({node, inline, className, children, ...props}: {node: any, inline: any, className: string, children: ReactNode}) {
@@ -25,8 +26,10 @@ const components = {
 
 export const QuestionPage = (props: any) => {
     const questionId = props.match.params.id;
-    const question = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === questionId));
-    const loading = useSelector((state: any) => state.questions.loading);
+    const dispatch = useDispatch();
+    const currentUser: userType = useSelector((state: any) => state.user.user);
+    const question: questionType = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === questionId));
+    const loading: boolean = useSelector((state: any) => state.questions.loading);
 
     const [user, setUser] = useState<any>(null);
 
@@ -36,8 +39,12 @@ export const QuestionPage = (props: any) => {
     };
 
     const handleSave = () => {
-        console.log("Save !");
-    };
+        dispatch(addQuestionToRead({userId: currentUser.userId, question: question}));
+      };
+    
+      const handleRemove = () => {
+        dispatch(removeQuestionToRead({questionId: currentUser.userId, question: question}));
+      };
 
     useEffect(() => {
         question && loadAuthor(question.authorId);
@@ -49,9 +56,11 @@ export const QuestionPage = (props: any) => {
     return (
         <MainLayout>
             <div className="card relative space-y-3">
-                <button onClick={handleSave} className="btn-secondary absolute top-2 right-2">
+                {currentUser && (!question.reading.includes(currentUser.userId) ? (<button onClick={handleSave} className="btn-secondary absolute top-3 right-3">
                     Save
-                </button>
+                </button>) : (<button onClick={handleRemove} className="btn-secondary absolute top-3 right-3">
+                    Remove
+                </button>))}
                 <h1 className="text-white text-4xl font-extrabold py-3">{question.title}</h1>
                 <ul className="flex items-center space-x-2 text-muted text-sm">
                     {question.tags.map((tag: string, i: number) => <li key={i} className="hover:text-white text-sm transition duration-200">#{tag}</li>)}

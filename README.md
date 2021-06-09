@@ -1,19 +1,22 @@
 08/06 Todo :
 
-- [x] reading list page => [] change the reading list in question instead of user
+- [x] reading list page => [x] change the reading list in question instead of user
     - [x] save question
     - [x] remove question
+    - [ ] button prevent redirection on question
 - [ ] page question
     - [x] mise en forme
     - [x] markdown to html parsing
     - [ ] systeme de commentaire
     - [ ] button like
+    - [ ] possibility to edit your question after creation
 - [x] page home
     - [x] add author username
     - [ ] time filter
-- [x] onglet edit/preview
-    - [x] create switch components
+- [x] question creatio onglet edit/preview
+    - [x] create switch mode components
     - [x] markdown to html parsing
+    - [ ] redirect after creation on question
 - [ ] user settings
     - [ ] update profil
 - [x] profile page
@@ -21,4 +24,4 @@
 - [ ] auth
     - [ ] Should add a username field to sign up
 - [ ] add skeletons placeholder
-- [ ] dashboard to delete post and see who help you
+- [ ] dashboard to delete post and see who help you, and edit

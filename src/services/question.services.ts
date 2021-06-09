@@ -19,9 +19,23 @@ const addOneQuestion = async (data: questionType) => {
   return docRef.id;
 }
 
+const updateReading = async (data: questionType) => {
+  const questionRef = db.collection("questions").doc(data.id);
+  return questionRef.update({
+      reading: data.reading,
+  })
+  .then(() => {
+      console.log("Document successfully updated!");
+  })
+  .catch((error) => {
+      console.error("Error updating document: ", error);
+  });
+}
+
 const questionServices = {
   getAllQuestions,
   addOneQuestion,
+  updateReading
 }
 
 export default questionServices;
