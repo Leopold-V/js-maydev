@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchQuestions, addQuestion, addQuestionToRead, removeQuestionToRead } from '../actions/question.actions';
+import { fetchQuestions, addQuestion, addQuestionToRead, removeQuestionToRead, addLikeQuestion, removeLikeQuestion } from '../actions/question.actions';
 import { questionType } from '../app/types';
 
 export const questionSlice = createSlice({
@@ -54,6 +54,30 @@ export const questionSlice = createSlice({
       question.reading = action.payload.reading;
     },
     [removeQuestionToRead.rejected]: (state: any, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [addLikeQuestion.pending]: (state: any, action) => {
+      state.loading = false;
+    },
+    [addLikeQuestion.fulfilled]: (state: any, action) => {
+      state.loading = false;
+      const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
+      question.likes = action.payload.likes;
+    },
+    [addLikeQuestion.rejected]: (state: any, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [removeLikeQuestion.pending]: (state: any, action) => {
+      state.loading = false;
+    },
+    [removeLikeQuestion.fulfilled]: (state: any, action) => {
+      state.loading = false;
+      const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
+      question.likes = action.payload.likes;
+    },
+    [removeLikeQuestion.rejected]: (state: any, action) => {
       state.loading = false;
       state.error = action.payload;
     },

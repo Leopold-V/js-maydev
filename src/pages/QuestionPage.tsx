@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
@@ -7,11 +7,13 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import gfm from 'remark-gfm';
 import '../markdown.css';
 
-import { questionType, userType } from '../app/types';
+import { questionType } from '../app/types';
 import userServices from '../services/user.services';
 
 import { MainLayout } from '../components/MainLayout';
-import { addQuestionToRead, removeQuestionToRead } from '../actions/question.actions';
+import { Discussion } from '../components/Discussion';
+import { ButtonRead } from '../components/ButtonRead';
+import { ButtonLike } from '../components/ButtonLike';
 
 const components = {
     code({node, inline, className, children, ...props}: {node: any, inline: any, className: string, children: ReactNode}) {
@@ -26,8 +28,6 @@ const components = {
 
 export const QuestionPage = (props: any) => {
     const questionId = props.match.params.id;
-    const dispatch = useDispatch();
-    const currentUser: userType = useSelector((state: any) => state.user.user);
     const question: questionType = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === questionId));
     const loading: boolean = useSelector((state: any) => state.questions.loading);
 
@@ -38,14 +38,6 @@ export const QuestionPage = (props: any) => {
         setUser(user);
     };
 
-    const handleSave = () => {
-        dispatch(addQuestionToRead({userId: currentUser.userId, question: question}));
-      };
-    
-      const handleRemove = () => {
-        dispatch(removeQuestionToRead({questionId: currentUser.userId, question: question}));
-      };
-
     useEffect(() => {
         question && loadAuthor(question.authorId);
     }, [question]);
@@ -55,12 +47,12 @@ export const QuestionPage = (props: any) => {
     if (!user) return <MainLayout><div className="card h-96"></div></MainLayout>;
     return (
         <MainLayout>
-            <div className="card relative space-y-3">
-                {currentUser && (!question.reading.includes(currentUser.userId) ? (<button onClick={handleSave} className="btn-secondary absolute top-3 right-3">
-                    Save
-                </button>) : (<button onClick={handleRemove} className="btn-secondary absolute top-3 right-3">
-                    Remove
-                </button>))}
+            <div className="card relative">
+                <div className="space-y-3">
+                <div className="absolute top-3 right-3 flex items-center space-x-4">
+                    <ButtonRead question={question} />
+                    <ButtonLike question={question} />
+                </div>
                 <h1 className="text-white text-4xl font-extrabold py-3">{question.title}</h1>
                 <ul className="flex items-center space-x-2 text-muted text-sm">
                     {question.tags.map((tag: string, i: number) => <li key={i} className="hover:text-white text-sm transition duration-200">#{tag}</li>)}
@@ -85,6 +77,8 @@ export const QuestionPage = (props: any) => {
                     //@ts-ignore
                     components={components}
                 />
+                </div>
+                <Discussion />
             </div>
         </MainLayout>
     )

@@ -3,13 +3,13 @@
 - [x] reading list page => [x] change the reading list in question instead of user
     - [x] save question
     - [x] remove question
-    - [ ] button prevent redirection on question
+    - [x] button prevent redirection on question
 - [ ] page question
     - [x] mise en forme
     - [x] markdown to html parsing
     - [ ] systeme de commentaire
-    - [ ] button like
     - [ ] possibility to edit your question after creation
+    - [x] button like => [x] button to modify in the page (items are okay)
 - [x] page home
     - [x] add author username
     - [ ] time filter

@@ -45,7 +45,7 @@ export const addQuestionToRead: any = createAsyncThunk(
 );
 
 export const removeQuestionToRead: any = createAsyncThunk(
-  'questions/addToReadQuestion',
+  'questions/removeQuestionToRead',
   async (data: {userId: string, question: questionType}, { rejectWithValue }) => {
     const updatedList = data.question.reading.filter((ele) => ele !== data.userId);
     try {
@@ -57,3 +57,28 @@ export const removeQuestionToRead: any = createAsyncThunk(
   }
 );
 
+export const addLikeQuestion: any = createAsyncThunk(
+  'questions/addLikeQuestion',
+  async (data: {userId: string, question: questionType}, { rejectWithValue }) => {
+    const updatedList = [...data.question.likes, data.userId]
+    try {
+      await questionServices.updateLikes({...data.question, likes: updatedList});
+      return {...data.question, likes: updatedList};
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);
+
+export const removeLikeQuestion: any = createAsyncThunk(
+  'questions/removeLikeQuestion',
+  async (data: {userId: string, question: questionType}, { rejectWithValue }) => {
+    const updatedList = data.question.likes.filter((ele) => ele !== data.userId);
+    try {
+      await questionServices.updateLikes({...data.question, likes: updatedList});
+      return {...data.question, likes: updatedList};
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);

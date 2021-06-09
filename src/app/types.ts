@@ -14,4 +14,5 @@ export type questionType = {
   date: string;
   tags: string[];
   reading: string[];
+  likes: string[];
 };

@@ -35,6 +35,9 @@ module.exports = {
       width: {
         '112': '28rem'
       },
+      minHeight: {
+        '40': '10rem'
+      }
     },
   },
   variants: {

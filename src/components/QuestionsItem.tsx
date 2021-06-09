@@ -1,29 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addQuestionToRead, removeQuestionToRead } from "../actions/question.actions";
+import { auth } from "../app/firebase";
 import { questionType } from "../app/types";
 import userServices from "../services/user.services";
+import { QuestionsItemButtonGroup } from "./QuestionsItemButtonGroup";
 
 export const QuestionsItem = ({question}: {question: questionType}) => {
-  const dispatch = useDispatch();
   const [user, setUser] = useState<any>(null);
-  const currentUser = useSelector((state: any) => state.user.user);
 
-  const {id, title, authorId, date, tags, reading} = question;
-
-  const handleSave = () => {
-    dispatch(addQuestionToRead({userId: currentUser.userId, question: question}));
-  };
-
-  const handleRemove = () => {
-    dispatch(removeQuestionToRead({userId: currentUser.userId, question: question}));
-  };
+  const {id, title, authorId, date, tags } = question;
 
   const loadAuthor = async (id: string) => {
     const user = await userServices.getOneUser(id);
     setUser(user);
-};
+  };
 
   useEffect(() => {
     loadAuthor(authorId);
@@ -32,7 +22,7 @@ export const QuestionsItem = ({question}: {question: questionType}) => {
   if (!user) return <div className="card h-40 my-2"></div>
   return (
     <Link to={`/question/${id}`}>
-      <div className="card my-2">
+      <div className="card my-2 min-h-40">
         <div className="flex items-center space-x-2">
           <Link to={`/profile/${authorId}`} className="w-8">
             <img
@@ -55,11 +45,9 @@ export const QuestionsItem = ({question}: {question: questionType}) => {
           <ul className="flex items-center ml-10 space-x-2 text-muted text-sm">
             {tags.map((tag, i) => <li key={i} className="hover:text-white transition duration-200">#{tag}</li>)}
           </ul>
-          {currentUser && (!reading.includes(currentUser.userId) ? (<button onClick={handleSave} className="btn-secondary">
-            Save
-          </button>) : (<button onClick={handleRemove} className="btn-secondary">
-            Remove
-          </button>))}
+          <div className="flex items-center space-x-4">
+            {auth.currentUser && <QuestionsItemButtonGroup question={question} />}
+          </div>
         </div>
       </div>
     </Link>

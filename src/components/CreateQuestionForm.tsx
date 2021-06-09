@@ -59,7 +59,7 @@ export const CreateQuestionForm = ({
   
     const userId = useSelector((state: any) => state.user.user.userId);
     const dispatch = useDispatch();
-  
+
     const handleSubmit = (e: FormEvent): void => {
       e.preventDefault();
       if (!input.title || !input.content) {

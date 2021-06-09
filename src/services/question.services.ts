@@ -32,10 +32,24 @@ const updateReading = async (data: questionType) => {
   });
 }
 
+const updateLikes = async (data: questionType) => {
+  const questionRef = db.collection("questions").doc(data.id);
+  return questionRef.update({
+      likes: data.likes,
+  })
+  .then(() => {
+      console.log("Document successfully updated!");
+  })
+  .catch((error) => {
+      console.error("Error updating document: ", error);
+  });
+}
+
 const questionServices = {
   getAllQuestions,
   addOneQuestion,
-  updateReading
+  updateReading,
+  updateLikes
 }
 
 export default questionServices;
