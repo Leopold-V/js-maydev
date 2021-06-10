@@ -60,7 +60,7 @@ export const ProfileDropwdown = ({
         </ul>
       </div>
       <section
-        className="absolute h-screen w-full top-14 -left-4 mx-0"
+        className="absolute h-screen w-full top-0 -left-4 mx-0"
         onClick={closeProfileItem}
       ></section>
     </>
