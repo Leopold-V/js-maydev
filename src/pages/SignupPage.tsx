@@ -2,8 +2,9 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import authServices from '../services/auth.services';
 
 export const SignupPage = () => {
-  const [input, setInput] = useState<{ email: string; password: string; password2: '' }>({
+  const [input, setInput] = useState<{ email: string; username: string; password: string; password2: '' }>({
     email: '',
+    username: '',
     password: '',
     password2: '',
   });
@@ -15,11 +16,14 @@ export const SignupPage = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (input.password !== input.password2) {
+    if (!input.username) {
+      setError('The username is required !');
+    }
+    else if (input.password !== input.password2) {
       setError('Your password and confirm password are different !');
     } else {
       try {
-        await authServices.register(input.email, input.password);
+        await authServices.register(input.email, input.password ,input.username);
       } catch (error) {
         setError(error.message);
       }
@@ -49,6 +53,23 @@ export const SignupPage = () => {
                 placeholder="Email"
                 style={{ transition: 'all .15s ease' }}
                 value={input.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                htmlFor="username"
+              >
+                Username
+              </label>
+              <input
+                type="username"
+                name="username"
+                className="border-0 px-3 py-3 placeholder-gray-400 text-gray bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                placeholder="Username"
+                style={{ transition: 'all .15s ease' }}
+                value={input.username}
                 onChange={handleChange}
               />
             </div>

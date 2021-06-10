@@ -6,14 +6,17 @@ const login = async (email: string, password: string): Promise<any> => {
   await auth.signInWithEmailAndPassword(email, password);
 };
 
-const register = async (email: string, password: string) => {
+const register = async (email: string, password: string, username: string) => {
   await auth.createUserWithEmailAndPassword(email, password).then((userCredential: any) => {
     const newUser: userType = {
       userId: userCredential.user.uid,
-      username: '',
+      username: username,
       email: userCredential.user.email,
       avatar: '',
       bio: '',
+      location: '',
+      website_url: '',
+      dev_profile: '',
     };
     db.collection('users')
       .doc(userCredential.user.uid)
@@ -38,6 +41,9 @@ const loginWithGithub = async () => {
         email: profile.email,
         avatar: profile.avatar_url,
         bio: '',
+        location: '',
+        website_url: '',
+        dev_profile: '',
       };
       db.collection('users')
         .doc(userCredential.user.uid)

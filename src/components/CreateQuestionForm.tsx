@@ -54,10 +54,11 @@ export const CreateQuestionForm = ({
   setTags: (tags: any) => void;
 }) => {
   let history = useHistory();
-  const [error, setError] = useState('');
-
-  const userId = useSelector((state: any) => state.user.user.userId);
   const dispatch = useDispatch();
+  const userId = useSelector((state: any) => state.user.user.userId);
+
+  const [error, setError] = useState('');
+  const [hasChanged, setHasChanged] = useState<boolean>(false);
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
@@ -83,6 +84,7 @@ export const CreateQuestionForm = ({
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    setHasChanged(true);
     setInput((input: any) => ({ ...input, [e.target.name]: e.target.value }));
   };
 
@@ -117,7 +119,9 @@ export const CreateQuestionForm = ({
         value={input.content}
       />
       <CreateQuestionTagsInput addTags={addTags} tags={tags} />
-      <button className="btn-primary text-gray">Create</button>
+      {hasChanged ? <button className="btn-primary text-gray">Create</button> :
+          <button className="btn-primary text-gray opacity-60 cursor-not-allowed" disabled>Create</button>
+        }
     </form>
   );
 };

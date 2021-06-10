@@ -57,6 +57,7 @@ export const EditQuestionForm = ({
 }) => {
   let history = useHistory();
   const [error, setError] = useState('');
+  const [hasChanged, setHasChanged] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -80,6 +81,7 @@ export const EditQuestionForm = ({
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    setHasChanged(true);
     setInput((input: any) => ({ ...input, [e.target.name]: e.target.value }));
   };
 
@@ -114,7 +116,9 @@ export const EditQuestionForm = ({
         value={input.content}
       />
       <CreateQuestionTagsInput addTags={addTags} tags={tags} />
-      <button className="btn-primary text-gray">Save</button>
+      {hasChanged ? <button className="btn-primary text-gray">Save</button> :
+          <button className="btn-primary text-gray opacity-60 cursor-not-allowed" disabled>Save</button>
+        }
     </form>
   );
 };

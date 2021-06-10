@@ -7,7 +7,6 @@ import gfm from 'remark-gfm';
 import '../markdown.css';
 
 import userServices from '../services/user.services';
-import questionServices from '../services/question.services';
 
 import { MainLayout } from '../components/MainLayout';
 import { Discussion } from '../components/Discussion';
@@ -15,6 +14,7 @@ import { ButtonLike, ButtonRead } from '../components/Button';
 import { QuestionListTags } from '../components/Question';
 import { useSelector } from 'react-redux';
 import { questionType } from '../app/types';
+import { auth } from '../app/firebase';
 
 const components = {
   code({
@@ -76,7 +76,7 @@ export const QuestionPage = (props: any) => {
       <div className="card relative">
         <div className="space-y-3">
           <div className="absolute top-3 right-3 flex items-center space-x-4">
-            {user && (
+            {(auth.currentUser?.uid === user.userId) && (
               <Link
                 to={`/edit/${questionId}`}
                 className="text-muted focus:outline-none hover:bg-gray hover:text-primary transition duration-200 rounded px-2 py-1"

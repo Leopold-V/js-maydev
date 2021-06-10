@@ -5,7 +5,7 @@
     - [x] save question
     - [x] remove question
     - [x] button prevent redirection on question
-- [ ] page question
+- [x] page question
     - [x] mise en forme
     - [x] markdown to html parsing
     - [x] possibility to edit your question after creation
@@ -21,12 +21,13 @@
     - [x] add question lists of a user
 - [x] dashboard to delete post and see who help you, and edit
 
-- [ ] systeme de commentaire
 - [ ] user settings
     - [ ] update profil
 - [ ] auth
     - [ ] Should add a username field to sign up
-- [ ] add skeletons placeholder
-- [ ] notifications
+
+- [ ] systeme de commentaires
 - [ ] point for good answer
 - [ ] Leaderboard
+- [ ] notifications
+- [ ] add skeletons placeholder

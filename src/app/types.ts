@@ -4,6 +4,9 @@ export type userType = {
   email: string;
   avatar: string;
   bio: string;
+  location: string;
+  website_url: string;
+  dev_profile: string;
 };
 
 export type questionType = {
