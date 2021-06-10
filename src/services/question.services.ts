@@ -19,6 +19,20 @@ const addOneQuestion = async (data: questionType) => {
   return docRef.id;
 };
 
+const updateOneQuestion = async (data: questionType) => {
+  const questionRef = db.collection('questions').doc(data.id);
+  return questionRef
+    .update({
+      ...data
+    })
+    .then(() => {
+      console.log('Document successfully updated!');
+    })
+    .catch((error) => {
+      console.error('Error updating document: ', error);
+    });
+};
+
 const updateReading = async (data: questionType) => {
   const questionRef = db.collection('questions').doc(data.id);
   return questionRef
@@ -61,6 +75,7 @@ const questionServices = {
   updateReading,
   updateLikes,
   deleteQuestion,
+  updateOneQuestion
 };
 
 export default questionServices;

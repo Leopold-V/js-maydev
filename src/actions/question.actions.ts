@@ -10,6 +10,7 @@ export const fetchQuestions: any = createAsyncThunk(
       const formattedQuestion = questions.map((question: any) => ({
         ...question,
         date: new Date(question.date.seconds * 1000).toDateString(),
+        edit_date: new Date(question.edit_date.seconds * 1000).toDateString(),
       }));
       return formattedQuestion;
     } catch (error) {
@@ -23,7 +24,7 @@ export const addQuestion: any = createAsyncThunk(
   async (data: questionType, { rejectWithValue }) => {
     try {
       const questionId = await questionServices.addOneQuestion(data);
-      return { ...data, id: questionId, date: new Date(Date.now()).toString() };
+      return { ...data, id: questionId, date: new Date(Date.now()).toDateString(), edit_date: new Date(Date.now()).toDateString() };
     } catch (error) {
       return rejectWithValue(error.code);
     }
@@ -36,6 +37,18 @@ export const deleteQuestion: any = createAsyncThunk(
     try {
       await questionServices.deleteQuestion(id);
       return id;
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);
+
+export const updateQuestion: any = createAsyncThunk(
+  'questions/updateQuestion',
+  async (data: questionType, { rejectWithValue }) => {
+    try {
+      await questionServices.updateOneQuestion(data);
+      return { ...data, edit_date: new Date(Date.now()).toDateString() };
     } catch (error) {
       return rejectWithValue(error.code);
     }

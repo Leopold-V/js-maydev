@@ -12,6 +12,7 @@ export type questionType = {
   authorId: string;
   content: string;
   date: string;
+  edit_date: string;
   tags: string[];
   reading: string[];
   likes: string[];

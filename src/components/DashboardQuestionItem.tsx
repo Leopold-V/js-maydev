@@ -7,7 +7,7 @@ import { DashboardItemButtonGroup } from './DashboardItemButtonGroup';
 
 export const DashboardQuestionsItem = ({ question }: { question: questionType }) => {
   const dispatch = useDispatch();
-  const { id, title, date } = question;
+  const { id, title, date, edit_date } = question;
 
   const handleDelete = () => {
     const rep = window.confirm('Are you sure to delete this post ?');
@@ -28,7 +28,7 @@ export const DashboardQuestionsItem = ({ question }: { question: questionType })
                     Published: {date}
                 </div>
                 <div className="text-xs text-muted hover:text-white transition duration-200">
-                    Edited: 9 april 2021
+                    Edited: {edit_date}
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import {
   addLikeQuestion,
   removeLikeQuestion,
   deleteQuestion,
+  updateQuestion,
 } from '../actions/question.actions';
 import { questionType } from '../app/types';
 
@@ -38,6 +39,21 @@ export const questionSlice = createSlice({
       state.loading = false;
     },
     [addQuestion.rejected]: (state: any, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [updateQuestion.pending]: (state: any) => {
+      state.loading = true;
+    },
+    [updateQuestion.fulfilled]: (state: any, action) => {
+      state.loading = false;
+      const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
+      question.title = action.payload.title
+      question.content = action.payload.content
+      question.tags = action.payload.tags
+      question.edit_date = action.payload.edit_date
+    },
+    [updateQuestion.rejected]: (state: any, action) => {
       state.loading = false;
       state.error = action.payload;
     },
