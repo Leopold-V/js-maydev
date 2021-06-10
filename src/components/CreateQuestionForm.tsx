@@ -71,12 +71,14 @@ export const CreateQuestionForm = ({
         ...input,
         authorId: userId,
         date: new Date(Date.now()),
+        edit_date: new Date(Date.now()),
         tags: newTags,
         reading: [],
         likes: [],
       };
-      dispatch(addQuestion(newQuestion));
-      history.push(`/`);
+      dispatch(addQuestion(newQuestion)).then((result: any) => {
+        history.push(`/question/${result.payload.id}`);
+      });
     }
   };
 

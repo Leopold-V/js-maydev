@@ -75,7 +75,7 @@ export const EditQuestionForm = ({
         tags: newTags,
       };
       dispatch(updateQuestion(updatedQuestion));
-      history.push(`/dashboard`);
+      history.push(`/question/${id}`);
     }
   };
 

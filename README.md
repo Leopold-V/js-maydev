@@ -1,6 +1,6 @@
 08/06 Todo :
 
-- [ ] nug re render on questionpage when we click like or reading
+- [x] bug re render on questionpage when we click like or reading
 - [x] reading list page => [x] change the reading list in question instead of user
     - [x] save question
     - [x] remove question
@@ -8,7 +8,6 @@
 - [ ] page question
     - [x] mise en forme
     - [x] markdown to html parsing
-    - [ ] systeme de commentaire
     - [x] possibility to edit your question after creation
     - [x] button like => [x] button to modify in the page (items are okay)
 - [x] page home
@@ -17,15 +16,17 @@
 - [x] question creatio onglet edit/preview
     - [x] create switch mode components
     - [x] markdown to html parsing
-    - [ ] redirect after creation on question
-- [ ] user settings
-    - [ ] update profil
+    - [x] redirect after creation on question
 - [x] profile page
     - [x] add question lists of a user
+- [x] dashboard to delete post and see who help you, and edit
+
+- [ ] systeme de commentaire
+- [ ] user settings
+    - [ ] update profil
 - [ ] auth
     - [ ] Should add a username field to sign up
 - [ ] add skeletons placeholder
-- [x] dashboard to delete post and see who help you, and edit
 - [ ] notifications
 - [ ] point for good answer
 - [ ] Leaderboard

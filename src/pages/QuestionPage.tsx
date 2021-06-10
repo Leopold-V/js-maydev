@@ -13,6 +13,8 @@ import { MainLayout } from '../components/MainLayout';
 import { Discussion } from '../components/Discussion';
 import { ButtonLike, ButtonRead } from '../components/Button';
 import { QuestionListTags } from '../components/Question';
+import { useSelector } from 'react-redux';
+import { questionType } from '../app/types';
 
 const components = {
   code({
@@ -45,7 +47,7 @@ const components = {
 export const QuestionPage = (props: any) => {
   const questionId = props.match.params.id;
 
-  const [question, setQuestion] = useState<any>(null);
+  const question = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === questionId));
   const [user, setUser] = useState<any>(null);
 
   const loadAuthor = async (id: string) => {
@@ -54,16 +56,8 @@ export const QuestionPage = (props: any) => {
   };
 
   useEffect(() => {
-    (async () => {
-      const question: any = await questionServices.getOneQuestion(questionId);
-      setQuestion({
-        ...question,
-        date: new Date(question.date.seconds * 1000).toDateString(),
-        edit_date: new Date(question.edit_date.seconds * 1000).toDateString(),
-      });
-      await loadAuthor(question.authorId);      
-    })();
-  }, [questionId]);
+      question && loadAuthor(question.authorId);      
+  }, [question]);
 
   if (!question)
     return (
