@@ -12,7 +12,7 @@
     - [x] button like => [x] button to modify in the page (items are okay)
 - [x] page home
     - [x] add author username
-    - [ ] time filter
+    - [x] time filter
 - [x] question creatio onglet edit/preview
     - [x] create switch mode components
     - [x] markdown to html parsing
@@ -25,3 +25,4 @@
     - [ ] Should add a username field to sign up
 - [ ] add skeletons placeholder
 - [ ] dashboard to delete post and see who help you, and edit
+- [ ] notifications

@@ -5,9 +5,9 @@ import { MainLayout } from '../components/MainLayout';
 import { QuestionsList } from '../components/QuestionsList';
 
 export const ReadingList = () => {
-  //@ts-ignore
+  const user = auth.currentUser;
   const questions = useSelector((state: any) =>
-    state.questions.questions.filter((ele: any) => ele.reading.includes(auth.currentUser.uid))
+    state.questions.questions.filter((ele: any) => ele.reading.includes(user?.uid))
   );
 
   return (
