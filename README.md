@@ -20,11 +20,10 @@
 - [x] profile page
     - [x] add question lists of a user
 - [x] dashboard to delete post and see who help you, and edit
-
-- [ ] user settings
-    - [ ] update profil
-- [ ] auth
-    - [ ] Should add a username field to sign up
+- [x] user settings
+    - [x] update profil
+- [x] auth
+    - [x] Should add a username field to sign up
 
 - [ ] systeme de commentaires
 - [ ] point for good answer

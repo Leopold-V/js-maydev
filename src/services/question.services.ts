@@ -25,7 +25,6 @@ const getOneQuestion = async (id: string) => {
   }
 };
 
-
 const addOneQuestion = async (data: questionType) => {
   const docRef = await db.collection('questions').add(data);
   return docRef.id;
@@ -35,7 +34,7 @@ const updateOneQuestion = async (data: questionType) => {
   const questionRef = db.collection('questions').doc(data.id);
   return questionRef
     .update({
-      ...data
+      ...data,
     })
     .then(() => {
       console.log('Document successfully updated!');
@@ -45,7 +44,7 @@ const updateOneQuestion = async (data: questionType) => {
     });
 };
 
-const updateReading = async (data: {id: string, reading: string[]}) => {
+const updateReading = async (data: { id: string; reading: string[] }) => {
   const questionRef = db.collection('questions').doc(data.id);
   return questionRef
     .update({
@@ -59,7 +58,7 @@ const updateReading = async (data: {id: string, reading: string[]}) => {
     });
 };
 
-const updateLikes = async (data: {id: string, likes: string[]}) => {
+const updateLikes = async (data: { id: string; likes: string[] }) => {
   const questionRef = db.collection('questions').doc(data.id);
   return questionRef
     .update({
@@ -74,12 +73,16 @@ const updateLikes = async (data: {id: string, likes: string[]}) => {
 };
 
 const deleteQuestion = async (id: string) => {
-  db.collection("questions").doc(id).delete().then(() => {
-    console.log("Document successfully deleted!");
-  }).catch((error) => {
-      console.error("Error removing document: ", error);
-  });
-}
+  db.collection('questions')
+    .doc(id)
+    .delete()
+    .then(() => {
+      console.log('Document successfully deleted!');
+    })
+    .catch((error) => {
+      console.error('Error removing document: ', error);
+    });
+};
 
 const questionServices = {
   getAllQuestions,

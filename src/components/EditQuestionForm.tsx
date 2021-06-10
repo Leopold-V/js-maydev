@@ -48,16 +48,19 @@ export const EditQuestionForm = ({
   setInput,
   tags,
   setTags,
+  hasChanged,
+  setHasChanged,
 }: {
   id: string;
   input: { title: string; content: string };
   setInput: (input: any) => void;
   tags: any;
   setTags: (tags: any) => void;
+  hasChanged: boolean;
+  setHasChanged: (ele: boolean) => void;
 }) => {
   let history = useHistory();
   const [error, setError] = useState('');
-  const [hasChanged, setHasChanged] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -116,9 +119,13 @@ export const EditQuestionForm = ({
         value={input.content}
       />
       <CreateQuestionTagsInput addTags={addTags} tags={tags} />
-      {hasChanged ? <button className="btn-primary text-gray">Save</button> :
-          <button className="btn-primary text-gray opacity-60 cursor-not-allowed" disabled>Save</button>
-        }
+      {hasChanged ? (
+        <button className="btn-primary text-gray">Save</button>
+      ) : (
+        <button className="btn-primary text-gray opacity-60 cursor-not-allowed" disabled>
+          Save
+        </button>
+      )}
     </form>
   );
 };

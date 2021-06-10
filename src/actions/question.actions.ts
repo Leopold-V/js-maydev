@@ -24,7 +24,12 @@ export const addQuestion: any = createAsyncThunk(
   async (data: questionType, { rejectWithValue }) => {
     try {
       const questionId = await questionServices.addOneQuestion(data);
-      return { ...data, id: questionId, date: new Date(Date.now()).toDateString(), edit_date: new Date(Date.now()).toDateString() };
+      return {
+        ...data,
+        id: questionId,
+        date: new Date(Date.now()).toDateString(),
+        edit_date: new Date(Date.now()).toDateString(),
+      };
     } catch (error) {
       return rejectWithValue(error.code);
     }
@@ -60,7 +65,7 @@ export const addQuestionToRead: any = createAsyncThunk(
   async (data: { userId: string; id: string; reading: string[] }, { rejectWithValue }) => {
     const updatedList = [...data.reading, data.userId];
     try {
-      await questionServices.updateReading({id: data.id, reading: updatedList });
+      await questionServices.updateReading({ id: data.id, reading: updatedList });
       return { id: data.id, reading: updatedList };
     } catch (error) {
       return rejectWithValue(error.code);
@@ -73,7 +78,7 @@ export const removeQuestionToRead: any = createAsyncThunk(
   async (data: { userId: string; id: string; reading: string[] }, { rejectWithValue }) => {
     const updatedList = data.reading.filter((ele) => ele !== data.userId);
     try {
-      await questionServices.updateReading({id: data.id, reading: updatedList });
+      await questionServices.updateReading({ id: data.id, reading: updatedList });
       return { id: data.id, reading: updatedList };
     } catch (error) {
       return rejectWithValue(error.code);
@@ -86,7 +91,7 @@ export const addLikeQuestion: any = createAsyncThunk(
   async (data: { userId: string; id: string; likes: string[] }, { rejectWithValue }) => {
     const updatedList = [...data.likes, data.userId];
     try {
-      await questionServices.updateLikes({id: data.id, likes: updatedList });
+      await questionServices.updateLikes({ id: data.id, likes: updatedList });
       return { id: data.id, likes: updatedList };
     } catch (error) {
       return rejectWithValue(error.code);

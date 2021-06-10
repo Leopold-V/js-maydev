@@ -6,7 +6,9 @@ import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
 
 export const ButtonRead = ({ id }: { id: string }) => {
-  const reading = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === id)).reading;
+  const reading = useSelector((state: any) =>
+    state.questions.questions.find((ele: questionType) => ele.id === id)
+  ).reading;
 
   let history = useHistory();
   const dispatch = useDispatch();

@@ -68,7 +68,9 @@ export const Router = () => {
       <Route
         exact
         path="/edit/:id"
-        render={(props) => !loading && (isAuth ? <QuestionEditPage {...props} /> : <Redirect to="/login" />)}
+        render={(props) =>
+          !loading && (isAuth ? <QuestionEditPage {...props} /> : <Redirect to="/login" />)
+        }
       />
       <Route component={NotFound} />
     </Switch>

@@ -16,7 +16,7 @@ const updateOneUser = async (data: userType) => {
   const userRef = db.collection('users').doc(data.userId);
   return userRef
     .update({
-      ...data
+      ...data,
     })
     .then(() => {
       console.log('Document successfully updated!');
@@ -28,7 +28,7 @@ const updateOneUser = async (data: userType) => {
 
 const userServices = {
   getOneUser,
-  updateOneUser
+  updateOneUser,
 };
 
 export default userServices;

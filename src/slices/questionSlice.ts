@@ -48,10 +48,10 @@ export const questionSlice = createSlice({
     [updateQuestion.fulfilled]: (state: any, action) => {
       state.loading = false;
       const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
-      question.title = action.payload.title
-      question.content = action.payload.content
-      question.tags = action.payload.tags
-      question.edit_date = action.payload.edit_date
+      question.title = action.payload.title;
+      question.content = action.payload.content;
+      question.tags = action.payload.tags;
+      question.edit_date = action.payload.edit_date;
     },
     [updateQuestion.rejected]: (state: any, action) => {
       state.loading = false;

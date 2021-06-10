@@ -2,7 +2,12 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import authServices from '../services/auth.services';
 
 export const SignupPage = () => {
-  const [input, setInput] = useState<{ email: string; username: string; password: string; password2: '' }>({
+  const [input, setInput] = useState<{
+    email: string;
+    username: string;
+    password: string;
+    password2: '';
+  }>({
     email: '',
     username: '',
     password: '',
@@ -18,12 +23,11 @@ export const SignupPage = () => {
     e.preventDefault();
     if (!input.username) {
       setError('The username is required !');
-    }
-    else if (input.password !== input.password2) {
+    } else if (input.password !== input.password2) {
       setError('Your password and confirm password are different !');
     } else {
       try {
-        await authServices.register(input.email, input.password ,input.username);
+        await authServices.register(input.email, input.password, input.username);
       } catch (error) {
         setError(error.message);
       }

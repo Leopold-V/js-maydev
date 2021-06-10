@@ -8,12 +8,12 @@ export const SettingsPage = () => {
   const user: userType = useSelector((state: any) => state.user.user);
   const dispatch = useDispatch();
 
-  const [input, setInput] = useState({...user});
+  const [input, setInput] = useState({ ...user });
   const [hasChanged, setHasChanged] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setHasChanged(true);
-    setInput(({...input, [e.target.name]: e.target.value}))
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -125,9 +125,13 @@ export const SettingsPage = () => {
             </div>
           </div>
         </div>
-        {hasChanged ? <button className="btn-primary w-full text-gray">Save</button> :
-          <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>Save</button>
-        }
+        {hasChanged ? (
+          <button className="btn-primary w-full text-gray">Save</button>
+        ) : (
+          <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
+            Save
+          </button>
+        )}
       </form>
     </div>
   );

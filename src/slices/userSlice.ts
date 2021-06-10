@@ -29,12 +29,12 @@ export const userSlice = createSlice({
       console.log(action.payload);
       state.loading = false;
       const user = state.user;
-      user.username = action.payload.username
-      user.email = action.payload.email
-      user.bio = action.payload.bio
-      user.location = action.payload.location
-      user.website_url = action.payload.website_url
-      user.dev_profile = action.payload.dev_profile
+      user.username = action.payload.username;
+      user.email = action.payload.email;
+      user.bio = action.payload.bio;
+      user.location = action.payload.location;
+      user.website_url = action.payload.website_url;
+      user.dev_profile = action.payload.dev_profile;
     },
     [updateUser.rejected]: (state: any, action) => {
       state.loading = false;

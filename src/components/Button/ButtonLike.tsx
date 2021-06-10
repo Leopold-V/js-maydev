@@ -6,7 +6,9 @@ import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
 
 export const ButtonLike = ({ id }: { id: string }) => {
-  const likes = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === id)).likes;
+  const likes = useSelector((state: any) =>
+    state.questions.questions.find((ele: questionType) => ele.id === id)
+  ).likes;
 
   let history = useHistory();
   const dispatch = useDispatch();

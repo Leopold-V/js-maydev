@@ -47,7 +47,9 @@ const components = {
 export const QuestionPage = (props: any) => {
   const questionId = props.match.params.id;
 
-  const question = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === questionId));
+  const question = useSelector((state: any) =>
+    state.questions.questions.find((ele: questionType) => ele.id === questionId)
+  );
   const [user, setUser] = useState<any>(null);
 
   const loadAuthor = async (id: string) => {
@@ -56,7 +58,7 @@ export const QuestionPage = (props: any) => {
   };
 
   useEffect(() => {
-      question && loadAuthor(question.authorId);      
+    question && loadAuthor(question.authorId);
   }, [question]);
 
   if (!question)
@@ -76,7 +78,7 @@ export const QuestionPage = (props: any) => {
       <div className="card relative">
         <div className="space-y-3">
           <div className="absolute top-3 right-3 flex items-center space-x-4">
-            {(auth.currentUser?.uid === user.userId) && (
+            {auth.currentUser?.uid === user.userId && (
               <Link
                 to={`/edit/${questionId}`}
                 className="text-muted focus:outline-none hover:bg-gray hover:text-primary transition duration-200 rounded px-2 py-1"

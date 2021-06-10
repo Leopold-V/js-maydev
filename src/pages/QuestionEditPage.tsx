@@ -48,28 +48,39 @@ const CreateQuestionHead = ({ tab, setTab }: { tab: string; setTab: (tab: string
 
 export const QuestionEditPage = (props: any) => {
   const questionId = props.match.params.id;
-  const question: questionType = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === questionId));
+  const question: questionType = useSelector((state: any) =>
+    state.questions.questions.find((ele: questionType) => ele.id === questionId)
+  );
 
   const tagsToObject = (tags: string[]) => {
     const tagsObject: any = dataTags;
     for (let i = 0; i < tags.length; i++) {
-        tagsObject[tags[i]] = true;
+      tagsObject[tags[i]] = true;
     }
     return tagsObject;
-  }
+  };
 
-  const newDataTags = tagsToObject(question.tags); 
+  const newDataTags = tagsToObject(question.tags);
 
   const [input, setInput] = useState({ title: question.title, content: question.content });
   const [tags, setTags] = useState(newDataTags);
   const [tab, setTab] = useState<string>('Edit');
+  const [hasChanged, setHasChanged] = useState<boolean>(false);
 
   return (
     <MainLayout>
       <CreateQuestionHead tab={tab} setTab={setTab} />
       <div className="card">
         {tab === 'Edit' ? (
-          <EditQuestionForm id={questionId} input={input} setInput={setInput} tags={tags} setTags={setTags} />
+          <EditQuestionForm
+            id={questionId}
+            input={input}
+            setInput={setInput}
+            tags={tags}
+            setTags={setTags}
+            hasChanged={hasChanged}
+            setHasChanged={setHasChanged}
+          />
         ) : (
           <CreateQuestionPreview input={input} tags={tags} />
         )}
