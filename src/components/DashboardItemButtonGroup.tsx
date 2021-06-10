@@ -1,11 +1,10 @@
 import React from 'react'
-import { questionType } from '../app/types'
 import { QuestionsItemButtonGroup } from './Question'
 
-export const DashboardItemButtonGroup = ({question}: {question: questionType}) => {
+export const DashboardItemButtonGroup = ({ id }: { id: string }) => {
     return (
         <div className="flex items-center space-x-2">
-            <QuestionsItemButtonGroup question={question} />
+            <QuestionsItemButtonGroup id={id} />
             <div className="flex items-center space-x-1 text-muted text-sm hover:text-white transition duration-200">
                 <span>152</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

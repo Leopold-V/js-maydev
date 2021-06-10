@@ -33,7 +33,7 @@ export const DashboardQuestionsItem = ({ question }: { question: questionType })
             </div>
         </div>
 
-        <DashboardItemButtonGroup question={question} />
+        <DashboardItemButtonGroup id={question.id} />
 
         <div className="md:space-x-4 text-muted">
             <Link 

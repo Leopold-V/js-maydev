@@ -14,6 +14,18 @@ const getAllQuestions = async () => {
   }
 };
 
+const getOneQuestion = async (id: string) => {
+  const query = await db.collection('questions').where('id', '==', id).get();
+  if (!query.empty) {
+    const snapshot = query.docs[0];
+    const data = snapshot.data();
+    return data;
+  } else {
+    return null;
+  }
+};
+
+
 const addOneQuestion = async (data: questionType) => {
   const docRef = await db.collection('questions').add(data);
   return docRef.id;
@@ -33,7 +45,7 @@ const updateOneQuestion = async (data: questionType) => {
     });
 };
 
-const updateReading = async (data: questionType) => {
+const updateReading = async (data: {id: string, reading: string[]}) => {
   const questionRef = db.collection('questions').doc(data.id);
   return questionRef
     .update({
@@ -47,7 +59,7 @@ const updateReading = async (data: questionType) => {
     });
 };
 
-const updateLikes = async (data: questionType) => {
+const updateLikes = async (data: {id: string, likes: string[]}) => {
   const questionRef = db.collection('questions').doc(data.id);
   return questionRef
     .update({
@@ -71,11 +83,12 @@ const deleteQuestion = async (id: string) => {
 
 const questionServices = {
   getAllQuestions,
+  getOneQuestion,
   addOneQuestion,
   updateReading,
   updateLikes,
   deleteQuestion,
-  updateOneQuestion
+  updateOneQuestion,
 };
 
 export default questionServices;

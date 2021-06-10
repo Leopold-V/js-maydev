@@ -1,17 +1,19 @@
 import React, { MouseEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { addQuestionToRead, removeQuestionToRead } from '../../actions/question.actions';
 import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
 
-export const ButtonRead = ({ question }: { question: questionType }) => {
+export const ButtonRead = ({ id }: { id: string }) => {
+  const reading = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === id)).reading;
+
   let history = useHistory();
   const dispatch = useDispatch();
   const addToRead = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(addQuestionToRead({ userId: auth.currentUser.uid, question: question }));
+      dispatch(addQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: reading }));
     } else {
       history.push('/login');
     }
@@ -20,20 +22,20 @@ export const ButtonRead = ({ question }: { question: questionType }) => {
   const removeFromRead = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(removeQuestionToRead({ userId: auth.currentUser.uid, question: question }));
+      dispatch(removeQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: reading }));
     } else {
       history.push('/login');
     }
   };
 
   //@ts-ignore
-  if (!question.reading.includes(auth.currentUser?.uid)) {
+  if (!reading.includes(auth.currentUser?.uid)) {
     return (
       <button
         className="flex items-center space-x-1 py-1 px-2 bg-gray-100 text-muted focus:outline-none hover:bg-gray-200 hover:text-primary transition duration-200 rounded-full"
         onClick={addToRead}
       >
-        <span className="text-sm">{question.reading.length}</span>
+        <span className="text-sm">{reading.length}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -50,7 +52,7 @@ export const ButtonRead = ({ question }: { question: questionType }) => {
         className="flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full"
         onClick={removeFromRead}
       >
-        <span className="text-sm">{question.reading.length}</span>
+        <span className="text-sm">{reading.length}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"

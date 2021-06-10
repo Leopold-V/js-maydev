@@ -1,5 +1,4 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -7,12 +6,13 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import gfm from 'remark-gfm';
 import '../markdown.css';
 
-import { questionType } from '../app/types';
 import userServices from '../services/user.services';
+import questionServices from '../services/question.services';
 
 import { MainLayout } from '../components/MainLayout';
 import { Discussion } from '../components/Discussion';
 import { ButtonLike, ButtonRead } from '../components/Button';
+import { QuestionListTags } from '../components/Question';
 
 const components = {
   code({
@@ -44,11 +44,8 @@ const components = {
 
 export const QuestionPage = (props: any) => {
   const questionId = props.match.params.id;
-  const question: questionType = useSelector((state: any) =>
-    state.questions.questions.find((ele: questionType) => ele.id === questionId)
-  );
-  const loading: boolean = useSelector((state: any) => state.questions.loading);
 
+  const [question, setQuestion] = useState<any>(null);
   const [user, setUser] = useState<any>(null);
 
   const loadAuthor = async (id: string) => {
@@ -57,10 +54,17 @@ export const QuestionPage = (props: any) => {
   };
 
   useEffect(() => {
-    question && loadAuthor(question.authorId);
-  }, [question]);
+    (async () => {
+      const question: any = await questionServices.getOneQuestion(questionId);
+      setQuestion({
+        ...question,
+        date: new Date(question.date.seconds * 1000).toDateString(),
+        edit_date: new Date(question.edit_date.seconds * 1000).toDateString(),
+      });
+      await loadAuthor(question.authorId);      
+    })();
+  }, [questionId]);
 
-  if (loading) return null;
   if (!question)
     return (
       <MainLayout>
@@ -78,17 +82,19 @@ export const QuestionPage = (props: any) => {
       <div className="card relative">
         <div className="space-y-3">
           <div className="absolute top-3 right-3 flex items-center space-x-4">
-            <ButtonRead question={question} />
-            <ButtonLike question={question} />
+            {user && (
+              <Link
+                to={`/edit/${questionId}`}
+                className="text-muted focus:outline-none hover:bg-gray hover:text-primary transition duration-200 rounded px-2 py-1"
+              >
+                Edit
+              </Link>
+            )}
+            <ButtonRead id={questionId} />
+            <ButtonLike id={questionId} />
           </div>
           <h1 className="text-white text-4xl font-extrabold py-3">{question.title}</h1>
-          <ul className="flex items-center space-x-2 text-muted text-sm">
-            {question.tags.map((tag: string, i: number) => (
-              <li key={i} className="hover:text-white text-sm transition duration-200">
-                #{tag}
-              </li>
-            ))}
-          </ul>
+          <QuestionListTags tags={question.tags} />
           <div className="flex items-center space-x-4">
             <Link
               to={`/profile/${user.userId}`}

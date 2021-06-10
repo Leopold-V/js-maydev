@@ -5,6 +5,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import gfm from 'remark-gfm';
 import '../markdown.css';
+import { QuestionListTags } from './Question';
 
 const components = {
   code({
@@ -48,13 +49,7 @@ export const CreateQuestionPreview = ({
   return (
     <div className="space-y-6">
       <h1 className="text-white text-4xl font-extrabold py-3">{input.title}</h1>
-      <ul className="flex items-center space-x-2 text-muted text-sm">
-        {newTags.map((tag: string, i: number) => (
-          <li key={i} className="hover:text-white text-sm transition duration-200">
-            #{tag}
-          </li>
-        ))}
-      </ul>
+      <QuestionListTags tags={newTags} />
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2 hover:text-blue transition duration-200">
           <div className="w-8">

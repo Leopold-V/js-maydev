@@ -1,5 +1,6 @@
 08/06 Todo :
 
+- [ ] nug re render on questionpage when we click like or reading
 - [x] reading list page => [x] change the reading list in question instead of user
     - [x] save question
     - [x] remove question
@@ -8,7 +9,7 @@
     - [x] mise en forme
     - [x] markdown to html parsing
     - [ ] systeme de commentaire
-    - [ ] possibility to edit your question after creation
+    - [x] possibility to edit your question after creation
     - [x] button like => [x] button to modify in the page (items are okay)
 - [x] page home
     - [x] add author username
@@ -24,7 +25,7 @@
 - [ ] auth
     - [ ] Should add a username field to sign up
 - [ ] add skeletons placeholder
-- [ ] dashboard to delete post and see who help you, and edit
+- [x] dashboard to delete post and see who help you, and edit
 - [ ] notifications
 - [ ] point for good answer
 - [ ] Leaderboard

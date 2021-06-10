@@ -4,6 +4,7 @@ import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
 import userServices from '../../services/user.services';
 import { QuestionsItemButtonGroup } from './';
+import { QuestionListTags } from './QuestionListTags';
 
 export const QuestionsItem = ({ question }: { question: questionType }) => {
   const [user, setUser] = useState<any>(null);
@@ -47,15 +48,11 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
           {title}
         </div>
         <div className="flex justify-between">
-          <ul className="flex items-center ml-10 space-x-2 text-muted text-sm">
-            {tags.map((tag, i) => (
-              <li key={i} className="hover:text-white transition duration-200">
-                #{tag}
-              </li>
-            ))}
-          </ul>
+          <div className="ml-10">
+            <QuestionListTags tags={tags} />
+          </div>
           <div className="flex items-center space-x-4">
-            {auth.currentUser && <QuestionsItemButtonGroup question={question} />}
+            {auth.currentUser && <QuestionsItemButtonGroup id={question.id} />}
           </div>
         </div>
       </div>

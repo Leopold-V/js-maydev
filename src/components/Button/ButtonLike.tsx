@@ -1,18 +1,20 @@
 import React, { MouseEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { addLikeQuestion, removeLikeQuestion } from '../../actions/question.actions';
 import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
 
-export const ButtonLike = ({ question }: { question: questionType }) => {
+export const ButtonLike = ({ id }: { id: string }) => {
+  const likes = useSelector((state: any) => state.questions.questions.find((ele: questionType) => ele.id === id)).likes;
+
   let history = useHistory();
   const dispatch = useDispatch();
 
   const addToLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(addLikeQuestion({ userId: auth.currentUser.uid, question: question }));
+      dispatch(addLikeQuestion({ userId: auth.currentUser.uid, id: id, likes: likes }));
     } else {
       history.push('/login');
     }
@@ -21,20 +23,20 @@ export const ButtonLike = ({ question }: { question: questionType }) => {
   const removeFromLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(removeLikeQuestion({ userId: auth.currentUser.uid, question: question }));
+      dispatch(removeLikeQuestion({ userId: auth.currentUser.uid, id: id, likes: likes }));
     } else {
       history.push('/login');
     }
   };
 
   //@ts-ignore
-  if (!question.likes.includes(auth.currentUser?.uid)) {
+  if (!likes.includes(auth.currentUser?.uid)) {
     return (
       <button
         className="flex items-center space-x-1 py-1 px-2 bg-gray-100 text-muted focus:outline-none hover:bg-gray-200 hover:text-primary transition duration-200 rounded-full"
         onClick={addToLike}
       >
-        <span className="text-sm">{question.likes.length}</span>
+        <span className="text-sm">{likes.length}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -55,7 +57,7 @@ export const ButtonLike = ({ question }: { question: questionType }) => {
         className="flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full"
         onClick={removeFromLike}
       >
-        <span className="text-sm">{question.likes.length}</span>
+        <span className="text-sm">{likes.length}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
