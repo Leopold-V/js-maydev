@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { questionType, userType } from '../app/types';
-import { QuestionsList } from '../components/QuestionsList';
+import { QuestionsList } from '../components/Question';
 import userServices from '../services/user.services';
 
 export const ProfilePage = (props: any) => {

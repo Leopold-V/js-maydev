@@ -10,4 +10,6 @@ export { SettingsPage } from './SettingsPage';
 export { ProfilePage } from './ProfilePage';
 export { CreateQuestionPage } from './CreateQuestionPage';
 export { QuestionPage } from './QuestionPage';
+export { QuestionEditPage } from './QuestionEditPage';
 export { NotFound } from './NotFound';
+

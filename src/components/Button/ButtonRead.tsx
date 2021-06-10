@@ -1,9 +1,9 @@
 import React, { MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { addQuestionToRead, removeQuestionToRead } from '../actions/question.actions';
-import { auth } from '../app/firebase';
-import { questionType } from '../app/types';
+import { addQuestionToRead, removeQuestionToRead } from '../../actions/question.actions';
+import { auth } from '../../app/firebase';
+import { questionType } from '../../app/types';
 
 export const ButtonRead = ({ question }: { question: questionType }) => {
   let history = useHistory();

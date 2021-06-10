@@ -1,6 +1,6 @@
 import React, { MouseEvent, useState } from 'react';
-import { CreateQuestionForm } from '../components/CreateQuestionForm';
 
+import { CreateQuestionForm } from '../components/CreateQuestionForm';
 import { CreateQuestionPreview } from '../components/CreateQuestionPreview';
 import { MainLayout } from '../components/MainLayout';
 

@@ -16,6 +16,7 @@ import {
   ProfilePage,
   CreateQuestionPage,
   QuestionPage,
+  QuestionEditPage,
 } from '../pages';
 
 export const Router = () => {
@@ -63,6 +64,11 @@ export const Router = () => {
         exact
         path="/new"
         render={() => !loading && (isAuth ? <CreateQuestionPage /> : <Redirect to="/login" />)}
+      />
+      <Route
+        exact
+        path="/edit/:id"
+        render={(props) => !loading && (isAuth ? <QuestionEditPage {...props} /> : <Redirect to="/login" />)}
       />
       <Route component={NotFound} />
     </Switch>

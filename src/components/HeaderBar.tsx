@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { ButtonCreateQuestion } from './ButtonCreateQuestion';
-import { ButtonLogin } from './ButtonLogin';
-import { ButtonSignup } from './ButtonSignup';
-import { ButtonNotif } from './ButtonNotif';
-import { ButtonProfile } from './ButtonProfile';
+import { ButtonProfile, ButtonCreateQuestion, ButtonLogin, ButtonSignup, ButtonNotif} from './Button';
 import { SearchBar } from './SearchBar';
 import { ProfileDropwdown } from './ProfileDropwdown';
 

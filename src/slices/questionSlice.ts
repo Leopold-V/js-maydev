@@ -6,6 +6,7 @@ import {
   removeQuestionToRead,
   addLikeQuestion,
   removeLikeQuestion,
+  deleteQuestion,
 } from '../actions/question.actions';
 import { questionType } from '../app/types';
 
@@ -40,8 +41,20 @@ export const questionSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    [addQuestionToRead.pending]: (state: any, action) => {
+    [deleteQuestion.pending]: (state: any) => {
+      state.loading = true;
+    },
+    [deleteQuestion.fulfilled]: (state: any, action) => {
       state.loading = false;
+      const questions = state.questions.filter((ele: questionType) => ele.id !== action.payload);
+      state.questions = questions;
+    },
+    [deleteQuestion.rejected]: (state: any, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [addQuestionToRead.pending]: (state: any) => {
+      state.loading = true;
     },
     [addQuestionToRead.fulfilled]: (state: any, action) => {
       state.loading = false;
@@ -52,8 +65,8 @@ export const questionSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    [removeQuestionToRead.pending]: (state: any, action) => {
-      state.loading = false;
+    [removeQuestionToRead.pending]: (state: any) => {
+      state.loading = true;
     },
     [removeQuestionToRead.fulfilled]: (state: any, action) => {
       state.loading = false;
@@ -64,8 +77,8 @@ export const questionSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    [addLikeQuestion.pending]: (state: any, action) => {
-      state.loading = false;
+    [addLikeQuestion.pending]: (state: any) => {
+      state.loading = true;
     },
     [addLikeQuestion.fulfilled]: (state: any, action) => {
       state.loading = false;
@@ -76,8 +89,8 @@ export const questionSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    [removeLikeQuestion.pending]: (state: any, action) => {
-      state.loading = false;
+    [removeLikeQuestion.pending]: (state: any) => {
+      state.loading = true;
     },
     [removeLikeQuestion.fulfilled]: (state: any, action) => {
       state.loading = false;

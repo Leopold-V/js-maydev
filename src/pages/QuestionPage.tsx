@@ -12,8 +12,7 @@ import userServices from '../services/user.services';
 
 import { MainLayout } from '../components/MainLayout';
 import { Discussion } from '../components/Discussion';
-import { ButtonRead } from '../components/ButtonRead';
-import { ButtonLike } from '../components/ButtonLike';
+import { ButtonLike, ButtonRead } from '../components/Button';
 
 const components = {
   code({

@@ -26,3 +26,5 @@
 - [ ] add skeletons placeholder
 - [ ] dashboard to delete post and see who help you, and edit
 - [ ] notifications
+- [ ] point for good answer
+- [ ] Leaderboard

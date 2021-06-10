@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { auth } from '../app/firebase';
 import { MainLayout } from '../components/MainLayout';
-import { QuestionsList } from '../components/QuestionsList';
+import { QuestionsList } from '../components/Question';
 
 export const ReadingList = () => {
   const user = auth.currentUser;
@@ -12,8 +12,8 @@ export const ReadingList = () => {
 
   return (
     <MainLayout>
-      <div>
-        <h1>Reading List</h1>
+      <div className="py-2 px-4 space-y-10">
+        <h1 className="font-bold text-xl hidden sm:inline">Reading list</h1>
         <QuestionsList questions={questions} />
       </div>
     </MainLayout>

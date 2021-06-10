@@ -9,7 +9,7 @@ export const fetchQuestions: any = createAsyncThunk(
       const questions = await questionServices.getAllQuestions();
       const formattedQuestion = questions.map((question: any) => ({
         ...question,
-        date: new Date(question.date.seconds * 1000).toString(),
+        date: new Date(question.date.seconds * 1000).toDateString(),
       }));
       return formattedQuestion;
     } catch (error) {
@@ -23,8 +23,19 @@ export const addQuestion: any = createAsyncThunk(
   async (data: questionType, { rejectWithValue }) => {
     try {
       const questionId = await questionServices.addOneQuestion(data);
-      console.log(questionId);
       return { ...data, id: questionId, date: new Date(Date.now()).toString() };
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);
+
+export const deleteQuestion: any = createAsyncThunk(
+  'questions/deleteQuestion',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      await questionServices.deleteQuestion(id);
+      return id;
     } catch (error) {
       return rejectWithValue(error.code);
     }

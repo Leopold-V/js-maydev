@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../app/firebase';
-import { questionType } from '../app/types';
-import userServices from '../services/user.services';
-import { QuestionsItemButtonGroup } from './QuestionsItemButtonGroup';
+import { auth } from '../../app/firebase';
+import { questionType } from '../../app/types';
+import userServices from '../../services/user.services';
+import { QuestionsItemButtonGroup } from './';
 
 export const QuestionsItem = ({ question }: { question: questionType }) => {
   const [user, setUser] = useState<any>(null);

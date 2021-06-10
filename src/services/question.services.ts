@@ -47,11 +47,20 @@ const updateLikes = async (data: questionType) => {
     });
 };
 
+const deleteQuestion = async (id: string) => {
+  db.collection("questions").doc(id).delete().then(() => {
+    console.log("Document successfully deleted!");
+  }).catch((error) => {
+      console.error("Error removing document: ", error);
+  });
+}
+
 const questionServices = {
   getAllQuestions,
   addOneQuestion,
   updateReading,
   updateLikes,
+  deleteQuestion,
 };
 
 export default questionServices;

@@ -1,5 +1,5 @@
 import React, { MouseEvent, useEffect, useState } from 'react';
-import { questionType } from '../app/types';
+import { questionType } from '../../app/types';
 
 export const QuestionsTimeFilter = ({
   questions,
@@ -24,7 +24,7 @@ export const QuestionsTimeFilter = ({
       const questionFilter: questionType[] = [...questions]
         .map((ele) => ({ ...ele, date: '' + Date.parse(ele.date)}))
         .sort((a: any, b: any) => b.date - a.date)
-        .map((ele) => ({ ...ele, date: new Date(+ele.date).toString()}))
+        .map((ele) => ({ ...ele, date: new Date(+ele.date).toDateString()}))
       setFilteredQuestions(questionFilter);
     }
     else if (filter.name === 'All') {

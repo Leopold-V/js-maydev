@@ -1,6 +1,6 @@
 import React from 'react';
-import { questionType } from '../app/types';
-import { QuestionsItem } from './QuestionsItem';
+import { questionType } from '../../app/types';
+import { QuestionsItem } from './';
 
 export const QuestionsList = ({ questions }: { questions: questionType[] }) => {
   return (

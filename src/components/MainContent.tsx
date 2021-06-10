@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { questionType } from '../app/types';
-import { QuestionsHeader } from './QuestionsHeader';
-import { QuestionsList } from './QuestionsList';
-import { QuestionsTimeFilter } from './QuestionsTimeFilter';
+import { QuestionsHeader, QuestionsList, QuestionsTimeFilter } from './Question';
 
 export const MainContent = () => {
   const questions: questionType[] = useSelector((state: any) => state.questions.questions);
