@@ -26,7 +26,7 @@
     - [x] Should add a username field to sign up
 
 - [x] systeme de commentaires
-    - [ ] fix comment responsive
+    - [x] fix comment responsive
     - [ ] can give a point to a single comment per question open for good answer
     - [ ] add comments like
     - [ ] keep comments filtered by date then by likes

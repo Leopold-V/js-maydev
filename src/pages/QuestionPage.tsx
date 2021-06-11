@@ -44,7 +44,7 @@ export const QuestionPage = (props: any) => {
     );
   return (
     <MainLayout>
-      <div className="card relative w-screen">
+      <div className="card relative w-screen sm:w-full">
         <div className="space-y-3">
           <div className="absolute top-3 right-3 flex items-center space-x-4">
             {auth.currentUser?.uid === user.userId && (
