@@ -9,7 +9,7 @@ import '../markdown.css';
 import userServices from '../services/user.services';
 
 import { MainLayout } from '../components/MainLayout';
-import { Discussion } from '../components/Discussion';
+import { CommentsBlock } from '../components/CommentsBlock';
 import { ButtonLike, ButtonRead } from '../components/Button';
 import { QuestionListTags } from '../components/Question';
 import { useSelector } from 'react-redux';
@@ -115,7 +115,7 @@ export const QuestionPage = (props: any) => {
             components={components}
           />
         </div>
-        <Discussion />
+        <CommentsBlock questionId={questionId} />
       </div>
     </MainLayout>
   );

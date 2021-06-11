@@ -26,7 +26,10 @@
     - [x] Should add a username field to sign up
 
 - [ ] systeme de commentaires
+- [ ] add comments count on question item
 - [ ] point for good answer
 - [ ] Leaderboard
+    - [x] style
+    - [ ] map player point
 - [ ] notifications
 - [ ] add skeletons placeholder

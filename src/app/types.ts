@@ -20,3 +20,12 @@ export type questionType = {
   reading: string[];
   likes: string[];
 };
+
+export type commentType = {
+  id: string;
+  authorId: string;
+  questionId: string;
+  content: string;
+  date: string;
+  likes: string[];
+}

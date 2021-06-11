@@ -18,7 +18,7 @@ export const DashboardQuestionsItem = ({ question }: { question: questionType })
 
   return (
     <div className="flex items-center justify-between py-3 px-4 my-2 rounded hover:bg-gray-100 transition duration-200">
-      <div className="flex flex-col w-3/5">
+      <div className="flex flex-col w-1/2">
         <Link
           to={`/question/${id}`}
           className="text-blue text-lg md:text-xl font-bold py-3 transition duration-200"

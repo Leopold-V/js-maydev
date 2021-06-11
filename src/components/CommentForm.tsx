@@ -1,11 +1,18 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addComment } from '../actions/comment.actions';
 import { userType } from '../app/types';
 
-export const DiscussionForm = () => {
+export const CommentForm = ({questionId} : {questionId: string}) => {
+  const dispatch = useDispatch();
   const user: userType = useSelector((state: any) => state.user.user);
 
   const [input, setInput] = useState('');
+  const [hasChanged, setHasChanged] = useState<boolean>(false);
+
+  useEffect(() => {
+    input.length === 0 ? setHasChanged(false) : setHasChanged(true);
+  }, [input])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput(e.target.value);
@@ -13,11 +20,19 @@ export const DiscussionForm = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(input);
+    const newComment = {
+      authorId: user.userId,
+      questionId: questionId,
+      content: input,
+      likes: [],
+      date: new Date(Date.now()),
+    }
+    dispatch(addComment(newComment));
     setInput('');
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="mb-8" onSubmit={handleSubmit}>
       <div className="flex space-x-2">
         <div className="w-8">
           <img
@@ -36,7 +51,13 @@ export const DiscussionForm = () => {
             name="content"
             value={input}
           />
-          <button className="btn-primary text-gray">Submit</button>
+                  {hasChanged ? (
+          <button className="btn-primary w-full text-gray">Submit</button>
+        ) : (
+          <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
+            Submit
+          </button>
+        )}
         </div>
       </div>
     </form>
