@@ -25,11 +25,15 @@
 - [x] auth
     - [x] Should add a username field to sign up
 
-- [ ] systeme de commentaires
+- [x] systeme de commentaires
+    - [ ] fix comment responsive
+    - [ ] can give a point to a single comment per question open for good answer
+    - [ ] add comments like
+    - [ ] keep comments filtered by date then by likes
+    - [ ] ability to answer to a comments ? nested comments etc.
 - [ ] add comments count on question item
-- [ ] point for good answer
 - [ ] Leaderboard
     - [x] style
-    - [ ] map player point
+    - [ ] map players point
 - [ ] notifications
 - [ ] add skeletons placeholder

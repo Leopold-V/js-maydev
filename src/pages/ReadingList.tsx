@@ -13,7 +13,7 @@ export const ReadingList = () => {
   return (
     <MainLayout>
       <div className="py-2 px-4 space-y-10">
-        <h1 className="font-bold text-xl hidden sm:inline">Reading list</h1>
+        <h1 className="font-bold text-xl">Reading list</h1>
         <QuestionsList questions={questions} />
       </div>
     </MainLayout>
