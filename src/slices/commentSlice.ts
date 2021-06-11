@@ -4,13 +4,18 @@ import {
 } from '../actions/comment.actions';
 
 export const commentSlice = createSlice({
-  name: 'project',
+  name: 'comment',
   initialState: {
     comments: [],
     loading: true,
     error: '',
   },
-  reducers: {},
+  reducers: {
+    loadComments: (state, action: any) => {
+      state.loading = false;
+      state.comments = action.payload;
+    },
+  },
   extraReducers: {
     [addComment.pending]: (state) => {
       state.loading = true;
@@ -25,5 +30,7 @@ export const commentSlice = createSlice({
     },
   },
 });
+
+export const { loadComments } = commentSlice.actions;
 
 export default commentSlice.reducer;

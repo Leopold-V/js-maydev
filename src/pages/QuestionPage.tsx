@@ -1,9 +1,5 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import gfm from 'remark-gfm';
 import '../markdown.css';
 
 import userServices from '../services/user.services';
@@ -15,39 +11,12 @@ import { QuestionListTags } from '../components/Question';
 import { useSelector } from 'react-redux';
 import { questionType } from '../app/types';
 import { auth } from '../app/firebase';
-
-const components = {
-  code({
-    node,
-    inline,
-    className,
-    children,
-    ...props
-  }: {
-    node: any;
-    inline: any;
-    className: string;
-    children: ReactNode;
-  }) {
-    const match = /language-(\w+)/.exec(className || '');
-    return !inline && match ? (
-      <SyntaxHighlighter
-        style={atomDark}
-        language={match[1]}
-        PreTag="div"
-        children={String(children).replace(/\n$/, '')}
-        {...props}
-      />
-    ) : (
-      <code className={className} {...props} />
-    );
-  },
-};
+import { MarkdownWrapper } from '../components/MarkdownWrapper';
 
 export const QuestionPage = (props: any) => {
   const questionId = props.match.params.id;
 
-  const question = useSelector((state: any) =>
+  const question: questionType = useSelector((state: any) =>
     state.questions.questions.find((ele: questionType) => ele.id === questionId)
   );
   const [user, setUser] = useState<any>(null);
@@ -107,13 +76,7 @@ export const QuestionPage = (props: any) => {
             </Link>
             <div className="text-muted text-sm">{question.date}</div>
           </div>
-          <ReactMarkdown
-            className="markdown"
-            remarkPlugins={[gfm]}
-            children={question.content}
-            //@ts-ignore
-            components={components}
-          />
+          <MarkdownWrapper content={question.content} />
         </div>
         <CommentsBlock questionId={questionId} />
       </div>

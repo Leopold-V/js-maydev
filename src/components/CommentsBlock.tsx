@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { userType } from '../app/types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { commentType, userType } from '../app/types';
 import commentServices from '../services/comment.services';
+import { loadComments } from '../slices/commentSlice';
 import { CommentForm } from './CommentForm';
 import { CommentList } from './CommentList';
 
 export const CommentsBlock = ({questionId} : {questionId: string}) => {
-  const user: userType = useSelector((state: any) => state.user.user);
+  const dispatch = useDispatch();
 
-  const [comments, setcomments] = useState([]);
+  const user: userType = useSelector((state: any) => state.user.user);
+  const comments: commentType[] = useSelector((state: any) => state.comments.comments);
 
   useEffect(() => {
     (async () => {
       const comments: any = await commentServices.getCommentsByQuestion(questionId);
-      console.log(comments);
-      setcomments(comments);
+      dispatch(loadComments(comments));
     })();
-  }, [questionId])
+  }, [questionId, dispatch])
 
   return (
     <div className="mt-16">

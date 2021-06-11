@@ -12,7 +12,7 @@ import {
 import { questionType } from '../app/types';
 
 export const questionSlice = createSlice({
-  name: 'project',
+  name: 'questions',
   initialState: {
     questions: [],
     loading: true,

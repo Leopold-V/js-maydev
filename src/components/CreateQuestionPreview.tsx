@@ -1,39 +1,8 @@
-import React, { ReactNode } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import gfm from 'remark-gfm';
 import '../markdown.css';
+import { MarkdownWrapper } from './MarkdownWrapper';
 import { QuestionListTags } from './Question';
-
-const components = {
-  code({
-    node,
-    inline,
-    className,
-    children,
-    ...props
-  }: {
-    node: any;
-    inline: any;
-    className: string;
-    children: ReactNode;
-  }) {
-    const match = /language-(\w+)/.exec(className || '');
-    return !inline && match ? (
-      <SyntaxHighlighter
-        style={atomDark}
-        language={match[1]}
-        PreTag="div"
-        children={String(children).replace(/\n$/, '')}
-        {...props}
-      />
-    ) : (
-      <code className={className} {...props} />
-    );
-  },
-};
 
 export const CreateQuestionPreview = ({
   input,
@@ -63,13 +32,7 @@ export const CreateQuestionPreview = ({
         </div>
         <div className="text-muted text-sm">{new Date(Date.now()).toString()}</div>
       </div>
-      <ReactMarkdown
-        className="markdown"
-        remarkPlugins={[gfm]}
-        children={input.content}
-        //@ts-ignore
-        components={components}
-      />
+      <MarkdownWrapper content={input.content} />
     </div>
   );
 };
