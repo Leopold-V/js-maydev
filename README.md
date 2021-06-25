@@ -1,12 +1,12 @@
 08/06 Todo :
 
-- [x] bug re render on questionpage when we click like or reading
+- [x] bug re-render in question page when we click like or reading
 - [x] reading list page => [x] change the reading list in question instead of user
     - [x] save question
     - [x] remove question
     - [x] button prevent redirection on question
 - [x] page question
-    - [x] mise en forme
+    - [x] layout
     - [x] markdown to html parsing
     - [x] possibility to edit your question after creation
     - [x] button like => [x] button to modify in the page (items are okay)
@@ -27,13 +27,13 @@
 
 - [x] systeme de commentaires
     - [x] fix comment responsive
-    - [ ] can give a point to a single comment per question open for good answer
+    - [ ] can give a point to a single comment per question open for a good answer
     - [ ] add comments like
     - [ ] keep comments filtered by date then by likes
     - [ ] ability to answer to a comments ? nested comments etc.
 - [ ] add comments count on question item
 - [ ] Leaderboard
     - [x] style
-    - [ ] map players point
+    - [ ] map players points
 - [ ] notifications
-- [ ] add skeletons placeholder
+- [ ] add skeletons placeholders
