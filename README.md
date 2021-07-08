@@ -37,3 +37,4 @@
     - [ ] map players point
 - [ ] notifications
 - [ ] add skeletons placeholder
+- [ ] page layout should'nt be scrollable !

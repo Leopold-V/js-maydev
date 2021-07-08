@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { commentType, userType } from '../app/types'
 import userServices from '../services/user.services';
+import { ButtonLikeComment } from './Button';
 import { MarkdownWrapper } from './MarkdownWrapper';
 
 export const CommentItem = ({comment}: {comment: commentType}) => {
@@ -26,7 +27,10 @@ export const CommentItem = ({comment}: {comment: commentType}) => {
                 src={user.avatar || 'https://randomuser.me/portraits/men/52.jpg'}
                 />
             </Link>
-            <div className="border border-gray-600 rounded py-2 px-4 bg-gray w-11/12">
+            <div className="border border-gray-600 rounded py-2 px-4 bg-gray w-11/12 relative">
+                <div className="absolute right-2">
+                    <ButtonLikeComment />
+                </div>
                 <div className="flex items-center text-muted space-x-2">
                     <Link to={`/profile/${user.userId}`} className="hover:text-blue transition duration-200">{user.username}</Link>
                     <span>&bull;</span>
