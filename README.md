@@ -36,3 +36,4 @@
     - [x] style
     - [ ] map players points
 - [ ] notifications
+- [ ] page layout should'nt be scrollable !
