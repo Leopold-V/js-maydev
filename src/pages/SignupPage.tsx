@@ -113,7 +113,7 @@ export const SignupPage = () => {
             </div>
             <div></div>
             <div className="text-center mt-6">
-              <button className="btn-primary text-gray w-full">Sign up</button>
+              <button className="btn-primary hover:opacity-80 text-gray w-full">Sign up</button>
             </div>
           </form>
         </div>

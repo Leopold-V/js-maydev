@@ -126,7 +126,7 @@ export const SettingsPage = () => {
           </div>
         </div>
         {hasChanged ? (
-          <button className="btn-primary w-full text-gray">Save</button>
+          <button className="btn-primary hover:opacity-80 w-full text-gray">Save</button>
         ) : (
           <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
             Save

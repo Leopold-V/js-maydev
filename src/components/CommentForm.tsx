@@ -52,7 +52,7 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
             value={input}
           />
                   {hasChanged ? (
-          <button className="btn-primary w-full text-gray">Submit</button>
+          <button className="btn-primary hover:opacity-80 w-full text-gray">Submit</button>
         ) : (
           <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
             Submit

@@ -115,7 +115,7 @@ export const LoginPage = () => {
               </label>
             </div>
             <div className="text-center mt-6">
-              <button className="btn-primary text-gray w-full">Sign In</button>
+              <button className="btn-primary hover:opacity-80 text-gray w-full">Sign In</button>
             </div>
           </form>
           <div className="text-center mt-6">

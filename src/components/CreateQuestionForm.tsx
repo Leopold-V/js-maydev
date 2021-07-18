@@ -120,7 +120,7 @@ export const CreateQuestionForm = ({
       />
       <CreateQuestionTagsInput addTags={addTags} tags={tags} />
       {hasChanged ? (
-        <button className="btn-primary text-gray">Create</button>
+        <button className="btn-primary hover:opacity-80 text-gray">Create</button>
       ) : (
         <button className="btn-primary text-gray opacity-60 cursor-not-allowed" disabled>
           Create

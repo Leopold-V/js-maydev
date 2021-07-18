@@ -120,7 +120,7 @@ export const EditQuestionForm = ({
       />
       <CreateQuestionTagsInput addTags={addTags} tags={tags} />
       {hasChanged ? (
-        <button className="btn-primary text-gray">Save</button>
+        <button className="btn-primary hover:opacity-80 text-gray">Save</button>
       ) : (
         <button className="btn-primary text-gray opacity-60 cursor-not-allowed" disabled>
           Save
