@@ -30,7 +30,7 @@
 26/07
     - [ ] can give a point to a single comment per question open for a good answer
     - [ ] add comments like
-    - [ ] keep comments filtered by date then by likes
+    - [x] keep comments filtered by date then by likes
     - [ ] ability to answer to a comments ? nested comments etc.
 - [x] add comments count on question item
 - [ ] Leaderboard
