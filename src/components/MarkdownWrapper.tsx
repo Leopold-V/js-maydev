@@ -28,7 +28,7 @@ const components = {
           {...props}
         />
       ) : (
-        <code className={className} {...props} />
+        <code className={className} {...props}>{children}</code>
       );
     },
 };
