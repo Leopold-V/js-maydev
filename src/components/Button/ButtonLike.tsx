@@ -31,7 +31,6 @@ export const ButtonLike = ({ id }: { id: string }) => {
     }
   };
 
-  //@ts-ignore
   if (!likes.includes(auth.currentUser?.uid)) {
     return (
       <button

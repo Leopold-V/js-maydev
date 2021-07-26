@@ -12,7 +12,7 @@ export const CommentItem = ({comment}: {comment: commentType}) => {
       const user: userType | any = await userServices.getOneUser(id);
       setUser(user);
     };
-  
+
     useEffect(() => {
       loadAuthor(comment.authorId);
     }, [comment.authorId]);
@@ -29,7 +29,7 @@ export const CommentItem = ({comment}: {comment: commentType}) => {
             </Link>
             <div className="border border-gray-600 rounded py-2 px-4 bg-gray w-11/12 relative">
                 <div className="absolute right-2">
-                    <ButtonLikeComment />
+                    <ButtonLikeComment id={comment.id} />
                 </div>
                 <div className="flex items-center text-muted space-x-2">
                     <Link to={`/profile/${user.userId}`} className="hover:text-blue transition duration-200">{user.username}</Link>

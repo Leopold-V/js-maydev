@@ -11,7 +11,7 @@ const getCommentsByQuestion = async (questionId: string): Promise<commentType> =
     await db.collection('comments').where('questionId', '==', questionId).get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          listComments.push({...doc.data(), date: new Date(doc.data().date.seconds * 1000).toDateString()});
+          listComments.push({id: doc.id, ...doc.data(), date: new Date(doc.data().date.seconds * 1000).toDateString()});
         });
     })
     .catch((error: Error) => {
@@ -20,9 +20,24 @@ const getCommentsByQuestion = async (questionId: string): Promise<commentType> =
     return listComments;
 };
 
+const updateLikes = async (data: { id: string; likes: string[] }) => {
+    const questionRef = db.collection('comments').doc(data.id);
+    return questionRef
+      .update({
+        likes: data.likes,
+      })
+      .then(() => {
+        console.log('Document successfully updated!');
+      })
+      .catch((error) => {
+        console.error('Error updating document: ', error);
+      });
+  };
+
 const commentServices = {
     addOneComment,
-    getCommentsByQuestion
+    getCommentsByQuestion,
+    updateLikes
 }
 
 export default commentServices;

@@ -27,9 +27,9 @@
 
 - [x] systeme de commentaires
     - [x] fix comment responsive
-26/07
+- 26/07
     - [ ] can give a point to a single comment per question open for a good answer
-    - [ ] add comments like
+    - [x] add comments like
     - [x] keep comments filtered by date then by likes
     - [ ] ability to answer to a comments ? nested comments etc.
 - [x] add comments count on question item
@@ -38,4 +38,4 @@
     - [ ] map players points
 - [ ] notifications
 - [ ] page layout should'nt be scrollable !
-- [ ] fix markdown non js code diplay
+- [x] fix markdown non js code diplay
