@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
+import commentServices from '../../services/comment.services';
 import userServices from '../../services/user.services';
 import { QuestionsItemButtonGroup } from './';
 import { QuestionListTags } from './QuestionListTags';
 
 export const QuestionsItem = ({ question }: { question: questionType }) => {
   const [user, setUser] = useState<any>(null);
+  const [commentsCount, setCommentsCount] = useState(0);
 
   const { id, title, authorId, date, tags } = question;
 
@@ -16,9 +18,15 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
     setUser(user);
   };
 
+  const loadComment = async (questionId: string) => {
+    const comments: any = await commentServices.getCommentsByQuestion(questionId);
+    setCommentsCount(comments.length);
+  }
+
   useEffect(() => {
     loadAuthor(authorId);
-  }, [authorId]);
+    loadComment(question.id)
+  }, [authorId, question.id]);
 
   if (!user) return <div className="card h-40 my-2"></div>;
   return (
@@ -52,7 +60,7 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
             <QuestionListTags tags={tags} />
           </div>
           <div className="flex items-center space-x-4">
-            {auth.currentUser && <QuestionsItemButtonGroup id={question.id} />}
+            {auth.currentUser && <QuestionsItemButtonGroup id={question.id} commentsCount={commentsCount} />}
           </div>
         </div>
       </div>

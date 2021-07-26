@@ -32,9 +32,10 @@
     - [ ] add comments like
     - [ ] keep comments filtered by date then by likes
     - [ ] ability to answer to a comments ? nested comments etc.
-- [ ] add comments count on question item
+- [x] add comments count on question item
 - [ ] Leaderboard
     - [x] style
     - [ ] map players points
 - [ ] notifications
 - [ ] page layout should'nt be scrollable !
+- [ ] fix markdown non js code diplay

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteQuestion } from '../../actions/question.actions';
 import { questionType } from '../../app/types';
+import commentServices from '../../services/comment.services';
 import { DashboardItemButtonGroup } from './DashboardItemButtonGroup';
 
 export const DashboardQuestionItem = ({ question }: { question: questionType }) => {
   const dispatch = useDispatch();
+  const [commentsCount, setCommentsCount] = useState(0);
   const { id, title, date, edit_date } = question;
 
   const handleDelete = () => {
@@ -15,6 +17,15 @@ export const DashboardQuestionItem = ({ question }: { question: questionType }) 
       dispatch(deleteQuestion(id));
     }
   };
+
+  const loadComment = async (questionId: string) => {
+    const comments: any = await commentServices.getCommentsByQuestion(questionId);
+    setCommentsCount(comments.length);
+  }
+
+  useEffect(() => {
+    loadComment(question.id)
+  }, [question.id]);
 
   return (
     <div className="flex items-center justify-between py-3 px-4 my-2 rounded hover:bg-gray-100 transition duration-200">
@@ -36,7 +47,7 @@ export const DashboardQuestionItem = ({ question }: { question: questionType }) 
         </div>
       </div>
 
-      <DashboardItemButtonGroup id={question.id} />
+      <DashboardItemButtonGroup id={question.id} commentsCount={commentsCount} />
 
       <div className="md:space-x-4 text-muted">
         <Link
