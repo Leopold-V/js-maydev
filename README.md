@@ -28,16 +28,20 @@
 - [x] systeme de commentaires
     - [x] fix comment responsive
 - 26/07
-    - [ ] can give a point to a single comment per question open for a good answer
+    - [x] add comments count on question item
     - [x] add comments like
     - [x] keep comments filtered by date then by likes
     - [x] ability to answer to a comments ? nested comments etc.
-- [x] add comments count on question item
-- [ ] Leaderboard
-    - [x] style
-    - [ ] map players points
+    - [ ] can give a point to a single comment per question open for a good answer
+    - [ ] can mark your own question as resolved (or resolved when you attribute a point).
+
 - [ ] notifications
 - [ ] page layout should'nt be scrollable !
 - [x] fix markdown non js code diplay
-- [ ] can mark your own question as resolved (or resolved when you attribute a point).
-- [ ] add github workflow
+- [x] add github workflow
+- [ ] add user point count in profile and user model db
+- [x] fix old comment model to display them correctly
+
+- [ ] Leaderboard
+    - [x] style
+    - [ ] map players points
