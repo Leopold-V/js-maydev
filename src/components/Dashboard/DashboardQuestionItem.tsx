@@ -21,10 +21,10 @@ export const DashboardQuestionItem = ({ question }: { question: questionType }) 
   const loadComment = async (questionId: string) => {
     const comments: any = await commentServices.getCommentsByQuestion(questionId);
     setCommentsCount(comments.length);
-  }
+  };
 
   useEffect(() => {
-    loadComment(question.id)
+    loadComment(question.id);
   }, [question.id]);
 
   return (

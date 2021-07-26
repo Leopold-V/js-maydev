@@ -6,41 +6,43 @@ import gfm from 'remark-gfm';
 import '../markdown.css';
 
 const components = {
-    code({
-      node,
-      inline,
-      className,
-      children,
-      ...props
-    }: {
-      node: any;
-      inline: any;
-      className: string;
-      children: ReactNode;
-    }) {
-      const match = /language-(\w+)/.exec(className || '');
-      return !inline && match ? (
-        <SyntaxHighlighter
-          style={atomDark}
-          language={match[1]}
-          PreTag="div"
-          children={String(children).replace(/\n$/, '')}
-          {...props}
-        />
-      ) : (
-        <code className={className} {...props}>{children}</code>
-      );
-    },
+  code({
+    node,
+    inline,
+    className,
+    children,
+    ...props
+  }: {
+    node: any;
+    inline: any;
+    className: string;
+    children: ReactNode;
+  }) {
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={atomDark}
+        language={match[1]}
+        PreTag="div"
+        children={String(children).replace(/\n$/, '')}
+        {...props}
+      />
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
 };
 
-export const MarkdownWrapper = ({content}: {content: string}) => {
-    return (
-        <ReactMarkdown
-            className="markdown"
-            remarkPlugins={[gfm]}
-            children={content}
-            //@ts-ignore
-            components={components}
-        />
-    )
-}
+export const MarkdownWrapper = ({ content }: { content: string }) => {
+  return (
+    <ReactMarkdown
+      className="markdown"
+      remarkPlugins={[gfm]}
+      children={content}
+      //@ts-ignore
+      components={components}
+    />
+  );
+};

@@ -30,4 +30,4 @@ export type commentType = {
   likes: string[];
   isReply: boolean;
   ancester: string;
-}
+};

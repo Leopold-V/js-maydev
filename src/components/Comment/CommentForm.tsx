@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
 import { userType } from '../../app/types';
 
-export const CommentForm = ({questionId} : {questionId: string}) => {
+export const CommentForm = ({ questionId }: { questionId: string }) => {
   const dispatch = useDispatch();
   const user: userType = useSelector((state: any) => state.user.user);
 
@@ -12,7 +12,7 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
 
   useEffect(() => {
     input.length === 0 ? setHasChanged(false) : setHasChanged(true);
-  }, [input])
+  }, [input]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput(e.target.value);
@@ -28,7 +28,7 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
       content: input,
       likes: [],
       date: new Date(Date.now()),
-    }
+    };
     dispatch(addComment(newComment));
     setInput('');
   };
@@ -53,13 +53,13 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
             name="content"
             value={input}
           />
-                  {hasChanged ? (
-          <button className="btn-primary hover:opacity-80 w-full text-gray">Submit</button>
-        ) : (
-          <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
-            Submit
-          </button>
-        )}
+          {hasChanged ? (
+            <button className="btn-primary hover:opacity-80 w-full text-gray">Submit</button>
+          ) : (
+            <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
+              Submit
+            </button>
+          )}
         </div>
       </div>
     </form>

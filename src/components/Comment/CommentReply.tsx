@@ -3,7 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
 import { userType } from '../../app/types';
 
-export const CommentReply = ({ancester, questionId, setReplyOpen, replyOpen} : {ancester: string, questionId: string, setReplyOpen: (reply: boolean) => void, replyOpen: boolean}) => {
+export const CommentReply = ({
+  ancester,
+  questionId,
+  setReplyOpen,
+  replyOpen,
+}: {
+  ancester: string;
+  questionId: string;
+  setReplyOpen: (reply: boolean) => void;
+  replyOpen: boolean;
+}) => {
   const dispatch = useDispatch();
   const user: userType = useSelector((state: any) => state.user.user);
 
@@ -12,7 +22,7 @@ export const CommentReply = ({ancester, questionId, setReplyOpen, replyOpen} : {
 
   useEffect(() => {
     input.length === 0 ? setHasChanged(false) : setHasChanged(true);
-  }, [input])
+  }, [input]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput(e.target.value);
@@ -28,7 +38,7 @@ export const CommentReply = ({ancester, questionId, setReplyOpen, replyOpen} : {
       content: input,
       likes: [],
       date: new Date(Date.now()),
-    }
+    };
     dispatch(addComment(newComment));
     setInput('');
   };
@@ -54,19 +64,24 @@ export const CommentReply = ({ancester, questionId, setReplyOpen, replyOpen} : {
             value={input}
           />
           <div className="flex space-x-4">
-                  {hasChanged ? (
-          <button className="btn-primary hover:opacity-80 w-full text-gray">Submit</button>
-        ) : (
-          <button className="btn-primary w-full text-gray opacity-60 cursor-not-allowed" disabled>
-            Submit
-          </button>
-        )}
-          <button 
-            className="btn-secondary w-full text-gray"
-            onClick={() => { setReplyOpen(!replyOpen)}}
-          >
-            Dismiss
-          </button>
+            {hasChanged ? (
+              <button className="btn-primary hover:opacity-80 w-full text-gray">Submit</button>
+            ) : (
+              <button
+                className="btn-primary w-full text-gray opacity-60 cursor-not-allowed"
+                disabled
+              >
+                Submit
+              </button>
+            )}
+            <button
+              className="btn-secondary w-full text-gray"
+              onClick={() => {
+                setReplyOpen(!replyOpen);
+              }}
+            >
+              Dismiss
+            </button>
           </div>
         </div>
       </div>

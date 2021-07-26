@@ -1,7 +1,13 @@
 import React from 'react';
 import { QuestionsItemButtonGroup } from '../Question';
 
-export const DashboardItemButtonGroup = ({ id, commentsCount }: { id: string, commentsCount: number }) => {
+export const DashboardItemButtonGroup = ({
+  id,
+  commentsCount,
+}: {
+  id: string;
+  commentsCount: number;
+}) => {
   return (
     <div className="flex items-center space-x-2">
       <QuestionsItemButtonGroup id={id} commentsCount={commentsCount} />

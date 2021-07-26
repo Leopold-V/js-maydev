@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     questions: questionReducer,
     user: userReducer,
-    comments: commentReducer
+    comments: commentReducer,
   },
 });
 

@@ -21,11 +21,11 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
   const loadComment = async (questionId: string) => {
     const comments: any = await commentServices.getCommentsByQuestion(questionId);
     setCommentsCount(comments.length);
-  }
+  };
 
   useEffect(() => {
     loadAuthor(authorId);
-    loadComment(question.id)
+    loadComment(question.id);
   }, [authorId, question.id]);
 
   if (!user) return <div className="card h-40 my-2"></div>;
@@ -60,7 +60,9 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
             <QuestionListTags tags={tags} />
           </div>
           <div className="flex items-center space-x-4">
-            {auth.currentUser && <QuestionsItemButtonGroup id={question.id} commentsCount={commentsCount} />}
+            {auth.currentUser && (
+              <QuestionsItemButtonGroup id={question.id} commentsCount={commentsCount} />
+            )}
           </div>
         </div>
       </div>
