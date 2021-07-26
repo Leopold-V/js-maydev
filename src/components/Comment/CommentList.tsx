@@ -5,6 +5,7 @@ import { CommentItem } from './CommentItem';
 export const CommentList = ({ comments }: { comments: commentType[] }) => {
   //@ts-ignore
   const commentsSortByDate: commentType[] = [...comments].sort(
+    //@ts-ignore
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 

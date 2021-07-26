@@ -40,3 +40,4 @@
 - [ ] page layout should'nt be scrollable !
 - [x] fix markdown non js code diplay
 - [ ] can mark your own question as resolved (or resolved when you attribute a point).
+- [ ] add github workflow
