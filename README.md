@@ -31,7 +31,7 @@
     - [ ] can give a point to a single comment per question open for a good answer
     - [x] add comments like
     - [x] keep comments filtered by date then by likes
-    - [ ] ability to answer to a comments ? nested comments etc.
+    - [x] ability to answer to a comments ? nested comments etc.
 - [x] add comments count on question item
 - [ ] Leaderboard
     - [x] style
@@ -39,3 +39,4 @@
 - [ ] notifications
 - [ ] page layout should'nt be scrollable !
 - [x] fix markdown non js code diplay
+- [ ] can mark your own question as resolved (or resolved when you attribute a point).

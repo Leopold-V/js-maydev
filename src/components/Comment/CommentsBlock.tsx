@@ -10,7 +10,7 @@ export const CommentsBlock = ({questionId} : {questionId: string}) => {
   const dispatch = useDispatch();
 
   const user: userType = useSelector((state: any) => state.user.user);
-  const comments: commentType[] = useSelector((state: any) => state.comments.comments);
+  const comments: commentType[] = useSelector((state: any) => state.comments.comments.filter((comment: commentType) => comment.isReply === false));
 
   useEffect(() => {
     (async () => {

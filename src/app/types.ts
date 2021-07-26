@@ -28,4 +28,6 @@ export type commentType = {
   content: string;
   date: string;
   likes: string[];
+  isReply: boolean;
+  ancester: string;
 }

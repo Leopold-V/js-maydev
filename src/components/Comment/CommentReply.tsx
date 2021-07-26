@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
 import { userType } from '../../app/types';
 
-export const CommentForm = ({questionId} : {questionId: string}) => {
+export const CommentReply = ({ancester, questionId, setReplyOpen, replyOpen} : {ancester: string, questionId: string, setReplyOpen: (reply: boolean) => void, replyOpen: boolean}) => {
   const dispatch = useDispatch();
   const user: userType = useSelector((state: any) => state.user.user);
 
@@ -21,8 +21,8 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const newComment = {
-      isReply: false,
-      ancester: null,
+      isReply: true,
+      ancester: ancester,
       authorId: user.userId,
       questionId: questionId,
       content: input,
@@ -34,7 +34,7 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
   };
 
   return (
-    <form className="mb-8" onSubmit={handleSubmit}>
+    <form className="mb-8 mt-2" onSubmit={handleSubmit}>
       <div className="flex space-x-2">
         <div className="w-8">
           <img
@@ -53,6 +53,7 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
             name="content"
             value={input}
           />
+          <div className="flex space-x-4">
                   {hasChanged ? (
           <button className="btn-primary hover:opacity-80 w-full text-gray">Submit</button>
         ) : (
@@ -60,6 +61,13 @@ export const CommentForm = ({questionId} : {questionId: string}) => {
             Submit
           </button>
         )}
+          <button 
+            className="btn-secondary w-full text-gray"
+            onClick={() => { setReplyOpen(!replyOpen)}}
+          >
+            Dismiss
+          </button>
+          </div>
         </div>
       </div>
     </form>
