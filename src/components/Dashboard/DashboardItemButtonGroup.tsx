@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuestionsItemButtonGroup } from './Question';
+import { QuestionsItemButtonGroup } from '../Question';
 
 export const DashboardItemButtonGroup = ({ id }: { id: string }) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { commentType } from '../app/types'
+import { commentType } from '../../app/types'
 import { CommentItem } from './CommentItem'
 
 export const CommentList = ({comments} : {comments: commentType[] }) => {

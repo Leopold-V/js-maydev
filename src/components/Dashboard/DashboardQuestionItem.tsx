@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteQuestion } from '../actions/question.actions';
-import { questionType } from '../app/types';
+import { deleteQuestion } from '../../actions/question.actions';
+import { questionType } from '../../app/types';
 import { DashboardItemButtonGroup } from './DashboardItemButtonGroup';
 
-export const DashboardQuestionsItem = ({ question }: { question: questionType }) => {
+export const DashboardQuestionItem = ({ question }: { question: questionType }) => {
   const dispatch = useDispatch();
   const { id, title, date, edit_date } = question;
 

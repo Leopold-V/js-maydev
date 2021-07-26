@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { commentType, userType } from '../app/types'
-import userServices from '../services/user.services';
-import { ButtonLikeComment } from './Button';
-import { MarkdownWrapper } from './MarkdownWrapper';
+import { commentType, userType } from '../../app/types'
+import userServices from '../../services/user.services';
+import { ButtonLikeComment } from '../Button';
+import { MarkdownWrapper } from '../MarkdownWrapper';
 
 export const CommentItem = ({comment}: {comment: commentType}) => {
     const [user, setUser] = useState<userType | null>(null);

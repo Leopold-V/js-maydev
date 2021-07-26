@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addComment } from '../actions/comment.actions';
-import { userType } from '../app/types';
+import { addComment } from '../../actions/comment.actions';
+import { userType } from '../../app/types';
 
 export const CommentForm = ({questionId} : {questionId: string}) => {
   const dispatch = useDispatch();

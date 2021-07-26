@@ -1,6 +1,6 @@
 import React from 'react';
-import { DashboardPosts } from '../components/DashboardPosts';
-import { DashboardStats } from '../components/DashboardStats';
+import { DashboardPosts } from '../components/Dashboard/DashboardPosts';
+import { DashboardStats } from '../components/Dashboard/DashboardStats';
 
 export const Dashboard = () => {
   return (

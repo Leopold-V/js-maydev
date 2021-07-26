@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import '../markdown.css';
 
 import userServices from '../services/user.services';
 
+import { auth } from '../app/firebase';
+import { questionType } from '../app/types';
 import { MainLayout } from '../components/MainLayout';
-import { CommentsBlock } from '../components/CommentsBlock';
+import { CommentsBlock } from '../components/Comment';
 import { ButtonLike, ButtonRead } from '../components/Button';
 import { QuestionListTags } from '../components/Question';
-import { useSelector } from 'react-redux';
-import { questionType } from '../app/types';
-import { auth } from '../app/firebase';
 import { MarkdownWrapper } from '../components/MarkdownWrapper';
 
 export const QuestionPage = (props: any) => {

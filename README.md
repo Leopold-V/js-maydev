@@ -27,6 +27,7 @@
 
 - [x] systeme de commentaires
     - [x] fix comment responsive
+26/07
     - [ ] can give a point to a single comment per question open for a good answer
     - [ ] add comments like
     - [ ] keep comments filtered by date then by likes

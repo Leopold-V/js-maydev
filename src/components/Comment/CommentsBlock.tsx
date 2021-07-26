@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { commentType, userType } from '../app/types';
-import commentServices from '../services/comment.services';
-import { loadComments } from '../slices/commentSlice';
+import { commentType, userType } from '../../app/types';
+import commentServices from '../../services/comment.services';
+import { loadComments } from '../../slices/commentSlice';
 import { CommentForm } from './CommentForm';
 import { CommentList } from './CommentList';
 
