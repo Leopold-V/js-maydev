@@ -48,13 +48,14 @@ export const CreateQuestionPage = () => {
   const [input, setInput] = useState({ title: '', content: '' });
   const [tags, setTags] = useState(dataTags);
   const [tab, setTab] = useState<string>('Edit');
+  const [hasChanged, setHasChanged] = useState<boolean>(false);
 
   return (
     <MainLayout>
       <CreateQuestionHead tab={tab} setTab={setTab} />
       <div className="card">
         {tab === 'Edit' ? (
-          <CreateQuestionForm input={input} setInput={setInput} tags={tags} setTags={setTags} />
+          <CreateQuestionForm input={input} setInput={setInput} tags={tags} setTags={setTags} hasChanged={hasChanged} setHasChanged={setHasChanged} />
         ) : (
           <CreateQuestionPreview input={input} tags={tags} />
         )}

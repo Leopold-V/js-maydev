@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, MouseEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
@@ -47,18 +47,24 @@ export const CreateQuestionForm = ({
   setInput,
   tags,
   setTags,
+  hasChanged,
+  setHasChanged,
 }: {
   input: { title: string; content: string };
   setInput: (input: any) => void;
   tags: any;
   setTags: (tags: any) => void;
+  hasChanged: boolean,
+  setHasChanged: (hasChanged: boolean) => void,
 }) => {
+
   let history = useHistory();
   const dispatch = useDispatch();
   const userId = useSelector((state: any) => state.user.user.userId);
 
   const [error, setError] = useState('');
-  const [hasChanged, setHasChanged] = useState<boolean>(false);
+
+  const ref_title = useRef(null);
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
@@ -85,7 +91,6 @@ export const CreateQuestionForm = ({
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    setHasChanged(true);
     setInput((input: any) => ({ ...input, [e.target.name]: e.target.value }));
   };
 
@@ -93,6 +98,15 @@ export const CreateQuestionForm = ({
     const target = e.target as HTMLLIElement;
     setTags((tags: any) => ({ ...tags, [target.innerText]: !tags[target.innerText] }));
   };
+
+  useEffect(() => {
+    // @ts-ignore
+    ref_title.current.focus();
+  }, [])
+
+  useEffect(() => {
+    input.content.length === 0 ? setHasChanged(false) : setHasChanged(true);
+  }, [input, setHasChanged]);
 
   return (
     <form className="py-6 space-y-4 flex flex-col items-center" onSubmit={handleSubmit}>
@@ -103,6 +117,7 @@ export const CreateQuestionForm = ({
       )}
       <input
         onChange={handleChange}
+        ref={ref_title}
         className="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100
                       focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent
                       h-10 w-4/5 placeholder-gray-500 transition duration-200"
