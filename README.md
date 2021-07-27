@@ -42,12 +42,11 @@
 - [x] fix old comment model to display them correctly
 - [x] fix invalid date bug (appears since the score upgrade)
 - [x] question item in dashboard don't have the validate mark
-- [ ] bug when add a tag the button become disabled
-- [ ] fix: can't give a point to your own comment
+- [x] fix: can't give a point to your own comment
 
 - [x] Leaderboard
     - [x] style
     - [x] map players points
-    - [ ] Limit the display to the top 10 ?
+    - [x] Limit the display to the top 10 ?
 - [ ] page layout should'nt be scrollable !
 - [ ] notifications

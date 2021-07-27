@@ -5,11 +5,12 @@ import userServices from '../services/user.services';
 
 export const Leaderboard = () => {
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<userType[]>([]);
 
   useEffect(() => {
     (async () => {
-      const usersData = await userServices.getAllUsers();
+      const usersData: userType[] = await userServices.getAllUsers();
+      usersData.length = 10;
       setUsers(usersData);
     })();
   }, [])

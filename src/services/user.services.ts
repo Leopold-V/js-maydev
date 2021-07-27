@@ -12,7 +12,7 @@ const getOneUser = async (id: string) => {
   }
 };
 
-const getAllUsers = async () => {
+const getAllUsers = async (): Promise<userType[]> => {
   const users: userType[] = [];
   try {
     const usersList = await db.collection('users').get();
@@ -25,7 +25,7 @@ const getAllUsers = async () => {
   }
 };
 
-const updateOneUser = async (data: userType) => {
+const updateOneUser = async (data: userType): Promise<void> => {
   const userRef = db.collection('users').doc(data.userId);
   return userRef
     .update({
