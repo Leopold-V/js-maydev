@@ -34,7 +34,7 @@ export const ButtonRead = ({ id }: { id: string }) => {
   if (!reading.includes(auth.currentUser?.uid)) {
     return (
       <button
-        className="flex items-center space-x-1 py-1 px-2 bg-gray-100 text-muted focus:outline-none hover:bg-gray-200 hover:text-primary transition duration-200 rounded-full"
+        className="flex items-center space-x-2 py-1 px-2 bg-gray text-muted focus:outline-none hover:bg-gray-100 hover:text-primary transition duration-200 rounded-full"
         onClick={addToRead}
       >
         <span className="text-sm">{reading.length}</span>
@@ -51,7 +51,7 @@ export const ButtonRead = ({ id }: { id: string }) => {
   } else {
     return (
       <button
-        className="flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full"
+        className="flex items-center space-x-2 py-1 px-2 bg-gray-100 text-primary focus:outline-none hover:text-primary transition duration-200 rounded-full"
         onClick={removeFromRead}
       >
         <span className="text-sm">{reading.length}</span>
