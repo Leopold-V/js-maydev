@@ -35,7 +35,7 @@ export const ButtonValidateComment = ({
     );
   };
 
-  if (!isSolution && !question.isSolved && question.authorId === auth.currentUser?.uid) {
+  if (!isSolution && !question.isSolved && question.authorId === auth.currentUser?.uid && authorId !== auth.currentUser?.uid) {
     return (
       <button
         className="flex items-center justify-center py-1 px-2 bg-gray-100 
