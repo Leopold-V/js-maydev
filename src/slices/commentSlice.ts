@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addComment, addLikeComment, removeLikeComment, validateComment } from '../actions/comment.actions';
+import {
+  addComment,
+  addLikeComment,
+  removeLikeComment,
+  validateComment,
+} from '../actions/comment.actions';
 import { commentType } from '../app/types';
 
 export const commentSlice = createSlice({

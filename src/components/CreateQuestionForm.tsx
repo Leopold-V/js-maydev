@@ -76,7 +76,7 @@ export const CreateQuestionForm = ({
         tags: newTags,
         reading: [],
         likes: [],
-        isSolved: false
+        isSolved: false,
       };
       dispatch(addQuestion(newQuestion)).then((result: any) => {
         history.push(`/question/${result.payload.id}`);

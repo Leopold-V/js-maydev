@@ -123,7 +123,9 @@ export const questionSlice = createSlice({
     },
     [validateComment.fulfilled]: (state: any, action) => {
       state.loading = false;
-      const question = state.questions.find((ele: questionType) => ele.id === action.payload.questionId);
+      const question = state.questions.find(
+        (ele: questionType) => ele.id === action.payload.questionId
+      );
       question.isSolved = true;
     },
     [validateComment.rejected]: (state: any, action) => {

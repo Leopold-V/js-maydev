@@ -11,7 +11,6 @@ import { CommentReply } from './CommentReply';
 export const CommentItem = ({ comment }: { comment: commentType }) => {
   const [user, setUser] = useState<userType | null>(null);
   const [replyOpen, setReplyOpen] = useState(false);
-  const authorId = useSelector((state: any) => state.questions.questions.filter((question: questionType) => question.id === comment.questionId))[0].authorId;
 
   const history = useHistory();
 
@@ -24,7 +23,7 @@ export const CommentItem = ({ comment }: { comment: commentType }) => {
       history.push('/login');
     }
     setReplyOpen(!replyOpen);
-  }
+  };
 
   const loadAuthor = async (id: string) => {
     const user: userType | any = await userServices.getOneUser(id);
@@ -46,9 +45,20 @@ export const CommentItem = ({ comment }: { comment: commentType }) => {
         />
       </Link>
       <div className="w-11/12">
-        <div className={comment.isSolution ? 'border-green-400 border rounded py-2 px-4 bg-gray relative' : 'border-gray-600 border rounded py-2 px-4 bg-gray relative'}>
+        <div
+          className={
+            comment.isSolution
+              ? 'border-green-400 border rounded py-2 px-4 bg-gray relative'
+              : 'border-gray-600 border rounded py-2 px-4 bg-gray relative'
+          }
+        >
           <div className="absolute flex space-x-1 right-2">
-            <ButtonValidateComment commentId={comment.id} isSolution={comment.isSolution} authorId={comment.authorId} questionId={comment.questionId}/>
+            <ButtonValidateComment
+              commentId={comment.id}
+              isSolution={comment.isSolution}
+              authorId={comment.authorId}
+              questionId={comment.questionId}
+            />
             <ButtonLikeComment id={comment.id} />
           </div>
           <div className="flex items-center text-muted space-x-2">

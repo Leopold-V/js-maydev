@@ -44,22 +44,22 @@ const updateLikes = async (data: { id: string; likes: string[] }) => {
 const validateComment = async (id: string) => {
   const commentRef = db.collection('comments').doc(id);
   return commentRef
-  .update({
-    isSolution: true,
-  })
-  .then(() => {
-    console.log('Document successfully updated!');
-  })
-  .catch((error) => {
-    console.error('Error updating document: ', error);
-  });
-}
+    .update({
+      isSolution: true,
+    })
+    .then(() => {
+      console.log('Document successfully updated!');
+    })
+    .catch((error) => {
+      console.error('Error updating document: ', error);
+    });
+};
 
 const commentServices = {
   addOneComment,
   getCommentsByQuestion,
   updateLikes,
-  validateComment
+  validateComment,
 };
 
 export default commentServices;

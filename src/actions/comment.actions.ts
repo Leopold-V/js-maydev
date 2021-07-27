@@ -48,14 +48,14 @@ export const removeLikeComment: any = createAsyncThunk(
 
 export const validateComment: any = createAsyncThunk(
   'comments/validateComment',
-  async (data: {id: string, question: questionType, author: userType}, { rejectWithValue }) => {
+  async (data: { id: string; question: questionType; author: userType }, { rejectWithValue }) => {
     try {
       await commentServices.validateComment(data.id);
       await questionServices.updateOneQuestion(data.question);
-      await userServices.updateOneUser({...data.author, score: data.author.score + 1});
-      return { id: data.id, questionId: data.question.id }
+      await userServices.updateOneUser({ ...data.author, score: data.author.score + 1 });
+      return { id: data.id, questionId: data.question.id };
     } catch (error) {
       return rejectWithValue(error.code);
     }
   }
-)
+);
