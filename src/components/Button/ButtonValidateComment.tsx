@@ -24,8 +24,14 @@ export const ButtonValidateComment = ({
 
   const handleClick = async () => {
     const author = await userServices.getOneUser(authorId);
+    const questionToUpdate = { 
+        ...question,
+        isSolved: true,
+        date: new Date(Date.now()),
+        edit_date: new Date(Date.now())
+      }
     dispatch(
-      validateComment({ id: commentId, question: { ...question, isSolved: true }, author: author })
+      validateComment({ id: commentId, question: { ...questionToUpdate }, author: author })
     );
   };
 
