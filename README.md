@@ -36,14 +36,18 @@
     - [x] can mark your own question as resolved (or resolved when you attribute a point).
     - [x] bug: when disconnected, reply should redirect to login page
 
-- [ ] notifications
-- [ ] page layout should'nt be scrollable !
 - [x] fix markdown non js code diplay
 - [x] add github workflow
-- [ ] add user point count in profile and user model db
+- [x] add user point count in profile and user model db
 - [x] fix old comment model to display them correctly
-- [ ] fix invalid date bug (appears since the score upgrade)
+- [x] fix invalid date bug (appears since the score upgrade)
+- [ ] question item in dashboard don't have the validate mark
+- [ ] bug when add a tag the button become disabled
+- [ ] fix: can't give a point to your own comment
 
-- [ ] Leaderboard
+- [x] Leaderboard
     - [x] style
-    - [ ] map players points
+    - [x] map players points
+    - [ ] Limit the display to the top 10 ?
+- [ ] page layout should'nt be scrollable !
+- [ ] notifications

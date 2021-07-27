@@ -12,6 +12,19 @@ const getOneUser = async (id: string) => {
   }
 };
 
+const getAllUsers = async () => {
+  const users: userType[] = [];
+  try {
+    const usersList = await db.collection('users').get();
+    usersList.forEach((doc: any) => {
+      users.push({ id: doc.id, ...doc.data() });
+    });
+    return users;
+  } catch (error) {
+    return error.code;
+  }
+};
+
 const updateOneUser = async (data: userType) => {
   const userRef = db.collection('users').doc(data.userId);
   return userRef
@@ -29,6 +42,7 @@ const updateOneUser = async (data: userType) => {
 const userServices = {
   getOneUser,
   updateOneUser,
+  getAllUsers
 };
 
 export default userServices;

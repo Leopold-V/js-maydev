@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../app/firebase';
-import { commentType, questionType, userType } from '../../app/types';
+import { commentType, userType } from '../../app/types';
 import userServices from '../../services/user.services';
 import { ButtonLikeComment, ButtonValidateComment } from '../Button';
 import { MarkdownWrapper } from '../MarkdownWrapper';
