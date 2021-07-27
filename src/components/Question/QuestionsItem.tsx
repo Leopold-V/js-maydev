@@ -61,7 +61,11 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
           </div>
           <div className="flex items-center space-x-4">
             {auth.currentUser && (
-              <QuestionsItemButtonGroup id={question.id} commentsCount={commentsCount} isSolved={question.isSolved} />
+              <QuestionsItemButtonGroup
+                id={question.id}
+                commentsCount={commentsCount}
+                isSolved={question.isSolved}
+              />
             )}
           </div>
         </div>

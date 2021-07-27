@@ -55,7 +55,14 @@ export const CreateQuestionPage = () => {
       <CreateQuestionHead tab={tab} setTab={setTab} />
       <div className="card">
         {tab === 'Edit' ? (
-          <CreateQuestionForm input={input} setInput={setInput} tags={tags} setTags={setTags} hasChanged={hasChanged} setHasChanged={setHasChanged} />
+          <CreateQuestionForm
+            input={input}
+            setInput={setInput}
+            tags={tags}
+            setTags={setTags}
+            hasChanged={hasChanged}
+            setHasChanged={setHasChanged}
+          />
         ) : (
           <CreateQuestionPreview input={input} tags={tags} />
         )}

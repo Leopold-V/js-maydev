@@ -49,4 +49,10 @@
     - [x] map players points
     - [x] Limit the display to the top 10 ?
 - [ ] page layout should'nt be scrollable !
+- [ ] tag filter ?
 - [ ] notifications
+- [ ] view counter
+- [ ] dashboard card counter to complete
+
+- [ ] FAQ
+- [ ] About page

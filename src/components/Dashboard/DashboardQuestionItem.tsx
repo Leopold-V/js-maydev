@@ -47,7 +47,11 @@ export const DashboardQuestionItem = ({ question }: { question: questionType }) 
         </div>
       </div>
 
-      <DashboardItemButtonGroup id={question.id} commentsCount={commentsCount} isSolved={question.isSolved} />
+      <DashboardItemButtonGroup
+        id={question.id}
+        commentsCount={commentsCount}
+        isSolved={question.isSolved}
+      />
 
       <div className="md:space-x-4 text-muted">
         <Link

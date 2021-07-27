@@ -42,7 +42,7 @@ const updateOneUser = async (data: userType): Promise<void> => {
 const userServices = {
   getOneUser,
   updateOneUser,
-  getAllUsers
+  getAllUsers,
 };
 
 export default userServices;

@@ -4,7 +4,6 @@ import { userType } from '../app/types';
 import userServices from '../services/user.services';
 
 export const Leaderboard = () => {
-
   const [users, setUsers] = useState<userType[]>([]);
 
   useEffect(() => {
@@ -13,13 +12,10 @@ export const Leaderboard = () => {
       usersData.length = 10;
       setUsers(usersData);
     })();
-  }, [])
-
+  }, []);
 
   if (users.length === 0) {
-    return (
-      <div className="mt-8">Loading leaderboard...</div>
-    )
+    return <div className="mt-8">Loading leaderboard...</div>;
   }
   return (
     <div className="card mt-8">
@@ -31,24 +27,21 @@ export const Leaderboard = () => {
         </li>
         {users.map((user: userType, i) => (
           <li className="flex justify-between">
-          <div>{i+1}.</div>
-          <div className="flex items-center space-x-2 w-2/3 hover:text-blue">
-            <div className="w-6 focus:outline-none">
-              <img
-                className="rounded-full"
-                alt="profile_picture"
-                src={user.avatar || "https://randomuser.me/portraits/men/52.jpg"}
-              />
+            <div>{i + 1}.</div>
+            <div className="flex items-center space-x-2 w-2/3 hover:text-blue">
+              <div className="w-6 focus:outline-none">
+                <img
+                  className="rounded-full"
+                  alt="profile_picture"
+                  src={user.avatar || 'https://randomuser.me/portraits/men/52.jpg'}
+                />
+              </div>
+              <Link to={`/profile/${user.userId}`} className="truncate w-2/3">
+                {user.username || 'Anonymous'}
+              </Link>
             </div>
-            <Link
-              to={`/profile/${user.userId}`}
-              className="truncate w-2/3"
-            >
-              {user.username || 'Anonymous'}
-            </Link>
-          </div>
-          <div>{user.score}</div>
-        </li>
+            <div>{user.score}</div>
+          </li>
         ))}
       </ul>
     </div>

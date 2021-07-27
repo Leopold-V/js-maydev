@@ -54,10 +54,9 @@ export const CreateQuestionForm = ({
   setInput: (input: any) => void;
   tags: any;
   setTags: (tags: any) => void;
-  hasChanged: boolean,
-  setHasChanged: (hasChanged: boolean) => void,
+  hasChanged: boolean;
+  setHasChanged: (hasChanged: boolean) => void;
 }) => {
-
   let history = useHistory();
   const dispatch = useDispatch();
   const userId = useSelector((state: any) => state.user.user.userId);
@@ -102,7 +101,7 @@ export const CreateQuestionForm = ({
   useEffect(() => {
     // @ts-ignore
     ref_title.current.focus();
-  }, [])
+  }, []);
 
   useEffect(() => {
     input.content.length === 0 ? setHasChanged(false) : setHasChanged(true);
