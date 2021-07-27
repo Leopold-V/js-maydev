@@ -34,6 +34,7 @@
     - [x] ability to answer to a comments ? nested comments etc.
     - [ ] can give a point to a single comment per question open for a good answer
     - [ ] can mark your own question as resolved (or resolved when you attribute a point).
+    - [x] bug: when disconnected, reply should redirect to login page
 
 - [ ] notifications
 - [ ] page layout should'nt be scrollable !

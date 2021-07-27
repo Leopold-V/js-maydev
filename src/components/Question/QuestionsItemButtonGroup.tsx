@@ -9,10 +9,10 @@ export const QuestionsItemButtonGroup = ({
   commentsCount: number;
 }) => {
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-1">
       <div
-        className="flex items-center space-x-1 py-1 px-2 bg-gray-100
-         text-muted focus:outline-none hover:bg-gray-200 hover:text-primary transition duration-200 rounded-full"
+        className="flex items-center space-x-2 py-1 px-2 bg-gray
+         text-muted focus:outline-none hover:bg-gray-100 hover:text-primary transition duration-200 rounded-full"
       >
         <span className="text-sm">{commentsCount}</span>
         <svg
@@ -20,7 +20,7 @@ export const QuestionsItemButtonGroup = ({
           className="icon icon-tabler icon-tabler-message-circle h-5 w-5"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="white"
+          stroke="#c1c6cc"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"

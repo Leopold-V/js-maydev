@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { auth } from '../../app/firebase';
 import { commentType, userType } from '../../app/types';
 import userServices from '../../services/user.services';
 import { ButtonLikeComment } from '../Button';
@@ -11,10 +12,18 @@ export const CommentItem = ({ comment }: { comment: commentType }) => {
   const [user, setUser] = useState<userType | null>(null);
   const [replyOpen, setReplyOpen] = useState(false);
 
+  const history = useHistory();
+
   const replies = useSelector((state: any) =>
     state.comments.comments.filter((ele: commentType) => ele.ancester === comment.id)
   );
-  console.log(replies);
+
+  const displayReplyForm = () => {
+    if (!auth.currentUser) {
+      history.push('/login');
+    }
+    setReplyOpen(!replyOpen);
+  }
 
   const loadAuthor = async (id: string) => {
     const user: userType | any = await userServices.getOneUser(id);
@@ -64,9 +73,7 @@ export const CommentItem = ({ comment }: { comment: commentType }) => {
         ) : (
           <button
             className="text-muted mt-1 mb-4 self-start focus:outline-none hover:bg-gray-100 hover:text-primary transition duration-200 rounded px-2 py-1"
-            onClick={() => {
-              setReplyOpen(!replyOpen);
-            }}
+            onClick={displayReplyForm}
           >
             Reply
           </button>
