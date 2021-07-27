@@ -37,10 +37,11 @@ export const ProfilePage = (props: any) => {
             />
           </div>
         </div>
-        <div className="mt-4 md:mt-14 mb-4 md:mb-10 w-full text-center">
+        <div className="mt-4 md:mt-14 mb-2 md:mb-10 w-full text-center">
           <h1 className="font-extrabold text-xl md:text-3xl text-white py-4">
             {user.username || 'Anonymous'}
           </h1>
+          <p className="text-blue font-bold my-1 mb-2">Score: {user.score}</p>
           <p className="text-center md:text-lg lg:w-3/4 mx-auto">{user.bio}</p>
           {user.location && (
             <p className="flex text-muted space-x-1 mt-2 justify-center items-center text-center md:text-lg lg:w-3/4 mx-auto">
