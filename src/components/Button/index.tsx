@@ -6,3 +6,4 @@ export { ButtonProfile } from './ButtonProfile';
 export { ButtonNotif } from './ButtonNotif';
 export { ButtonRead } from './ButtonRead';
 export { ButtonSignup } from './ButtonSignup';
+export { ButtonValidateComment } from './ButtonValidateComment';

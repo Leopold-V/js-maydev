@@ -28,6 +28,7 @@ export const CommentForm = ({ questionId }: { questionId: string }) => {
       content: input,
       likes: [],
       date: new Date(Date.now()),
+      isSolution: false,
     };
     dispatch(addComment(newComment));
     setInput('');

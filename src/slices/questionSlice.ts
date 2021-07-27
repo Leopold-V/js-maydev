@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { validateComment } from '../actions/comment.actions';
 import {
   fetchQuestions,
   addQuestion,
@@ -114,6 +115,18 @@ export const questionSlice = createSlice({
       question.likes = action.payload.likes;
     },
     [removeLikeQuestion.rejected]: (state: any, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [validateComment.pending]: (state: any) => {
+      state.loading = true;
+    },
+    [validateComment.fulfilled]: (state: any, action) => {
+      state.loading = false;
+      const question = state.questions.find((ele: questionType) => ele.id === action.payload.questionId);
+      question.isSolved = true;
+    },
+    [validateComment.rejected]: (state: any, action) => {
       state.loading = false;
       state.error = action.payload;
     },

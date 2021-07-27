@@ -7,6 +7,7 @@ export type userType = {
   location: string;
   website_url: string;
   dev_profile: string;
+  score: number;
 };
 
 export type questionType = {
@@ -19,6 +20,7 @@ export type questionType = {
   tags: string[];
   reading: string[];
   likes: string[];
+  isSolved: boolean;
 };
 
 export type commentType = {
@@ -30,4 +32,5 @@ export type commentType = {
   likes: string[];
   isReply: boolean;
   ancester: string;
+  isSolution: boolean;
 };

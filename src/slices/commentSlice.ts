@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addComment, addLikeComment, removeLikeComment } from '../actions/comment.actions';
+import { addComment, addLikeComment, removeLikeComment, validateComment } from '../actions/comment.actions';
 import { commentType } from '../app/types';
 
 export const commentSlice = createSlice({
@@ -49,6 +49,18 @@ export const commentSlice = createSlice({
       comment.likes = action.payload.likes;
     },
     [removeLikeComment.rejected]: (state: any, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [validateComment.pending]: (state: any) => {
+      state.loading = true;
+    },
+    [validateComment.fulfilled]: (state: any, action) => {
+      state.loading = false;
+      const comment = state.comments.find((ele: commentType) => ele.id === action.payload.id);
+      comment.isSolution = true;
+    },
+    [validateComment.rejected]: (state: any, action) => {
       state.loading = false;
       state.error = action.payload;
     },

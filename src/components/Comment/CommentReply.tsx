@@ -31,13 +31,14 @@ export const CommentReply = ({
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const newComment = {
-      isReply: true,
-      ancester: ancester,
       authorId: user.userId,
       questionId: questionId,
       content: input,
       likes: [],
       date: new Date(Date.now()),
+      isReply: true,
+      ancester: ancester,
+      isSolution: false,
     };
     dispatch(addComment(newComment));
     setInput('');

@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../app/firebase';
-import { commentType, userType } from '../../app/types';
+import { commentType, questionType, userType } from '../../app/types';
 import userServices from '../../services/user.services';
-import { ButtonLikeComment } from '../Button';
+import { ButtonLikeComment, ButtonValidateComment } from '../Button';
 import { MarkdownWrapper } from '../MarkdownWrapper';
 import { CommentReply } from './CommentReply';
 
 export const CommentItem = ({ comment }: { comment: commentType }) => {
   const [user, setUser] = useState<userType | null>(null);
   const [replyOpen, setReplyOpen] = useState(false);
+  const authorId = useSelector((state: any) => state.questions.questions.filter((question: questionType) => question.id === comment.questionId))[0].authorId;
 
   const history = useHistory();
 
@@ -45,8 +46,9 @@ export const CommentItem = ({ comment }: { comment: commentType }) => {
         />
       </Link>
       <div className="w-11/12">
-        <div className="border border-gray-600 rounded py-2 px-4 bg-gray relative">
-          <div className="absolute right-2">
+        <div className={comment.isSolution ? 'border-green-400 border rounded py-2 px-4 bg-gray relative' : 'border-gray-600 border rounded py-2 px-4 bg-gray relative'}>
+          <div className="absolute flex space-x-1 right-2">
+            <ButtonValidateComment commentId={comment.id} isSolution={comment.isSolution} authorId={comment.authorId} questionId={comment.questionId}/>
             <ButtonLikeComment id={comment.id} />
           </div>
           <div className="flex items-center text-muted space-x-2">

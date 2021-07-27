@@ -28,8 +28,8 @@ const getCommentsByQuestion = async (questionId: string): Promise<commentType> =
 };
 
 const updateLikes = async (data: { id: string; likes: string[] }) => {
-  const questionRef = db.collection('comments').doc(data.id);
-  return questionRef
+  const commentRef = db.collection('comments').doc(data.id);
+  return commentRef
     .update({
       likes: data.likes,
     })
@@ -41,10 +41,25 @@ const updateLikes = async (data: { id: string; likes: string[] }) => {
     });
 };
 
+const validateComment = async (id: string) => {
+  const commentRef = db.collection('comments').doc(id);
+  return commentRef
+  .update({
+    isSolution: true,
+  })
+  .then(() => {
+    console.log('Document successfully updated!');
+  })
+  .catch((error) => {
+    console.error('Error updating document: ', error);
+  });
+}
+
 const commentServices = {
   addOneComment,
   getCommentsByQuestion,
   updateLikes,
+  validateComment
 };
 
 export default commentServices;

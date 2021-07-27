@@ -17,6 +17,7 @@ const register = async (email: string, password: string, username: string) => {
       location: '',
       website_url: '',
       dev_profile: '',
+      score: 0,
     };
     db.collection('users')
       .doc(userCredential.user.uid)
@@ -44,6 +45,7 @@ const loginWithGithub = async () => {
         location: '',
         website_url: '',
         dev_profile: '',
+        score: 0,
       };
       db.collection('users')
         .doc(userCredential.user.uid)

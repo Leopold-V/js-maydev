@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { commentType } from '../app/types';
+import { commentType, questionType, userType } from '../app/types';
 import commentServices from '../services/comment.services';
+import questionServices from '../services/question.services';
+import userServices from '../services/user.services';
 
 export const addComment: any = createAsyncThunk(
   'comments/addComment',
@@ -43,3 +45,17 @@ export const removeLikeComment: any = createAsyncThunk(
     }
   }
 );
+
+export const validateComment: any = createAsyncThunk(
+  'comments/validateComment',
+  async (data: {id: string, question: questionType, author: userType}, { rejectWithValue }) => {
+    try {
+      await commentServices.validateComment(data.id);
+      await questionServices.updateOneQuestion(data.question);
+      await userServices.updateOneUser({...data.author, score: data.author.score + 1});
+      return { id: data.id, questionId: data.question.id }
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+)
