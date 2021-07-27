@@ -32,8 +32,8 @@
     - [x] add comments like
     - [x] keep comments filtered by date then by likes
     - [x] ability to answer to a comments ? nested comments etc.
-    - [ ] can give a point to a single comment per question open for a good answer
-    - [ ] can mark your own question as resolved (or resolved when you attribute a point).
+    - [x] can give a point to a single comment per question open for a good answer
+    - [x] can mark your own question as resolved (or resolved when you attribute a point).
     - [x] bug: when disconnected, reply should redirect to login page
 
 - [ ] notifications
@@ -42,6 +42,7 @@
 - [x] add github workflow
 - [ ] add user point count in profile and user model db
 - [x] fix old comment model to display them correctly
+- [ ] fix invalid date bug (appears since the score upgrade)
 
 - [ ] Leaderboard
     - [x] style
