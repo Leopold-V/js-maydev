@@ -1,12 +1,15 @@
 import React from 'react';
 import { ButtonLike, ButtonRead } from '../Button';
+import { MarkQuestionSolved } from '../MarkQuestionSolved';
 
 export const QuestionsItemButtonGroup = ({
   id,
   commentsCount,
+  isSolved,
 }: {
   id: string;
   commentsCount: number;
+  isSolved: boolean;
 }) => {
   return (
     <div className="flex space-x-1">
@@ -34,6 +37,7 @@ export const QuestionsItemButtonGroup = ({
       </div>
       <ButtonRead id={id} />
       <ButtonLike id={id} />
+      {isSolved && <MarkQuestionSolved />}
     </div>
   );
 };

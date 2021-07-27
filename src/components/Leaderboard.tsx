@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { userType } from '../app/types';
 import userServices from '../services/user.services';
 
@@ -38,7 +39,12 @@ export const Leaderboard = () => {
                 src={user.avatar || "https://randomuser.me/portraits/men/52.jpg"}
               />
             </div>
-            <span className="truncate w-2/3">{user.username || 'Anonymous'}</span>
+            <Link
+              to={`/profile/${user.userId}`}
+              className="truncate w-2/3"
+            >
+              {user.username || 'Anonymous'}
+            </Link>
           </div>
           <div>{user.score}</div>
         </li>

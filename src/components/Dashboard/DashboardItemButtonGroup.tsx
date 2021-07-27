@@ -4,13 +4,15 @@ import { QuestionsItemButtonGroup } from '../Question';
 export const DashboardItemButtonGroup = ({
   id,
   commentsCount,
+  isSolved,
 }: {
   id: string;
   commentsCount: number;
+  isSolved: boolean;
 }) => {
   return (
     <div className="flex items-center space-x-2">
-      <QuestionsItemButtonGroup id={id} commentsCount={commentsCount} />
+      <QuestionsItemButtonGroup isSolved={isSolved} id={id} commentsCount={commentsCount} />
       <div className="flex items-center space-x-1 text-muted text-sm hover:text-white transition duration-200">
         <span>152</span>
         <svg

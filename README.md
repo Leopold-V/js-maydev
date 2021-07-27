@@ -41,7 +41,7 @@
 - [x] add user point count in profile and user model db
 - [x] fix old comment model to display them correctly
 - [x] fix invalid date bug (appears since the score upgrade)
-- [ ] question item in dashboard don't have the validate mark
+- [x] question item in dashboard don't have the validate mark
 - [ ] bug when add a tag the button become disabled
 - [ ] fix: can't give a point to your own comment
 
