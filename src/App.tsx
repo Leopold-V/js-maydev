@@ -6,7 +6,7 @@ import store from './app/store';
 import { Router } from './app/Router';
 import { auth } from './app/firebase';
 
-import { loadUser, noUser } from './slices/userSlice';
+import { loadUser, noUser, loadAllUsers } from './slices/userSlice';
 import { fetchQuestions } from './actions/question.actions';
 
 import { PageLayout } from './components/PageLayout';
@@ -18,7 +18,10 @@ function App() {
       if (userResult) {
         (async () => {
           const user = await userServices.getOneUser(userResult.uid);
+          const users = await userServices.getAllUsers();
+          console.log(users);
           store.dispatch(loadUser(user));
+          store.dispatch(loadAllUsers(users));
         })();
       } else {
         store.dispatch(noUser());

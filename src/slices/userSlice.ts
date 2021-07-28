@@ -6,8 +6,10 @@ export const userSlice = createSlice({
   initialState: {
     isAuthenticated: false,
     user: null,
+    users: null,
     loading: true,
     loadingData: false,
+    loadingUsers: true,
     error: '',
   },
   reducers: {
@@ -15,6 +17,10 @@ export const userSlice = createSlice({
       state.loading = false;
       state.user = action.payload;
       state.isAuthenticated = true;
+    },
+    loadAllUsers: (state, action: any) => {
+      state.loadingUsers = false;
+      state.users = action.payload;
     },
     noUser: (state) => {
       state.loading = false;
@@ -44,6 +50,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { loadUser, noUser } = userSlice.actions;
+export const { loadUser, noUser, loadAllUsers } = userSlice.actions;
 
 export default userSlice.reducer;

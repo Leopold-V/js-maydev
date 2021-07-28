@@ -48,6 +48,7 @@
     - [x] style
     - [x] map players points
     - [x] Limit the display to the top 10 ?
+    - [x] fix loading unnecessary re-render
 - [x] tags management
     - [x] tags page
     - [x] follow / unfollow tags
