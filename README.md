@@ -52,7 +52,8 @@
 - [ ] tag filter ?
 - [ ] notifications
 - [ ] view counter
-- [ ] dashboard card counter to complete
+- [x] dashboard card counter to complete
+- [ ] add skeleton
 
 - [ ] FAQ
 - [ ] About page
