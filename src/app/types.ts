@@ -8,6 +8,7 @@ export type userType = {
   website_url: string;
   dev_profile: string;
   score: number;
+  tags: string[];
 };
 
 export type questionType = {

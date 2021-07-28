@@ -48,12 +48,15 @@
     - [x] style
     - [x] map players points
     - [x] Limit the display to the top 10 ?
-- [ ] page layout should'nt be scrollable !
-- [ ] tag filter ?
-- [ ] notifications
+- [x] tags management
+    - [x] tags page
+    - [x] follow / unfollow tags
+    - [x] tag filter
 - [ ] view counter
 - [x] dashboard card counter to complete
 - [ ] add skeleton
 
+- [ ] notifications
+- [ ] page layout should'nt be scrollable !
 - [ ] FAQ
 - [ ] About page

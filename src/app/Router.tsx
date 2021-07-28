@@ -18,6 +18,7 @@ import {
   QuestionPage,
   QuestionEditPage,
 } from '../pages';
+import { TagsPage } from '../pages/TagsPage';
 
 export const Router = () => {
   const loading = useSelector((state: any) => state.user.loading);
@@ -42,8 +43,8 @@ export const Router = () => {
       />
       <Route
         exact
-        path="/tags"
-        render={() => !loading && (isAuth ? <Tags /> : <Redirect to="/login" />)}
+        path="/tags/:tagname"
+        render={(props) => !loading && (isAuth ? <Tags {...props} /> : <Redirect to="/login" />)}
       />
       <Route
         exact
@@ -71,6 +72,11 @@ export const Router = () => {
         render={(props) =>
           !loading && (isAuth ? <QuestionEditPage {...props} /> : <Redirect to="/login" />)
         }
+      />
+      <Route
+        exact
+        path="/tags"
+        render={() => !loading && (isAuth ? <TagsPage /> : <Redirect to="/login" />)}
       />
       <Route component={NotFound} />
     </Switch>

@@ -7,6 +7,7 @@ export const userSlice = createSlice({
     isAuthenticated: false,
     user: null,
     loading: true,
+    loadingData: false,
     error: '',
   },
   reducers: {
@@ -23,11 +24,10 @@ export const userSlice = createSlice({
   },
   extraReducers: {
     [updateUser.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingData = true;
     },
     [updateUser.fulfilled]: (state: any, action) => {
-      console.log(action.payload);
-      state.loading = false;
+      state.loadingData = false;
       const user = state.user;
       user.username = action.payload.username;
       user.email = action.payload.email;
@@ -35,9 +35,10 @@ export const userSlice = createSlice({
       user.location = action.payload.location;
       user.website_url = action.payload.website_url;
       user.dev_profile = action.payload.dev_profile;
+      user.tags = action.payload.tags;
     },
     [updateUser.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingData = false;
       state.error = action.payload;
     },
   },
