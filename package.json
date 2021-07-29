@@ -29,6 +29,7 @@
     "start": "craco start",
     "build": "craco build",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' 'src/**/*.tsx'  --write",
+    "prettier:check": "prettier --config .prettierrc 'src/**/*.ts' 'src/**/*.tsx'  --check",
     "test": "craco test",
     "eject": "react-scripts eject"
   },

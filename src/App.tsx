@@ -19,7 +19,6 @@ function App() {
         (async () => {
           const user = await userServices.getOneUser(userResult.uid);
           const users = await userServices.getAllUsers();
-          console.log(users);
           store.dispatch(loadUser(user));
           store.dispatch(loadAllUsers(users));
         })();

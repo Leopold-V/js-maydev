@@ -6,6 +6,7 @@ import commentServices from '../../services/comment.services';
 import userServices from '../../services/user.services';
 import { QuestionsItemButtonGroup } from './';
 import { QuestionListTags } from './QuestionListTags';
+import { QuestionSkeleton } from './QuestionSkeleton';
 
 export const QuestionsItem = ({ question }: { question: questionType }) => {
   const [user, setUser] = useState<any>(null);
@@ -28,7 +29,12 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
     loadComment(question.id);
   }, [authorId, question.id]);
 
-  if (!user) return <div className="card h-40 my-2"></div>;
+  if (!user)
+    return (
+      <div className="card h-40 my-2">
+        <QuestionSkeleton />
+      </div>
+    );
   return (
     <Link to={`/question/${id}`}>
       <div className="card my-2 min-h-40">

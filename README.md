@@ -53,12 +53,13 @@
     - [x] tags page
     - [x] follow / unfollow tags
     - [x] tag filter
-- [ ] view counter
 - [x] dashboard card counter to complete
-- [ ] search bar
+- [x] search bar
 
 - [ ] add skeleton
+
 - [ ] notifications
+- [ ] view counter
 - [ ] page layout should'nt be scrollable !
 - [ ] FAQ
 - [ ] About page
