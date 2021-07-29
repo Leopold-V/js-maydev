@@ -55,8 +55,9 @@
     - [x] tag filter
 - [ ] view counter
 - [x] dashboard card counter to complete
-- [ ] add skeleton
+- [ ] search bar
 
+- [ ] add skeleton
 - [ ] notifications
 - [ ] page layout should'nt be scrollable !
 - [ ] FAQ

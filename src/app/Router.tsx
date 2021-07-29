@@ -18,6 +18,7 @@ import {
   QuestionPage,
   QuestionEditPage,
 } from '../pages';
+import { SearchPage } from '../pages/SearchPage';
 import { TagsPage } from '../pages/TagsPage';
 
 export const Router = () => {
@@ -31,6 +32,7 @@ export const Router = () => {
       <Route exact path="/profile/:id" component={ProfilePage} />
       <Route exact path="/faq" component={Faq} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/search/:input" component={SearchPage} />
       <Route
         exact
         path="/dashboard"

@@ -1,11 +1,13 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export const SearchBar = () => {
+  const history = useHistory();
   const [input, setInput] = useState('');
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    console.log(input);
+    history.push(`/search/${input}`);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
