@@ -34,28 +34,26 @@ export const NotifsDropdown = ({
     <>
       <div className="absolute z-10 top-14 bg-gray w-56 rounded border-2 border-gray-100 max-h-40 overflow-x-auto">
         <ul className="py-1 px-1">
-          {
+          {[...notifsList]
             //@ts-ignore
-            [...notifsList]
-              .sort((a, b) => new Date(b.date) - new Date(a.date))
-              .map((notif: notificationType) => (
-                <li
-                  key={notif.id}
-                  className={`${
-                    notif.isRead ? '' : 'bg-gray-100'
-                  } "hover:bg-gray-100 hover:text-blue rounded transition duration-200"`}
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map((notif: notificationType) => (
+              <li
+                key={notif.id}
+                className={`${
+                  notif.isRead ? '' : 'bg-gray-100'
+                } "hover:bg-gray-100 hover:text-blue rounded transition duration-200"`}
+              >
+                <button
+                  data-id={notif.id}
+                  data-link={notif.link}
+                  onClick={handleClick}
+                  className="flex items-center space-x-2 px-2 py-2"
                 >
-                  <button
-                    data-id={notif.id}
-                    data-link={notif.link}
-                    onClick={handleClick}
-                    className="flex items-center space-x-2 px-2 py-2"
-                  >
-                    {notif.content}
-                  </button>
-                </li>
-              ))
-          }
+                  {notif.content}
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
       <section
