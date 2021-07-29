@@ -6,7 +6,15 @@ import { addNotification } from '../../actions/notifications.actions';
 import { auth } from '../../app/firebase';
 import { commentType } from '../../app/types';
 
-export const ButtonLikeComment = ({ id, questionId, authorId }: { id: string, questionId: string, authorId: string }) => {
+export const ButtonLikeComment = ({
+  id,
+  questionId,
+  authorId,
+}: {
+  id: string;
+  questionId: string;
+  authorId: string;
+}) => {
   let history = useHistory();
   const dispatch = useDispatch();
 

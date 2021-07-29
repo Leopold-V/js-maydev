@@ -21,12 +21,12 @@ export const ButtonLike = ({ id }: { id: string }) => {
       dispatch(addLikeQuestion({ userId: auth.currentUser.uid, id: id, likes: question.likes }));
       const notification = {
         userId: question.authorId,
-        content: `${user.username || "Anonymous"} liked your post: ${question.title}`,
+        content: `${user.username || 'Anonymous'} liked your post: ${question.title}`,
         link: `question/${question.id}`,
         date: new Date(Date.now()),
-        isRead: false
-      }
-      dispatch(addNotification(notification))
+        isRead: false,
+      };
+      dispatch(addNotification(notification));
     } else {
       history.push('/login');
     }
