@@ -55,10 +55,11 @@
     - [x] tag filter
 - [x] dashboard card counter to complete
 - [x] search bar
-
-- [ ] add skeleton
+- [x] add skeleton
 
 - [ ] notifications
+    - [ ] create notification model, slice, actions, services
+    - [ ] create UI element - notifs list
 - [ ] view counter
 - [ ] page layout should'nt be scrollable !
 - [ ] FAQ

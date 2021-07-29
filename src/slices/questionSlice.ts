@@ -17,6 +17,7 @@ export const questionSlice = createSlice({
   initialState: {
     questions: [],
     loading: true,
+    loadingToUpdate: false,
     error: '',
   },
   reducers: {},
@@ -44,10 +45,10 @@ export const questionSlice = createSlice({
       state.error = action.payload;
     },
     [updateQuestion.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingToUpdate = true;
     },
     [updateQuestion.fulfilled]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
       question.title = action.payload.title;
       question.content = action.payload.content;
@@ -55,7 +56,7 @@ export const questionSlice = createSlice({
       question.edit_date = action.payload.edit_date;
     },
     [updateQuestion.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       state.error = action.payload;
     },
     [deleteQuestion.pending]: (state: any) => {
@@ -71,65 +72,65 @@ export const questionSlice = createSlice({
       state.error = action.payload;
     },
     [addQuestionToRead.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingToUpdate = true;
     },
     [addQuestionToRead.fulfilled]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
       question.reading = action.payload.reading;
     },
     [addQuestionToRead.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       state.error = action.payload;
     },
     [removeQuestionToRead.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingToUpdate = true;
     },
     [removeQuestionToRead.fulfilled]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
       question.reading = action.payload.reading;
     },
     [removeQuestionToRead.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       state.error = action.payload;
     },
     [addLikeQuestion.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingToUpdate = true;
     },
     [addLikeQuestion.fulfilled]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
       question.likes = action.payload.likes;
     },
     [addLikeQuestion.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       state.error = action.payload;
     },
     [removeLikeQuestion.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingToUpdate = true;
     },
     [removeLikeQuestion.fulfilled]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       const question = state.questions.find((ele: questionType) => ele.id === action.payload.id);
       question.likes = action.payload.likes;
     },
     [removeLikeQuestion.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       state.error = action.payload;
     },
     [validateComment.pending]: (state: any) => {
-      state.loading = true;
+      state.loadingToUpdate = true;
     },
     [validateComment.fulfilled]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       const question = state.questions.find(
         (ele: questionType) => ele.id === action.payload.questionId
       );
       question.isSolved = true;
     },
     [validateComment.rejected]: (state: any, action) => {
-      state.loading = false;
+      state.loadingToUpdate = false;
       state.error = action.payload;
     },
   },

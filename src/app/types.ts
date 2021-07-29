@@ -35,3 +35,12 @@ export type commentType = {
   ancester: string;
   isSolution: boolean;
 };
+
+export type notificationType = {
+  id: string;
+  userId: string;
+  content: string;
+  link: string;
+  date: string;
+  isRead: boolean;
+};
