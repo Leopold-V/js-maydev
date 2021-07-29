@@ -6,9 +6,11 @@ import { notificationType, userType } from '../app/types';
 
 export const SettingsPage = () => {
   const user: userType = useSelector((state: any) => state.user.user);
-  const notifications: notificationType = useSelector((state: any) => state.notifications.notifications);
+  const notifications: notificationType = useSelector(
+    (state: any) => state.notifications.notifications
+  );
   console.log(notifications);
-  
+
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({ ...user });

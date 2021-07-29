@@ -1,13 +1,20 @@
 import React from 'react';
+import { notificationType } from '../../app/types';
 
-export const ButtonNotif = () => {
+export const ButtonNotif = ({
+  setShow,
+  notifsList,
+}: {
+  setShow: (show: any) => void;
+  notifsList: notificationType[];
+}) => {
   const handleClick = () => {
-    console.log('Display notif menu');
+    setShow((show: boolean) => !show);
   };
 
   return (
     <button
-      className="hover:bg-gray-light focus:bg-gray-light h-8 w-8 rounded-full transition duration-200 focus:outline-none hover:text-white"
+      className="relative hover:bg-gray-light focus:bg-gray-light h-8 w-8 rounded-full transition duration-200 focus:outline-none hover:text-white"
       onClick={handleClick}
     >
       <svg
@@ -23,6 +30,7 @@ export const ButtonNotif = () => {
           strokeWidth={2}
           d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
         />
+        {notifsList.length > 0 && <circle stroke="#ff4b4b" fill="#ff4b4b" cx="18" cy="17" r="4" />}
       </svg>
     </button>
   );

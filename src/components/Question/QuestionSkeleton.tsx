@@ -13,7 +13,7 @@ export const QuestionSkeleton = () => (
       y="0"
       width="100%"
       height="100%"
-      clip-path="url(#clip-path)"
+      clipPath="url(#clip-path)"
       style={{ fill: 'URL("#fill")' }}
     ></rect>
     <defs>
@@ -25,7 +25,7 @@ export const QuestionSkeleton = () => (
         <rect x="438" y="99" rx="0" ry="0" width="168" height="22" />
       </clipPath>
       <linearGradient id="fill">
-        <stop offset="0.599964" stop-color="#444f5b" stop-opacity="1">
+        <stop offset="0.599964" stopColor="#444f5b" stopOpacity="1">
           <animate
             attributeName="offset"
             values="-2; -2; 1"
@@ -34,7 +34,7 @@ export const QuestionSkeleton = () => (
             repeatCount="indefinite"
           ></animate>
         </stop>
-        <stop offset="1.59996" stop-color="#2e3a48" stop-opacity="1">
+        <stop offset="1.59996" stopColor="#2e3a48" stopOpacity="1">
           <animate
             attributeName="offset"
             values="-1; -1; 2"
@@ -43,7 +43,7 @@ export const QuestionSkeleton = () => (
             repeatCount="indefinite"
           ></animate>
         </stop>
-        <stop offset="2.59996" stop-color="#444f5b" stop-opacity="1">
+        <stop offset="2.59996" stopColor="#444f5b" stopOpacity="1">
           <animate
             attributeName="offset"
             values="0; 0; 3"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { notificationType } from '../app/types';
 
 import {
   ButtonProfile,
@@ -11,11 +12,17 @@ import {
 } from './Button';
 import { SearchBar } from './SearchBar';
 import { ProfileDropwdown } from './ProfileDropwdown';
+import { NotifsDropdown } from './NotifsDropdown';
 
 export const HeaderBar = () => {
   const user = useSelector((state: any) => state.user.user);
   const loading = useSelector((state: any) => state.user.loading);
+  const notifications: notificationType[] = useSelector(
+    (state: any) => state.notifications.notifications
+  );
+
   const [showProfileItems, setShowProfileItems] = useState(false);
+  const [showNotifsList, setShowNotifsList] = useState(false);
 
   return (
     <div className="bg-gray sticky top-0 z-50">
@@ -32,7 +39,12 @@ export const HeaderBar = () => {
           (user ? (
             <div className="flex items-center space-x-4">
               <ButtonCreateQuestion />
-              <ButtonNotif />
+              <ButtonNotif setShow={setShowNotifsList} notifsList={notifications} />
+              <NotifsDropdown
+                show={showNotifsList}
+                setShow={setShowNotifsList}
+                notifsList={notifications}
+              />
               <ButtonProfile setShow={setShowProfileItems} />
               <ProfileDropwdown show={showProfileItems} setShow={setShowProfileItems} />
             </div>
