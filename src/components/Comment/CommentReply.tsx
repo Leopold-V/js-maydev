@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
+import { addNotification } from '../../actions/notifications.actions';
 import { userType } from '../../app/types';
 
 export const CommentReply = ({
@@ -41,7 +42,16 @@ export const CommentReply = ({
       isSolution: false,
     };
     dispatch(addComment(newComment));
+    const notification = {
+      userId: ancester,
+      content: `${user.username || 'Anonymous'} replied to one of your comments`,
+      link: `question/${questionId}`,
+      date: new Date(Date.now()),
+      isRead: false,
+    };
+    dispatch(addNotification(notification));
     setInput('');
+    setReplyOpen(!replyOpen);
   };
 
   return (

@@ -1,21 +1,34 @@
 import React, { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { addNotification } from '../../actions/notifications.actions';
 import { addQuestionToRead, removeQuestionToRead } from '../../actions/question.actions';
 import { auth } from '../../app/firebase';
-import { questionType } from '../../app/types';
+import { questionType, userType } from '../../app/types';
 
 export const ButtonRead = ({ id }: { id: string }) => {
-  const reading = useSelector((state: any) =>
+  const question: questionType = useSelector((state: any) =>
     state.questions.questions.find((ele: questionType) => ele.id === id)
-  ).reading;
+  );
+  const user: userType = useSelector((state: any) => state.user.user);
 
   let history = useHistory();
   const dispatch = useDispatch();
+
   const addToRead = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(addQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: reading }));
+      dispatch(
+        addQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: question.reading })
+      );
+      const notification = {
+        userId: question.authorId,
+        content: `${user.username || 'Anonymous'} liked your post: ${question.title}`,
+        link: `question/${question.id}`,
+        date: new Date(Date.now()),
+        isRead: false,
+      };
+      dispatch(addNotification(notification));
     } else {
       history.push('/login');
     }
@@ -24,20 +37,22 @@ export const ButtonRead = ({ id }: { id: string }) => {
   const removeFromRead = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(removeQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: reading }));
+      dispatch(
+        removeQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: question.reading })
+      );
     } else {
       history.push('/login');
     }
   };
 
   //@ts-ignore
-  if (!reading.includes(auth.currentUser?.uid)) {
+  if (!question.reading.includes(auth.currentUser?.uid)) {
     return (
       <button
         className="flex items-center space-x-2 py-1 px-2 bg-gray text-muted focus:outline-none hover:bg-gray-100 hover:text-primary transition duration-200 rounded-full"
         onClick={addToRead}
       >
-        <span className="text-sm">{reading.length}</span>
+        <span className="text-sm">{question.reading.length}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -54,7 +69,7 @@ export const ButtonRead = ({ id }: { id: string }) => {
         className="flex items-center space-x-2 py-1 px-2 bg-gray-100 text-primary focus:outline-none hover:text-primary transition duration-200 rounded-full"
         onClick={removeFromRead}
       >
-        <span className="text-sm">{reading.length}</span>
+        <span className="text-sm">{question.reading.length}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"

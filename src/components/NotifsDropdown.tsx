@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { readNotification } from '../actions/notifications.actions';
 import { notificationType } from '../app/types';
 
@@ -27,12 +27,15 @@ export const NotifsDropdown = ({
     history.push('/' + target.dataset.link);
   };
 
+  //const notifsListSort = ...notifsList.sort((a: any, b: any) => b.date - a.date)
+
   if (!show) return null;
   return (
     <>
-      <div className="absolute z-10 top-14 bg-gray w-48 rounded border-2 border-gray-100 max-h-20 overflow-x-auto">
+      <div className="absolute z-10 top-14 bg-gray w-56 rounded border-2 border-gray-100 max-h-40 overflow-x-auto">
         <ul className="py-1 px-1">
-          {notifsList.map((notif: notificationType) => (
+          {//@ts-ignore
+          [...notifsList].sort((a, b) => new Date(b.date) - new Date(a.date)).map((notif: notificationType) => (
             <li
               key={notif.id}
               className={`${

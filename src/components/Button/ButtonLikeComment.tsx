@@ -2,21 +2,31 @@ import React, { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { addLikeComment, removeLikeComment } from '../../actions/comment.actions';
+import { addNotification } from '../../actions/notifications.actions';
 import { auth } from '../../app/firebase';
 import { commentType } from '../../app/types';
 
-export const ButtonLikeComment = ({ id }: { id: string }) => {
+export const ButtonLikeComment = ({ id, questionId, authorId }: { id: string, questionId: string, authorId: string }) => {
   let history = useHistory();
   const dispatch = useDispatch();
 
   const likes = useSelector((state: any) =>
     state.comments.comments.find((ele: commentType) => ele.id === id)
   ).likes;
+  const user = useSelector((state: any) => state.user.user);
 
   const addToLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
       dispatch(addLikeComment({ userId: auth.currentUser.uid, id: id, likes: likes }));
+      const notification = {
+        userId: authorId,
+        content: `${user.username || 'Anonymous'} liked one of your comments`,
+        link: `question/${questionId}`,
+        date: new Date(Date.now()),
+        isRead: false,
+      };
+      dispatch(addNotification(notification));
     } else {
       history.push('/login');
     }

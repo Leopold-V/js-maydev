@@ -57,9 +57,12 @@
 - [x] search bar
 - [x] add skeleton
 
-- [ ] notifications
-    - [ ] create notification model, slice, actions, services
-    - [ ] create UI element - notifs list
+- [x] notifications
+    - [x] create notification model, slice, actions, services
+    - [x] create UI element - notifs list
+    - [ ] add empty notif icon
+    - [ ] bug: only own notification should appears
+    - [ ] refresh notification with subscript / observer pattern ?
 - [ ] view counter
 - [ ] page layout should'nt be scrollable !
 - [ ] FAQ

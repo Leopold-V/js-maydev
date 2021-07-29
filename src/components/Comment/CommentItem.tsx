@@ -59,7 +59,7 @@ export const CommentItem = ({ comment }: { comment: commentType }) => {
               authorId={comment.authorId}
               questionId={comment.questionId}
             />
-            <ButtonLikeComment id={comment.id} />
+            <ButtonLikeComment id={comment.id} questionId={comment.questionId} authorId={comment.authorId} />
           </div>
           <div className="flex items-center text-muted space-x-2">
             <Link
