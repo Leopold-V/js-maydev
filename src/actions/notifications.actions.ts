@@ -37,3 +37,15 @@ export const addNotification: any = createAsyncThunk(
     }
   }
 );
+
+export const readNotification: any = createAsyncThunk(
+  'notifications/readNotification',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      await notificationServices.updateOneNotification(id);
+      return { id: id };
+    } catch (error) {
+      return rejectWithValue(error.code);
+    }
+  }
+);

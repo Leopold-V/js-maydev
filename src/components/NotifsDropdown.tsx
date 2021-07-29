@@ -1,5 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { MouseEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { readNotification } from '../actions/notifications.actions';
 import { notificationType } from '../app/types';
 
 export const NotifsDropdown = ({
@@ -11,28 +13,40 @@ export const NotifsDropdown = ({
   setShow: (show: any) => void;
   notifsList: notificationType[];
 }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const closeProfileItem = () => {
     setShow(false);
   };
 
-  const handleClick = () => {
-    // TODO : mark the notif as read
-    console.log('mark the notif as read');
+  const handleClick = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    const target = e.target as HTMLElement;
+    dispatch(readNotification(target.dataset.id));
+    history.push('/' + target.dataset.link);
   };
 
   if (!show) return null;
   return (
     <>
-      <div className="absolute z-10 top-14 right-6 bg-gray w-40 rounded border-2 border-gray-100">
+      <div className="absolute z-10 top-14 bg-gray w-48 rounded border-2 border-gray-100 max-h-20 overflow-x-auto">
         <ul className="py-1 px-1">
           {notifsList.map((notif: notificationType) => (
             <li
-              className="hover:bg-gray-100 hover:text-blue rounded transition duration-200"
-              onClick={handleClick}
+              key={notif.id}
+              className={`${
+                notif.isRead ? '' : 'bg-gray-100'
+              } "hover:bg-gray-100 hover:text-blue rounded transition duration-200"`}
             >
-              <Link className="flex items-center space-x-2 px-2 py-2" to={`/${notif.link}`}>
-                <span>{notif.content}</span>
-              </Link>
+              <button
+                data-id={notif.id}
+                data-link={notif.link}
+                onClick={handleClick}
+                className="flex items-center space-x-2 px-2 py-2"
+              >
+                {notif.content}
+              </button>
             </li>
           ))}
         </ul>

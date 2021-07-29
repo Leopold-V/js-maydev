@@ -2,14 +2,10 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateUser } from '../actions/user.actions';
-import { notificationType, userType } from '../app/types';
+import { userType } from '../app/types';
 
 export const SettingsPage = () => {
   const user: userType = useSelector((state: any) => state.user.user);
-  const notifications: notificationType = useSelector(
-    (state: any) => state.notifications.notifications
-  );
-  console.log(notifications);
 
   const dispatch = useDispatch();
 

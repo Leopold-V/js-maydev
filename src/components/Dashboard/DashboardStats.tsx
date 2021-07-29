@@ -33,9 +33,7 @@ export const DashboardStats = () => {
       <div className="card m-2 md:m-4 lg:flex-grow">
         <div className="px-2 py-2 md:py-4">
           <div className="text-xl md:text-3xl font-bold">
-            {questions.reduce((a, b) => {
-              return b.isSolved ? a + b.reading.length : a;
-            }, 0)}
+            {questions.reduce((a, b) => (b.isSolved ? a + b.reading.length : a), 0)}
           </div>
           <div className="text-muted">Total help received</div>
         </div>

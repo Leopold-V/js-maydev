@@ -19,7 +19,7 @@ export const Leaderboard = () => {
           <div>Score</div>
         </li>
         {users.map((user: userType, i: number) => (
-          <li className="flex justify-between">
+          <li key={user.userId} className="flex justify-between">
             <div>{i + 1}.</div>
             <div className="flex items-center space-x-2 w-2/3 hover:text-blue">
               <div className="w-6 focus:outline-none">

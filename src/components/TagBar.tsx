@@ -10,9 +10,9 @@ export const TagBar = () => {
       <h2 className="font-bold text-primary pb-4">My Tags</h2>
       <ul>
         {user &&
-          user.tags.map((tag: string) => {
+          user.tags.map((tag: string, i: number) => {
             return (
-              <li className="hover:bg-gray hover:text-blue rounded transition duration-200">
+              <li key={i} className="hover:bg-gray hover:text-blue rounded transition duration-200">
                 <Link className="flex px-2 py-2" to={`/tags/${tag}`}>
                   #{tag}
                 </Link>

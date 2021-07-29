@@ -27,9 +27,24 @@ export const addOneNotification = async (data: notificationType): Promise<any> =
   return docRef.id;
 };
 
+const updateOneNotification = async (id: string) => {
+  const questionRef = db.collection('notifications').doc(id);
+  return questionRef
+    .update({
+      isRead: true,
+    })
+    .then(() => {
+      console.log('Document successfully updated!');
+    })
+    .catch((error) => {
+      console.error('Error updating document: ', error);
+    });
+};
+
 const notificationServices = {
   getNotificationsOfOneUser,
   addOneNotification,
+  updateOneNotification,
 };
 
 export default notificationServices;
