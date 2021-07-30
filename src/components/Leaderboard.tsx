@@ -18,24 +18,26 @@ export const Leaderboard = () => {
           <div className="w-2/3">Username</div>
           <div>Score</div>
         </li>
-        {[...users].sort((a: any, b: any) => b.score - a.score).map((user: userType, i: number) => (
-          <li key={user.userId} className="flex justify-between">
-            <div>{i + 1}.</div>
-            <div className="flex items-center space-x-2 w-2/3 hover:text-blue">
-              <div className="w-6 focus:outline-none">
-                <img
-                  className="rounded-full"
-                  alt="profile_picture"
-                  src={user.avatar || 'https://randomuser.me/portraits/men/52.jpg'}
-                />
+        {[...users]
+          .sort((a: any, b: any) => b.score - a.score)
+          .map((user: userType, i: number) => (
+            <li key={user.userId} className="flex justify-between">
+              <div>{i + 1}.</div>
+              <div className="flex items-center space-x-2 w-2/3 hover:text-blue">
+                <div className="w-6 focus:outline-none">
+                  <img
+                    className="rounded-full"
+                    alt="profile_picture"
+                    src={user.avatar || 'https://randomuser.me/portraits/men/52.jpg'}
+                  />
+                </div>
+                <Link to={`/profile/${user.userId}`} className="truncate w-2/3">
+                  {user.username || 'Anonymous'}
+                </Link>
               </div>
-              <Link to={`/profile/${user.userId}`} className="truncate w-2/3">
-                {user.username || 'Anonymous'}
-              </Link>
-            </div>
-            <div>{user.score}</div>
-          </li>
-        ))}
+              <div>{user.score}</div>
+            </li>
+          ))}
       </ul>
     </div>
   );

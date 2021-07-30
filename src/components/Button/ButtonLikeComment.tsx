@@ -16,14 +16,14 @@ export const ButtonLikeComment = ({
 }) => {
   let history = useHistory();
   const dispatch = useDispatch();
-  
+
   const likes = useSelector((state: any) =>
-  state.comments.comments.find((ele: commentType) => ele.id === id)
+    state.comments.comments.find((ele: commentType) => ele.id === id)
   ).likes;
   const user = useSelector((state: any) => state.user.user);
-  
+
   const disabled = user.userId === authorId;
-  
+
   const addToLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
@@ -59,7 +59,9 @@ export const ButtonLikeComment = ({
   if (!likes.includes(auth.currentUser?.uid)) {
     return (
       <button
-        className={`${disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'} flex items-center justify-center space-x-1 py-1 px-2 bg-gray-100 
+        className={`${
+          disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'
+        } flex items-center justify-center space-x-1 py-1 px-2 bg-gray-100 
             text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full`}
         onClick={addToLike}
         disabled={disabled}
@@ -82,7 +84,9 @@ export const ButtonLikeComment = ({
   }
   return (
     <button
-      className={`${disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'} flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full`}
+      className={`${
+        disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'
+      } flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full`}
       onClick={removeFromLike}
     >
       <span className="text-sm">{likes.length}</span>
