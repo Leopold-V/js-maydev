@@ -22,7 +22,7 @@ export const getNotificationsOfOneUser = async (userId: string): Promise<notific
   return listNotifications;
 };
 
-export const addOneNotification = async (data: notificationType): Promise<any> => {
+export const addOneNotification = async (data: any): Promise<any> => {
   const docRef = await db.collection('notifications').add(data);
   return docRef.id;
 };

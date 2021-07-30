@@ -2,8 +2,9 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
 import { userType } from '../../app/types';
+import notificationServices from '../../services/notification.services';
 
-export const CommentForm = ({ questionId }: { questionId: string }) => {
+export const CommentForm = ({ questionId, authorId }: { questionId: string; authorId: string }) => {
   const dispatch = useDispatch();
   const user: userType = useSelector((state: any) => state.user.user);
 
@@ -30,7 +31,16 @@ export const CommentForm = ({ questionId }: { questionId: string }) => {
       date: new Date(Date.now()),
       isSolution: false,
     };
-    dispatch(addComment(newComment));
+    const notification = {
+      userId: authorId,
+      content: `${user.username || 'Anonymous'} answered to your question`,
+      link: `question/${questionId}`,
+      date: new Date(Date.now()),
+      isRead: false,
+    };
+    dispatch(addComment(newComment))
+      .then(() => notificationServices.addOneNotification(notification))
+      .catch((err: Error) => console.log(err));
     setInput('');
   };
 

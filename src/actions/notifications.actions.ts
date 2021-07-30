@@ -1,10 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { notificationType } from '../app/types';
 import notificationServices from '../services/notification.services';
-
-// TODO :
-// Update isRead notification
-// Clean notification
 
 export const fetchNotification: any = createAsyncThunk(
   'notifications/fetchNotifications',
@@ -16,22 +11,6 @@ export const fetchNotification: any = createAsyncThunk(
         date: new Date(notif.date.seconds * 1000).toDateString(),
       }));
       return formattedNotifications;
-    } catch (error) {
-      return rejectWithValue(error.code);
-    }
-  }
-);
-
-export const addNotification: any = createAsyncThunk(
-  'notifications/addNotifications',
-  async (data: notificationType, { rejectWithValue }) => {
-    try {
-      const notificationId = await notificationServices.addOneNotification(data);
-      return {
-        ...data,
-        date: new Date(Date.now()).toDateString(),
-        id: notificationId,
-      };
     } catch (error) {
       return rejectWithValue(error.code);
     }

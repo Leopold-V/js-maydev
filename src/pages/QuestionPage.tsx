@@ -78,7 +78,7 @@ export const QuestionPage = (props: any) => {
           </div>
           <MarkdownWrapper content={question.content} />
         </div>
-        <CommentsBlock questionId={questionId} />
+        <CommentsBlock questionId={questionId} authorId={question.authorId} />
       </div>
     </MainLayout>
   );

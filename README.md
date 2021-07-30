@@ -61,8 +61,11 @@
     - [x] create notification model, slice, actions, services
     - [x] create UI element - notifs list
     - [ ] add empty notif icon
-    - [ ] bug: only own notification should appears
-    - [ ] refresh notification with subscript / observer pattern ?
+    - [x] bug: only own notification should appears
+    - [ ] refresh notification with subscribe / observer pattern ?
+- [ ] change read-like icons color
+- [ ] add loading spinner for comments block
+- [ ] improve responsive on mobile
 - [ ] view counter
 - [ ] page layout should'nt be scrollable !
 - [ ] FAQ

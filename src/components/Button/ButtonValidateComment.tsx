@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { validateComment } from '../../actions/comment.actions';
 import { auth } from '../../app/firebase';
-import { questionType } from '../../app/types';
+import { questionType, userType } from '../../app/types';
 import userServices from '../../services/user.services';
 
 export const ButtonValidateComment = ({
@@ -19,6 +19,7 @@ export const ButtonValidateComment = ({
   const question: questionType = useSelector((state: any) =>
     state.questions.questions.filter((question: questionType) => question.id === questionId)
   )[0];
+  const user: userType = useSelector((state: any) => state.user.user);
 
   const dispatch = useDispatch();
 
@@ -30,7 +31,21 @@ export const ButtonValidateComment = ({
       date: new Date(Date.now()),
       edit_date: new Date(Date.now()),
     };
-    dispatch(validateComment({ id: commentId, question: { ...questionToUpdate }, author: author }));
+    const notification = {
+      userId: authorId,
+      content: `${user.username || 'Anonymous'} validated your answer at: ${question.title}`,
+      link: `question/${question.id}`,
+      date: new Date(Date.now()),
+      isRead: false,
+    };
+    dispatch(
+      validateComment({
+        id: commentId,
+        question: { ...questionToUpdate },
+        author: author,
+        notification: notification,
+      })
+    );
   };
 
   if (

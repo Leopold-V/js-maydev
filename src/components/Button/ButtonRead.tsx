@@ -1,7 +1,6 @@
 import React, { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { addNotification } from '../../actions/notifications.actions';
 import { addQuestionToRead, removeQuestionToRead } from '../../actions/question.actions';
 import { auth } from '../../app/firebase';
 import { questionType, userType } from '../../app/types';
@@ -18,9 +17,6 @@ export const ButtonRead = ({ id }: { id: string }) => {
   const addToRead = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
-      dispatch(
-        addQuestionToRead({ userId: auth.currentUser.uid, id: id, reading: question.reading })
-      );
       const notification = {
         userId: question.authorId,
         content: `${user.username || 'Anonymous'} liked your post: ${question.title}`,
@@ -28,7 +24,14 @@ export const ButtonRead = ({ id }: { id: string }) => {
         date: new Date(Date.now()),
         isRead: false,
       };
-      dispatch(addNotification(notification));
+      dispatch(
+        addQuestionToRead({
+          userId: auth.currentUser.uid,
+          id: id,
+          reading: question.reading,
+          notification: notification,
+        })
+      );
     } else {
       history.push('/login');
     }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { notificationType } from '../app/types';
+import { notificationType, userType } from '../app/types';
 
 import {
   ButtonProfile,
@@ -15,7 +15,7 @@ import { ProfileDropwdown } from './ProfileDropwdown';
 import { NotifsDropdown } from './NotifsDropdown';
 
 export const HeaderBar = () => {
-  const user = useSelector((state: any) => state.user.user);
+  const user: userType = useSelector((state: any) => state.user.user);
   const loading = useSelector((state: any) => state.user.loading);
   const notifications: notificationType[] = useSelector(
     (state: any) => state.notifications.notifications

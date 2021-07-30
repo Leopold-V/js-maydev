@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
-import { addNotification } from '../../actions/notifications.actions';
 import { userType } from '../../app/types';
+import notificationServices from '../../services/notification.services';
 
 export const CommentReply = ({
   ancester,
@@ -41,7 +41,6 @@ export const CommentReply = ({
       ancester: ancester,
       isSolution: false,
     };
-    dispatch(addComment(newComment));
     const notification = {
       userId: ancester,
       content: `${user.username || 'Anonymous'} replied to one of your comments`,
@@ -49,7 +48,9 @@ export const CommentReply = ({
       date: new Date(Date.now()),
       isRead: false,
     };
-    dispatch(addNotification(notification));
+    dispatch(addComment(newComment))
+      .then(() => notificationServices.addOneNotification(notification))
+      .catch((err: Error) => console.log(err));
     setInput('');
     setReplyOpen(!replyOpen);
   };

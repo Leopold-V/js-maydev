@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { questionType } from '../app/types';
+import notificationServices from '../services/notification.services';
 import questionServices from '../services/question.services';
 
 export const fetchQuestions: any = createAsyncThunk(
@@ -62,10 +63,14 @@ export const updateQuestion: any = createAsyncThunk(
 
 export const addQuestionToRead: any = createAsyncThunk(
   'questions/addToReadQuestion',
-  async (data: { userId: string; id: string; reading: string[] }, { rejectWithValue }) => {
+  async (
+    data: { userId: string; id: string; reading: string[]; notification: any },
+    { rejectWithValue }
+  ) => {
     const updatedList = [...data.reading, data.userId];
     try {
       await questionServices.updateReading({ id: data.id, reading: updatedList });
+      await notificationServices.addOneNotification(data.notification);
       return { id: data.id, reading: updatedList };
     } catch (error) {
       return rejectWithValue(error.code);
@@ -88,10 +93,14 @@ export const removeQuestionToRead: any = createAsyncThunk(
 
 export const addLikeQuestion: any = createAsyncThunk(
   'questions/addLikeQuestion',
-  async (data: { userId: string; id: string; likes: string[] }, { rejectWithValue }) => {
+  async (
+    data: { userId: string; id: string; likes: string[]; notification: any },
+    { rejectWithValue }
+  ) => {
     const updatedList = [...data.likes, data.userId];
     try {
       await questionServices.updateLikes({ id: data.id, likes: updatedList });
+      await notificationServices.addOneNotification(data.notification);
       return { id: data.id, likes: updatedList };
     } catch (error) {
       return rejectWithValue(error.code);
