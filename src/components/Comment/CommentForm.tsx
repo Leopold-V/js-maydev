@@ -3,7 +3,19 @@ import { useDispatch } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
 import notificationServices from '../../services/notification.services';
 
-export const CommentForm = ({ questionId, authorId, userId, avatar, username }: { questionId: string; authorId: string, userId: string, avatar: string, username: string }) => {
+export const CommentForm = ({
+  questionId,
+  authorId,
+  userId,
+  avatar,
+  username,
+}: {
+  questionId: string;
+  authorId: string;
+  userId: string;
+  avatar: string;
+  username: string;
+}) => {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState('');

@@ -31,7 +31,13 @@ export const CommentsBlock = ({
     <div className="mt-16">
       <h2 className="text-primary text-2xl font-bold py-4">Discussions</h2>
       {user ? (
-        <CommentForm questionId={questionId} authorId={authorId} userId={user.userId} avatar={user.avatar} username={user.username} />
+        <CommentForm
+          questionId={questionId}
+          authorId={authorId}
+          userId={user.userId}
+          avatar={user.avatar}
+          username={user.username}
+        />
       ) : (
         <div className="mb-8">You must log in to reply</div>
       )}

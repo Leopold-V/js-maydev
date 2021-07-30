@@ -1,27 +1,27 @@
-import store from "../app/store";
+import store from '../app/store';
 import { getUserNotifications } from '../actions/notifications.actions';
 
 export class NotifObserver {
-    listObserver: string[] = [];
+  listObserver: string[] = [];
 
-    constructor(listObserver: any) {
-        this.listObserver = listObserver;
-    }
+  constructor(listObserver: any) {
+    this.listObserver = listObserver;
+  }
 
-    subscribe(userId: string) {
-        this.listObserver.push(userId);
-    }
+  subscribe(userId: string) {
+    this.listObserver.push(userId);
+  }
 
-    unsubscribe(userIndex: any) {
-        this.listObserver.slice(1, userIndex);
-    }
+  unsubscribe(userIndex: any) {
+    this.listObserver.slice(1, userIndex);
+  }
 
-    onSubscribe() {
-        setInterval(() => {
-            for (let id of this.listObserver) {
-                store.dispatch(getUserNotifications(id));
-                console.log('hello');
-            }
-        }, 10000)
-    }
+  onSubscribe() {
+    setInterval(() => {
+      for (let id of this.listObserver) {
+        store.dispatch(getUserNotifications(id));
+        console.log('hello');
+      }
+    }, 10000);
+  }
 }

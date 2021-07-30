@@ -62,7 +62,7 @@
     - [x] create UI element - notifs list
     - [x] add empty notif icon
     - [x] bug: only own notification should appears
-    - [ ] refresh notification with subscribe / observer pattern ?
+    - [x] refresh notification with subscribe / observer pattern ?
 - [x] fix: can't like your own comment
 - [x] can't like your own question
 - [x] post a comment shouldn't send notif to you
