@@ -45,6 +45,8 @@ export const ButtonLikeComment = ({
     }
   };
 
+  const disabled = user.userId === authorId;
+
   const removeFromLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
@@ -57,9 +59,10 @@ export const ButtonLikeComment = ({
   if (!likes.includes(auth.currentUser?.uid)) {
     return (
       <button
-        className="flex items-center justify-center space-x-1 py-1 px-2 bg-gray-100 
-            text-muted focus:outline-none hover:bg-gray-200 hover:text-primary transition duration-200 rounded-full"
+        className={`${disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'} flex items-center justify-center space-x-1 py-1 px-2 bg-gray-100 
+            text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full`}
         onClick={addToLike}
+        disabled={disabled}
       >
         <span className="text-sm">{likes.length}</span>
         <svg
@@ -79,7 +82,7 @@ export const ButtonLikeComment = ({
   }
   return (
     <button
-      className="flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full"
+      className={`${disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'} flex items-center space-x-1 py-1 px-2 bg-gray-200 text-muted focus:outline-none hover:text-primary transition duration-200 rounded-full`}
       onClick={removeFromLike}
     >
       <span className="text-sm">{likes.length}</span>

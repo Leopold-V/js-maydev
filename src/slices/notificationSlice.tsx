@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchNotification, readNotification } from '../actions/notifications.actions';
+import { getUserNotifications, readNotification } from '../actions/notifications.actions';
 import { notificationType } from '../app/types';
 
 export const notificationSlice = createSlice({
@@ -11,14 +11,14 @@ export const notificationSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [fetchNotification.pending]: (state) => {
+    [getUserNotifications.pending]: (state) => {
       state.loading = true;
     },
-    [fetchNotification.fulfilled]: (state, action) => {
+    [getUserNotifications.fulfilled]: (state, action) => {
       state.loading = false;
       state.notifications = action.payload;
     },
-    [fetchNotification.rejected]: (state, action) => {
+    [getUserNotifications.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },

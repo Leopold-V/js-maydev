@@ -1,7 +1,7 @@
 import { db } from '../app/firebase';
 import { notificationType } from '../app/types';
 
-export const getNotificationsOfOneUser = async (userId: string): Promise<notificationType[]> => {
+export const getUserNotifications = async (userId: string): Promise<notificationType[]> => {
   const listNotifications: any = [];
   await db
     .collection('notifications')
@@ -42,7 +42,7 @@ const updateOneNotification = async (id: string) => {
 };
 
 const notificationServices = {
-  getNotificationsOfOneUser,
+  getUserNotifications,
   addOneNotification,
   updateOneNotification,
 };

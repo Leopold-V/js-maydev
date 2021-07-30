@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import notificationServices from '../services/notification.services';
 
-export const fetchNotification: any = createAsyncThunk(
+export const getUserNotifications: any = createAsyncThunk(
   'notifications/fetchNotifications',
   async (id: string, { rejectWithValue }) => {
     try {
-      const notifications = await notificationServices.getNotificationsOfOneUser(id);
+      const notifications = await notificationServices.getUserNotifications(id);
       const formattedNotifications = notifications.map((notif: any) => ({
         ...notif,
         date: new Date(notif.date.seconds * 1000).toDateString(),

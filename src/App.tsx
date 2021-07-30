@@ -8,7 +8,7 @@ import { auth } from './app/firebase';
 
 import { loadUser, noUser, loadAllUsers } from './slices/userSlice';
 import { fetchQuestions } from './actions/question.actions';
-import { fetchNotification } from './actions/notifications.actions';
+import { getUserNotifications } from './actions/notifications.actions';
 import userServices from './services/user.services';
 
 import { PageLayout } from './components/PageLayout';
@@ -22,7 +22,7 @@ function App() {
           const users = await userServices.getAllUsers();
           store.dispatch(loadUser(user));
           store.dispatch(loadAllUsers(users));
-          store.dispatch(fetchNotification(userResult.uid));
+          store.dispatch(getUserNotifications(userResult.uid));
         })();
       } else {
         store.dispatch(noUser());
