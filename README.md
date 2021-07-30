@@ -60,7 +60,7 @@
 - [x] notifications
     - [x] create notification model, slice, actions, services
     - [x] create UI element - notifs list
-    - [ ] add empty notif icon
+    - [x] add empty notif icon
     - [x] bug: only own notification should appears
     - [ ] refresh notification with subscribe / observer pattern ?
 - [x] fix: can't like your own comment
