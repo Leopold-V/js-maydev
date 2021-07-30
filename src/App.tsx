@@ -22,7 +22,6 @@ function App() {
           const users = await userServices.getAllUsers();
           store.dispatch(loadUser(user));
           store.dispatch(loadAllUsers(users));
-          store.dispatch(getUserNotifications(userResult.uid));
         })();
       } else {
         store.dispatch(noUser());
@@ -30,6 +29,19 @@ function App() {
     });
     store.dispatch(fetchQuestions());
     return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const refreshNotifications = () => {
+      if (auth.currentUser) {
+        store.dispatch(getUserNotifications(auth.currentUser.uid));
+      }
+    };
+    refreshNotifications();
+    const interval = setInterval(refreshNotifications, 60000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (

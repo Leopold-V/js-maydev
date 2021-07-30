@@ -22,7 +22,7 @@ export const ButtonLikeComment = ({
   ).likes;
   const user = useSelector((state: any) => state.user.user);
 
-  const disabled = user.userId === authorId;
+  const disabled = auth.currentUser?.uid === authorId;
 
   const addToLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
