@@ -67,8 +67,8 @@
 - [x] can't like your own question
 - [x] post a comment shouldn't send notif to you
 
-- [ ] change read-like icons color
-- [ ] add loading spinner for comments block
+- [x] change read-like icons color
+- [x] add loading spinner for comments block
 - [ ] improve responsive on mobile
 - [ ] view counter
 - [ ] page layout should'nt be scrollable !
