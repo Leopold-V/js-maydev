@@ -39,7 +39,9 @@ export const CommentForm = ({ questionId, authorId }: { questionId: string; auth
       isRead: false,
     };
     dispatch(addComment(newComment))
-      .then(() => notificationServices.addOneNotification(notification))
+      .then(() => {
+        if (authorId !== user.userId) notificationServices.addOneNotification(notification)
+      })
       .catch((err: Error) => console.log(err));
     setInput('');
   };

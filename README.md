@@ -35,7 +35,6 @@
     - [x] can give a point to a single comment per question open for a good answer
     - [x] can mark your own question as resolved (or resolved when you attribute a point).
     - [x] bug: when disconnected, reply should redirect to login page
-    - [ ] fix: can't like your own comment
 
 - [x] fix markdown non js code diplay
 - [x] add github workflow
@@ -64,7 +63,9 @@
     - [ ] add empty notif icon
     - [x] bug: only own notification should appears
     - [ ] refresh notification with subscribe / observer pattern ?
-- [ ] post a comment shouldn't send notif to you
+- [x] fix: can't like your own comment
+- [x] can't like your own question
+- [x] post a comment shouldn't send notif to you
 
 - [ ] change read-like icons color
 - [ ] add loading spinner for comments block

@@ -16,12 +16,14 @@ export const ButtonLikeComment = ({
 }) => {
   let history = useHistory();
   const dispatch = useDispatch();
-
+  
   const likes = useSelector((state: any) =>
-    state.comments.comments.find((ele: commentType) => ele.id === id)
+  state.comments.comments.find((ele: commentType) => ele.id === id)
   ).likes;
   const user = useSelector((state: any) => state.user.user);
-
+  
+  const disabled = user.userId === authorId;
+  
   const addToLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (auth.currentUser) {
@@ -44,8 +46,6 @@ export const ButtonLikeComment = ({
       history.push('/login');
     }
   };
-
-  const disabled = user.userId === authorId;
 
   const removeFromLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

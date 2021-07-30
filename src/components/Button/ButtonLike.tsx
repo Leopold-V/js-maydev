@@ -13,6 +13,8 @@ export const ButtonLike = ({ id }: { id: string }) => {
 
   let history = useHistory();
   const dispatch = useDispatch();
+  const disabled = auth.currentUser?.uid === question.authorId;
+
 
   const addToLike = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -49,8 +51,9 @@ export const ButtonLike = ({ id }: { id: string }) => {
   if (!question.likes.includes(auth.currentUser?.uid)) {
     return (
       <button
-        className="flex items-center space-x-2 py-1 px-2 bg-gray text-muted focus:outline-none hover:bg-gray-100 hover:text-primary transition duration-200 rounded-full"
+        className={`${disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'} flex items-center space-x-2 py-1 px-2 bg-gray text-muted focus:outline-none hover:bg-gray-100 hover:text-primary transition duration-200 rounded-full`}
         onClick={addToLike}
+        disabled={disabled}
       >
         <span className="text-sm">{question.likes.length}</span>
         <svg
@@ -70,8 +73,9 @@ export const ButtonLike = ({ id }: { id: string }) => {
   } else {
     return (
       <button
-        className="flex items-center space-x-2 py-1 px-2 bg-gray-100 text-primary focus:outline-none hover:text-primary transition duration-200 rounded-full"
+        className={`${disabled ? 'cursor-not-allowed' : 'hover:bg-gray-200'} flex items-center space-x-2 py-1 px-2 bg-gray-100 text-primary focus:outline-none hover:text-primary transition duration-200 rounded-full`}
         onClick={removeFromLike}
+        disabled={disabled}
       >
         <span className="text-sm">{question.likes.length}</span>
         <svg
