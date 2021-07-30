@@ -19,6 +19,7 @@ export const CommentsBlock = ({
   const comments: commentType[] = useSelector((state: any) =>
     state.comments.comments.filter((comment: commentType) => comment.isReply === false)
   );
+  const loading: boolean = useSelector((state: any) => state.comments.loading); 
 
   useEffect(() => {
     (async () => {
@@ -31,11 +32,11 @@ export const CommentsBlock = ({
     <div className="mt-16">
       <h2 className="text-primary text-2xl font-bold py-4">Discussions</h2>
       {user ? (
-        <CommentForm questionId={questionId} authorId={authorId} />
+        <CommentForm questionId={questionId} authorId={authorId} userId={user.userId} avatar={user.avatar} username={user.username} />
       ) : (
         <div className="mb-8">You must log in to reply</div>
       )}
-      <CommentList comments={comments} />
+      {loading ? <div className="text-center">Loading comments...</div> : <CommentList comments={comments} />}
     </div>
   );
 };

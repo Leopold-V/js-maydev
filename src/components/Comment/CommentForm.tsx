@@ -1,12 +1,10 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addComment } from '../../actions/comment.actions';
-import { userType } from '../../app/types';
 import notificationServices from '../../services/notification.services';
 
-export const CommentForm = ({ questionId, authorId }: { questionId: string; authorId: string }) => {
+export const CommentForm = ({ questionId, authorId, userId, avatar, username }: { questionId: string; authorId: string, userId: string, avatar: string, username: string }) => {
   const dispatch = useDispatch();
-  const user: userType = useSelector((state: any) => state.user.user);
 
   const [input, setInput] = useState('');
   const [hasChanged, setHasChanged] = useState<boolean>(false);
@@ -24,7 +22,7 @@ export const CommentForm = ({ questionId, authorId }: { questionId: string; auth
     const newComment = {
       isReply: false,
       ancester: null,
-      authorId: user.userId,
+      authorId: userId,
       questionId: questionId,
       content: input,
       likes: [],
@@ -33,14 +31,14 @@ export const CommentForm = ({ questionId, authorId }: { questionId: string; auth
     };
     const notification = {
       userId: authorId,
-      content: `${user.username || 'Anonymous'} answered to your question`,
+      content: `${username || 'Anonymous'} answered to your question`,
       link: `question/${questionId}`,
       date: new Date(Date.now()),
       isRead: false,
     };
     dispatch(addComment(newComment))
       .then(() => {
-        if (authorId !== user.userId) notificationServices.addOneNotification(notification);
+        if (authorId !== userId) notificationServices.addOneNotification(notification);
       })
       .catch((err: Error) => console.log(err));
     setInput('');
@@ -53,7 +51,7 @@ export const CommentForm = ({ questionId, authorId }: { questionId: string; auth
           <img
             className="rounded-full"
             alt="profile_picture"
-            src={user.avatar || 'https://randomuser.me/portraits/men/52.jpg'}
+            src={avatar || 'https://randomuser.me/portraits/men/52.jpg'}
           />
         </div>
         <div className="flex-grow space-y-2">
