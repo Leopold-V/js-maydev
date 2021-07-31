@@ -1,19 +1,26 @@
 import React from 'react';
-import { act, cleanup, fireEvent, getByText, render, screen } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  getByText,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import App from '../App';
 import { renderWithRouter } from './utils/routing';
 import thunk from 'redux-thunk';
 
 afterEach(() => {
-    jest.useRealTimers();
+  //jest.useRealTimers();
 });
 
-jest.useFakeTimers();
+//jest.useFakeTimers();
 
 describe('routing', () => {
-
-    beforeEach(() => {
-        /*const user = {
+  beforeEach(() => {
+    /*const user = {
             avatar: "",
             bio: "Cool",
             dev_profile: "",
@@ -25,30 +32,27 @@ describe('routing', () => {
             username: "Joe",
             website_url: "https://dev.to/leopold" 
         };*/
-    })
+  });
 
-    test('login', () => {
-        act(() => {
-            renderWithRouter(<App />);
-        });
-        act(() => {
-            jest.advanceTimersByTime(2000);
-        });
-        fireEvent.click(screen.getByText('Login'))
-        expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
+  test('login', () => {
+    act(() => {
+      renderWithRouter(<App />);
     });
+    setTimeout(() => {
+      fireEvent.click(screen.getByText('Login'));
+      expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
+    }, 2000);
+  });
 
-    test('faq', () => {
-        renderWithRouter(<App />);
-        //expect(reading).toMatchSnapshot();
-        act(() => {fireEvent.click(screen.getByText('Faq'))});
-        expect(screen.getByText(/Faq page/i)).toBeInTheDocument();
+  test('faq', () => {
+    act(() => {
+      renderWithRouter(<App />, { route: 'faq' });
     });
+    expect(screen.getByText(/Faq page/i)).toBeInTheDocument();
+  });
 
-    test('about', () => {
-        renderWithRouter(<App />);
-        //expect(reading).toMatchSnapshot();
-        act(() => {fireEvent.click(screen.getByText('About'))});
-        expect(screen.getByText(/About page/i)).toBeInTheDocument();
-    });
-})
+  test('about', () => {
+    renderWithRouter(<App />, { route: 'about' });
+    expect(screen.getByText(/About page/i)).toBeInTheDocument();
+  });
+});
