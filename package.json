@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-syntax-highlighter": "^15.4.3",
+    "redux-thunk": "^2.3.0",
     "remark-gfm": "^1.0.0",
     "typescript": "^4.3.2",
     "web-vitals": "^1.1.2"
@@ -30,7 +31,7 @@
     "build": "craco build",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' 'src/**/*.tsx'  --write",
     "prettier:check": "prettier --config .prettierrc 'src/**/*.ts' 'src/**/*.tsx'  --check",
-    "test": "craco test",
+    "test": "craco test --transformIgnorePatterns 'node_modules/(?!(react-syntax-highlighter)/)' --detectOpenHandles",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +50,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "watchPathIgnorePatterns": [
+      "utils"
     ]
   },
   "devDependencies": {
