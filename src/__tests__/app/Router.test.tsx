@@ -8,8 +8,8 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
-import App from '../App';
-import { renderWithRouter } from './utils/routing';
+import App from '../../App';
+import { renderWithRouter } from '../utils/routing';
 import thunk from 'redux-thunk';
 
 afterEach(() => {
@@ -35,24 +35,22 @@ describe('routing', () => {
   });
 
   test('login', () => {
-    act(() => {
-      renderWithRouter(<App />);
-    });
+    renderWithRouter(<App />);
     setTimeout(() => {
       fireEvent.click(screen.getByText('Login'));
       expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
-    }, 2000);
+    }, 0);
   });
 
   test('faq', () => {
-    act(() => {
-      renderWithRouter(<App />, { route: 'faq' });
-    });
+    renderWithRouter(<App />);
+    fireEvent.click(screen.getByText('Faq'));
     expect(screen.getByText(/Faq page/i)).toBeInTheDocument();
   });
 
   test('about', () => {
-    renderWithRouter(<App />, { route: 'about' });
+    renderWithRouter(<App />);
+    fireEvent.click(screen.getByText('About'));
     expect(screen.getByText(/About page/i)).toBeInTheDocument();
   });
 });

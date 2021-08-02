@@ -1,0 +1,1748 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="bg-background text-primary"
+      >
+        <div
+          class="bg-gray sticky top-0 z-50"
+        >
+          <nav
+            class="h-14 w-11/12 lg:w-10/12 py-2 mx-auto flex justify-between"
+          >
+            <div
+              class="flex items-center space-x-4"
+            >
+              <div
+                class="bg-white hover:opacity-60 text-secondary rounded flex items-center px-1 justify-center h-10 transition duration-300"
+              >
+                <a
+                  class="font-bold text-lg text-gray"
+                  href="/"
+                >
+                  Mdev
+                </a>
+              </div>
+              <form
+                class="hidden md:block"
+              >
+                <input
+                  class="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent h-10 w-96 placeholder-gray-500 transition duration-200"
+                  placeholder="Search..."
+                  value=""
+                />
+              </form>
+            </div>
+          </nav>
+        </div>
+        <div
+          class="sm:w-11/12 lg:w-10/12 mx-auto min-h-screen sm:py-4"
+        >
+          <div
+            class="grid sm:grid-cols-8 lg:grid-cols-10 gap-x-4"
+          >
+            <div
+              class="hidden sm:block col-span-2"
+            >
+              <div
+                class="space-y-12"
+              >
+                <ul
+                  class="w-full"
+                >
+                  <li
+                    class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                  >
+                    <a
+                      class="flex items-center space-x-2 px-2 py-2"
+                      href="/"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        stroke="#7b78ff"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                        />
+                      </svg>
+                      <span>
+                        Home
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                  >
+                    <a
+                      class="flex items-center space-x-2 px-2 py-2"
+                      href="/readinglist"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        stroke="#7b78ff"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
+                        />
+                      </svg>
+                      <span>
+                        Reading List
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                  >
+                    <a
+                      class="flex items-center space-x-2 px-2 py-2"
+                      href="/faq"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        stroke="#7b78ff"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"
+                        />
+                      </svg>
+                      <span>
+                        Faq
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                  >
+                    <a
+                      class="flex items-center space-x-2 px-2 py-2"
+                      href="/about"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        stroke="#7b78ff"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                      <span>
+                        About
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                  >
+                    <a
+                      class="flex items-center space-x-2 px-2 py-2"
+                      href="/tags"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        fill="none"
+                        stroke="#7b78ff"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                      <span>
+                        Tags
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <div
+                  class="px-2"
+                >
+                  <h2
+                    class="font-bold text-primary pb-4"
+                  >
+                    My Tags
+                  </h2>
+                  <ul />
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-span-6"
+            >
+              <div
+                class="px-4 space-y-6"
+              >
+                <div
+                  class="flex justify-between py-2"
+                >
+                  <h1
+                    class="font-bold text-xl hidden sm:inline"
+                  >
+                    Questions
+                  </h1>
+                  <ul
+                    class="flex space-x-2 sm:space-x-2"
+                  >
+                    <li>
+                      <button
+                        class="hover:bg-gray hover:text-blue border-b-4 border-primary focus:outline-none focus:border-primary hover:border-primary
+                 rounded transition duration-200 px-2 py-1"
+                        data-time="0"
+                      >
+                        Latest
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                        data-time="604800"
+                      >
+                        Week
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                        data-time="2592000"
+                      >
+                        Month
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                        data-time="31536000"
+                      >
+                        Year
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                        data-time="0"
+                      >
+                        All
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <ul>
+                  <div
+                    class="card h-40 my-2"
+                  >
+                    <svg
+                      aria-labelledby="loading-aria"
+                      height="160"
+                      preserveAspectRatio="none"
+                      role="img"
+                      viewBox="0 0 721 160"
+                      width="721"
+                    >
+                      <title
+                        id="loading-aria"
+                      >
+                        Loading...
+                      </title>
+                      <rect
+                        clip-path="url(#clip-path)"
+                        height="100%"
+                        style="fill: URL(\\"#fill\\");"
+                        width="100%"
+                        x="0"
+                        y="0"
+                      />
+                      <defs>
+                        <clippath
+                          id="clip-path"
+                        >
+                          <rect
+                            height="41"
+                            rx="0"
+                            ry="0"
+                            width="123"
+                            x="6"
+                            y="5"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="59"
+                          />
+                          <rect
+                            height="0"
+                            rx="0"
+                            ry="0"
+                            width="28"
+                            x="129"
+                            y="167"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="98"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="438"
+                            y="99"
+                          />
+                        </clippath>
+                        <lineargradient
+                          id="fill"
+                        >
+                          <stop
+                            offset="0.599964"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-2; -2; 1"
+                            />
+                          </stop>
+                          <stop
+                            offset="1.59996"
+                            stop-color="#2e3a48"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-1; -1; 2"
+                            />
+                          </stop>
+                          <stop
+                            offset="2.59996"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="0; 0; 3"
+                            />
+                          </stop>
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div
+                    class="card h-40 my-2"
+                  >
+                    <svg
+                      aria-labelledby="loading-aria"
+                      height="160"
+                      preserveAspectRatio="none"
+                      role="img"
+                      viewBox="0 0 721 160"
+                      width="721"
+                    >
+                      <title
+                        id="loading-aria"
+                      >
+                        Loading...
+                      </title>
+                      <rect
+                        clip-path="url(#clip-path)"
+                        height="100%"
+                        style="fill: URL(\\"#fill\\");"
+                        width="100%"
+                        x="0"
+                        y="0"
+                      />
+                      <defs>
+                        <clippath
+                          id="clip-path"
+                        >
+                          <rect
+                            height="41"
+                            rx="0"
+                            ry="0"
+                            width="123"
+                            x="6"
+                            y="5"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="59"
+                          />
+                          <rect
+                            height="0"
+                            rx="0"
+                            ry="0"
+                            width="28"
+                            x="129"
+                            y="167"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="98"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="438"
+                            y="99"
+                          />
+                        </clippath>
+                        <lineargradient
+                          id="fill"
+                        >
+                          <stop
+                            offset="0.599964"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-2; -2; 1"
+                            />
+                          </stop>
+                          <stop
+                            offset="1.59996"
+                            stop-color="#2e3a48"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-1; -1; 2"
+                            />
+                          </stop>
+                          <stop
+                            offset="2.59996"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="0; 0; 3"
+                            />
+                          </stop>
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div
+                    class="card h-40 my-2"
+                  >
+                    <svg
+                      aria-labelledby="loading-aria"
+                      height="160"
+                      preserveAspectRatio="none"
+                      role="img"
+                      viewBox="0 0 721 160"
+                      width="721"
+                    >
+                      <title
+                        id="loading-aria"
+                      >
+                        Loading...
+                      </title>
+                      <rect
+                        clip-path="url(#clip-path)"
+                        height="100%"
+                        style="fill: URL(\\"#fill\\");"
+                        width="100%"
+                        x="0"
+                        y="0"
+                      />
+                      <defs>
+                        <clippath
+                          id="clip-path"
+                        >
+                          <rect
+                            height="41"
+                            rx="0"
+                            ry="0"
+                            width="123"
+                            x="6"
+                            y="5"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="59"
+                          />
+                          <rect
+                            height="0"
+                            rx="0"
+                            ry="0"
+                            width="28"
+                            x="129"
+                            y="167"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="98"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="438"
+                            y="99"
+                          />
+                        </clippath>
+                        <lineargradient
+                          id="fill"
+                        >
+                          <stop
+                            offset="0.599964"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-2; -2; 1"
+                            />
+                          </stop>
+                          <stop
+                            offset="1.59996"
+                            stop-color="#2e3a48"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-1; -1; 2"
+                            />
+                          </stop>
+                          <stop
+                            offset="2.59996"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="0; 0; 3"
+                            />
+                          </stop>
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div
+                    class="card h-40 my-2"
+                  >
+                    <svg
+                      aria-labelledby="loading-aria"
+                      height="160"
+                      preserveAspectRatio="none"
+                      role="img"
+                      viewBox="0 0 721 160"
+                      width="721"
+                    >
+                      <title
+                        id="loading-aria"
+                      >
+                        Loading...
+                      </title>
+                      <rect
+                        clip-path="url(#clip-path)"
+                        height="100%"
+                        style="fill: URL(\\"#fill\\");"
+                        width="100%"
+                        x="0"
+                        y="0"
+                      />
+                      <defs>
+                        <clippath
+                          id="clip-path"
+                        >
+                          <rect
+                            height="41"
+                            rx="0"
+                            ry="0"
+                            width="123"
+                            x="6"
+                            y="5"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="59"
+                          />
+                          <rect
+                            height="0"
+                            rx="0"
+                            ry="0"
+                            width="28"
+                            x="129"
+                            y="167"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="98"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="438"
+                            y="99"
+                          />
+                        </clippath>
+                        <lineargradient
+                          id="fill"
+                        >
+                          <stop
+                            offset="0.599964"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-2; -2; 1"
+                            />
+                          </stop>
+                          <stop
+                            offset="1.59996"
+                            stop-color="#2e3a48"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-1; -1; 2"
+                            />
+                          </stop>
+                          <stop
+                            offset="2.59996"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="0; 0; 3"
+                            />
+                          </stop>
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div
+                    class="card h-40 my-2"
+                  >
+                    <svg
+                      aria-labelledby="loading-aria"
+                      height="160"
+                      preserveAspectRatio="none"
+                      role="img"
+                      viewBox="0 0 721 160"
+                      width="721"
+                    >
+                      <title
+                        id="loading-aria"
+                      >
+                        Loading...
+                      </title>
+                      <rect
+                        clip-path="url(#clip-path)"
+                        height="100%"
+                        style="fill: URL(\\"#fill\\");"
+                        width="100%"
+                        x="0"
+                        y="0"
+                      />
+                      <defs>
+                        <clippath
+                          id="clip-path"
+                        >
+                          <rect
+                            height="41"
+                            rx="0"
+                            ry="0"
+                            width="123"
+                            x="6"
+                            y="5"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="59"
+                          />
+                          <rect
+                            height="0"
+                            rx="0"
+                            ry="0"
+                            width="28"
+                            x="129"
+                            y="167"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="27"
+                            y="98"
+                          />
+                          <rect
+                            height="22"
+                            rx="0"
+                            ry="0"
+                            width="168"
+                            x="438"
+                            y="99"
+                          />
+                        </clippath>
+                        <lineargradient
+                          id="fill"
+                        >
+                          <stop
+                            offset="0.599964"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-2; -2; 1"
+                            />
+                          </stop>
+                          <stop
+                            offset="1.59996"
+                            stop-color="#2e3a48"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="-1; -1; 2"
+                            />
+                          </stop>
+                          <stop
+                            offset="2.59996"
+                            stop-color="#444f5b"
+                            stop-opacity="1"
+                          >
+                            <animate
+                              attributeName="offset"
+                              dur="2s"
+                              keyTimes="0; 0.25; 1"
+                              repeatCount="indefinite"
+                              values="0; 0; 3"
+                            />
+                          </stop>
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="hidden lg:block col-span-2"
+            >
+              <div
+                class="text-center py-2"
+              >
+                <h2
+                  class="text-lg font-bold py-1"
+                >
+                  Leaderboard
+                </h2>
+                <div
+                  class="mt-8"
+                >
+                  Loading leaderboard...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="bg-background text-primary"
+    >
+      <div
+        class="bg-gray sticky top-0 z-50"
+      >
+        <nav
+          class="h-14 w-11/12 lg:w-10/12 py-2 mx-auto flex justify-between"
+        >
+          <div
+            class="flex items-center space-x-4"
+          >
+            <div
+              class="bg-white hover:opacity-60 text-secondary rounded flex items-center px-1 justify-center h-10 transition duration-300"
+            >
+              <a
+                class="font-bold text-lg text-gray"
+                href="/"
+              >
+                Mdev
+              </a>
+            </div>
+            <form
+              class="hidden md:block"
+            >
+              <input
+                class="border shadow-lg border-gray-600 rounded py-2 px-2 bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background focus:border-transparent h-10 w-96 placeholder-gray-500 transition duration-200"
+                placeholder="Search..."
+                value=""
+              />
+            </form>
+          </div>
+        </nav>
+      </div>
+      <div
+        class="sm:w-11/12 lg:w-10/12 mx-auto min-h-screen sm:py-4"
+      >
+        <div
+          class="grid sm:grid-cols-8 lg:grid-cols-10 gap-x-4"
+        >
+          <div
+            class="hidden sm:block col-span-2"
+          >
+            <div
+              class="space-y-12"
+            >
+              <ul
+                class="w-full"
+              >
+                <li
+                  class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                >
+                  <a
+                    class="flex items-center space-x-2 px-2 py-2"
+                    href="/"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      stroke="#7b78ff"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                      />
+                    </svg>
+                    <span>
+                      Home
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                >
+                  <a
+                    class="flex items-center space-x-2 px-2 py-2"
+                    href="/readinglist"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      stroke="#7b78ff"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
+                      />
+                    </svg>
+                    <span>
+                      Reading List
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                >
+                  <a
+                    class="flex items-center space-x-2 px-2 py-2"
+                    href="/faq"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      stroke="#7b78ff"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"
+                      />
+                    </svg>
+                    <span>
+                      Faq
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                >
+                  <a
+                    class="flex items-center space-x-2 px-2 py-2"
+                    href="/about"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      stroke="#7b78ff"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      About
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="hover:bg-gray hover:text-blue rounded transition duration-200"
+                >
+                  <a
+                    class="flex items-center space-x-2 px-2 py-2"
+                    href="/tags"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      fill="none"
+                      stroke="#7b78ff"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span>
+                      Tags
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <div
+                class="px-2"
+              >
+                <h2
+                  class="font-bold text-primary pb-4"
+                >
+                  My Tags
+                </h2>
+                <ul />
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-span-6"
+          >
+            <div
+              class="px-4 space-y-6"
+            >
+              <div
+                class="flex justify-between py-2"
+              >
+                <h1
+                  class="font-bold text-xl hidden sm:inline"
+                >
+                  Questions
+                </h1>
+                <ul
+                  class="flex space-x-2 sm:space-x-2"
+                >
+                  <li>
+                    <button
+                      class="hover:bg-gray hover:text-blue border-b-4 border-primary focus:outline-none focus:border-primary hover:border-primary
+                 rounded transition duration-200 px-2 py-1"
+                      data-time="0"
+                    >
+                      Latest
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                      data-time="604800"
+                    >
+                      Week
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                      data-time="2592000"
+                    >
+                      Month
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                      data-time="31536000"
+                    >
+                      Year
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="hover:bg-gray hover:text-blue border-b-4 border-transparent focus:outline-none focus:border-primary hover:border-primary
+          rounded transition duration-200 px-2 py-1"
+                      data-time="0"
+                    >
+                      All
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <ul>
+                <div
+                  class="card h-40 my-2"
+                >
+                  <svg
+                    aria-labelledby="loading-aria"
+                    height="160"
+                    preserveAspectRatio="none"
+                    role="img"
+                    viewBox="0 0 721 160"
+                    width="721"
+                  >
+                    <title
+                      id="loading-aria"
+                    >
+                      Loading...
+                    </title>
+                    <rect
+                      clip-path="url(#clip-path)"
+                      height="100%"
+                      style="fill: URL(\\"#fill\\");"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                    <defs>
+                      <clippath
+                        id="clip-path"
+                      >
+                        <rect
+                          height="41"
+                          rx="0"
+                          ry="0"
+                          width="123"
+                          x="6"
+                          y="5"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="59"
+                        />
+                        <rect
+                          height="0"
+                          rx="0"
+                          ry="0"
+                          width="28"
+                          x="129"
+                          y="167"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="98"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="438"
+                          y="99"
+                        />
+                      </clippath>
+                      <lineargradient
+                        id="fill"
+                      >
+                        <stop
+                          offset="0.599964"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-2; -2; 1"
+                          />
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#2e3a48"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-1; -1; 2"
+                          />
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="0; 0; 3"
+                          />
+                        </stop>
+                      </lineargradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div
+                  class="card h-40 my-2"
+                >
+                  <svg
+                    aria-labelledby="loading-aria"
+                    height="160"
+                    preserveAspectRatio="none"
+                    role="img"
+                    viewBox="0 0 721 160"
+                    width="721"
+                  >
+                    <title
+                      id="loading-aria"
+                    >
+                      Loading...
+                    </title>
+                    <rect
+                      clip-path="url(#clip-path)"
+                      height="100%"
+                      style="fill: URL(\\"#fill\\");"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                    <defs>
+                      <clippath
+                        id="clip-path"
+                      >
+                        <rect
+                          height="41"
+                          rx="0"
+                          ry="0"
+                          width="123"
+                          x="6"
+                          y="5"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="59"
+                        />
+                        <rect
+                          height="0"
+                          rx="0"
+                          ry="0"
+                          width="28"
+                          x="129"
+                          y="167"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="98"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="438"
+                          y="99"
+                        />
+                      </clippath>
+                      <lineargradient
+                        id="fill"
+                      >
+                        <stop
+                          offset="0.599964"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-2; -2; 1"
+                          />
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#2e3a48"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-1; -1; 2"
+                          />
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="0; 0; 3"
+                          />
+                        </stop>
+                      </lineargradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div
+                  class="card h-40 my-2"
+                >
+                  <svg
+                    aria-labelledby="loading-aria"
+                    height="160"
+                    preserveAspectRatio="none"
+                    role="img"
+                    viewBox="0 0 721 160"
+                    width="721"
+                  >
+                    <title
+                      id="loading-aria"
+                    >
+                      Loading...
+                    </title>
+                    <rect
+                      clip-path="url(#clip-path)"
+                      height="100%"
+                      style="fill: URL(\\"#fill\\");"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                    <defs>
+                      <clippath
+                        id="clip-path"
+                      >
+                        <rect
+                          height="41"
+                          rx="0"
+                          ry="0"
+                          width="123"
+                          x="6"
+                          y="5"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="59"
+                        />
+                        <rect
+                          height="0"
+                          rx="0"
+                          ry="0"
+                          width="28"
+                          x="129"
+                          y="167"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="98"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="438"
+                          y="99"
+                        />
+                      </clippath>
+                      <lineargradient
+                        id="fill"
+                      >
+                        <stop
+                          offset="0.599964"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-2; -2; 1"
+                          />
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#2e3a48"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-1; -1; 2"
+                          />
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="0; 0; 3"
+                          />
+                        </stop>
+                      </lineargradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div
+                  class="card h-40 my-2"
+                >
+                  <svg
+                    aria-labelledby="loading-aria"
+                    height="160"
+                    preserveAspectRatio="none"
+                    role="img"
+                    viewBox="0 0 721 160"
+                    width="721"
+                  >
+                    <title
+                      id="loading-aria"
+                    >
+                      Loading...
+                    </title>
+                    <rect
+                      clip-path="url(#clip-path)"
+                      height="100%"
+                      style="fill: URL(\\"#fill\\");"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                    <defs>
+                      <clippath
+                        id="clip-path"
+                      >
+                        <rect
+                          height="41"
+                          rx="0"
+                          ry="0"
+                          width="123"
+                          x="6"
+                          y="5"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="59"
+                        />
+                        <rect
+                          height="0"
+                          rx="0"
+                          ry="0"
+                          width="28"
+                          x="129"
+                          y="167"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="98"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="438"
+                          y="99"
+                        />
+                      </clippath>
+                      <lineargradient
+                        id="fill"
+                      >
+                        <stop
+                          offset="0.599964"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-2; -2; 1"
+                          />
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#2e3a48"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-1; -1; 2"
+                          />
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="0; 0; 3"
+                          />
+                        </stop>
+                      </lineargradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div
+                  class="card h-40 my-2"
+                >
+                  <svg
+                    aria-labelledby="loading-aria"
+                    height="160"
+                    preserveAspectRatio="none"
+                    role="img"
+                    viewBox="0 0 721 160"
+                    width="721"
+                  >
+                    <title
+                      id="loading-aria"
+                    >
+                      Loading...
+                    </title>
+                    <rect
+                      clip-path="url(#clip-path)"
+                      height="100%"
+                      style="fill: URL(\\"#fill\\");"
+                      width="100%"
+                      x="0"
+                      y="0"
+                    />
+                    <defs>
+                      <clippath
+                        id="clip-path"
+                      >
+                        <rect
+                          height="41"
+                          rx="0"
+                          ry="0"
+                          width="123"
+                          x="6"
+                          y="5"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="59"
+                        />
+                        <rect
+                          height="0"
+                          rx="0"
+                          ry="0"
+                          width="28"
+                          x="129"
+                          y="167"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="27"
+                          y="98"
+                        />
+                        <rect
+                          height="22"
+                          rx="0"
+                          ry="0"
+                          width="168"
+                          x="438"
+                          y="99"
+                        />
+                      </clippath>
+                      <lineargradient
+                        id="fill"
+                      >
+                        <stop
+                          offset="0.599964"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-2; -2; 1"
+                          />
+                        </stop>
+                        <stop
+                          offset="1.59996"
+                          stop-color="#2e3a48"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="-1; -1; 2"
+                          />
+                        </stop>
+                        <stop
+                          offset="2.59996"
+                          stop-color="#444f5b"
+                          stop-opacity="1"
+                        >
+                          <animate
+                            attributeName="offset"
+                            dur="2s"
+                            keyTimes="0; 0.25; 1"
+                            repeatCount="indefinite"
+                            values="0; 0; 3"
+                          />
+                        </stop>
+                      </lineargradient>
+                    </defs>
+                  </svg>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="hidden lg:block col-span-2"
+          >
+            <div
+              class="text-center py-2"
+            >
+              <h2
+                class="text-lg font-bold py-1"
+              >
+                Leaderboard
+              </h2>
+              <div
+                class="mt-8"
+              >
+                Loading leaderboard...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
