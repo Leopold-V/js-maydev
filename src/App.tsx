@@ -28,7 +28,7 @@ function App() {
     (async () => {
       const users = await userServices.getAllUsers();
       store.dispatch(loadAllUsers(users));
-    })()
+    })();
     store.dispatch(fetchQuestions());
     return unsubscribe;
   }, []);

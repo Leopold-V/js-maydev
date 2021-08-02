@@ -66,13 +66,11 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
             <QuestionListTags tags={tags} />
           </div>
           <div className="flex items-center space-x-4">
-
-              <QuestionsItemButtonGroup
-                id={question.id}
-                commentsCount={commentsCount}
-                isSolved={question.isSolved}
-              />
-
+            <QuestionsItemButtonGroup
+              id={question.id}
+              commentsCount={commentsCount}
+              isSolved={question.isSolved}
+            />
           </div>
         </div>
       </div>
