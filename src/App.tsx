@@ -19,14 +19,16 @@ function App() {
       if (userResult) {
         (async () => {
           const user = await userServices.getOneUser(userResult.uid);
-          const users = await userServices.getAllUsers();
           store.dispatch(loadUser(user));
-          store.dispatch(loadAllUsers(users));
         })();
       } else {
         store.dispatch(noUser());
       }
     });
+    (async () => {
+      const users = await userServices.getAllUsers();
+      store.dispatch(loadAllUsers(users));
+    })()
     store.dispatch(fetchQuestions());
     return unsubscribe;
   }, []);
