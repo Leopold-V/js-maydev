@@ -12,12 +12,6 @@ import App from '../../App';
 import { renderWithRouter } from '../utils/routing';
 import thunk from 'redux-thunk';
 
-afterEach(() => {
-  //jest.useRealTimers();
-});
-
-//jest.useFakeTimers();
-
 describe('routing', () => {
   beforeEach(() => {
     /*const user = {
