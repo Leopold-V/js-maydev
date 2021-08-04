@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react';
 import { HeaderBar } from '../components/HeaderBar';
 import { userType } from '../app/types';
 import { BrowserRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { loadUser } from '../slices/userSlice';
+import { loadUser, noUser } from '../slices/userSlice';
+import store from '../app/store';
 
 const user: userType = {
   avatar: 'https://avatars.githubusercontent.com/u/58780217?v=4',
@@ -20,40 +20,30 @@ const user: userType = {
   website_url: 'https://dev.to/leopold',
 };
 
-const mockStore = configureStore();
-const store = mockStore({
-  user: {
-    isAuthenticated: true,
-    user: null,
-    users: null,
-    loading: false,
-    loadingData: false,
-    loadingUsers: false,
-    error: '',
-  },
-  notifications: {
-    notifications: [],
-    loading: false,
-    error: '',
-  },
-});
-
 describe('Headerbar works correctly', () => {
-  render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <HeaderBar />
-      </BrowserRouter>
-    </Provider>
-  );
 
-  it('renders with no user login', () => {
-    const text = screen.getByText('Login');
+  it('renders with no user login', async () => {
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <HeaderBar />
+        </BrowserRouter>
+      </Provider>
+    );
+    store.dispatch(noUser());
+    const text = await screen.findByText('Login');
     expect(text).toBeInTheDocument();
   });
-  it('renders with user login', () => {
+  it('renders with user login', async () => {
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <HeaderBar />
+        </BrowserRouter>
+      </Provider>
+    );
     store.dispatch(loadUser(user));
-    const text = screen.getByText('New question');
-    expect(text).toMatchSnapshot();
+    const text = await screen.findByText('New question');
+    expect(text).toBeInTheDocument();
   });
 });
