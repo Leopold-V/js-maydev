@@ -13,10 +13,9 @@ import { renderWithRouter } from '../utils/routing';
 import thunk from 'redux-thunk';
 
 describe('routing', () => {
-
   test('login', async () => {
     renderWithRouter(<App />);
-    const login = await screen.findByText('Login')
+    const login = await screen.findByText('Login');
     fireEvent.click(login);
     expect(screen.getByText('Sign In')).toBeInTheDocument();
   });
