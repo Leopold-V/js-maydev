@@ -13,27 +13,12 @@ import { renderWithRouter } from '../utils/routing';
 import thunk from 'redux-thunk';
 
 describe('routing', () => {
-  beforeEach(() => {
-    /*const user = {
-            avatar: "",
-            bio: "Cool",
-            dev_profile: "",
-            email: "leopold12d12@gmail.com",
-            location: "France",
-            score: 2,
-            tags: [],
-            userId: "7Rh5lL56AHMFRlZ3pEGnLcxBlUl2",
-            username: "Joe",
-            website_url: "https://dev.to/leopold" 
-        };*/
-  });
 
-  test('login', () => {
+  test('login', async () => {
     renderWithRouter(<App />);
-    setTimeout(() => {
-      fireEvent.click(screen.getByText('Login'));
-      expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
-    }, 0);
+    const login = await screen.findByText('Login')
+    fireEvent.click(login);
+    expect(screen.getByText('Sign In')).toBeInTheDocument();
   });
 
   test('faq', () => {

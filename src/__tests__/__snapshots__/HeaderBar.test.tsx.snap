@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Headerbar works correctly renders without crashing 1`] = `
+exports[`Headerbar works correctly renders with user login 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

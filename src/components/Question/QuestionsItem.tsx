@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../../app/firebase';
 import { questionType } from '../../app/types';
 import commentServices from '../../services/comment.services';
 import userServices from '../../services/user.services';
