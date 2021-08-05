@@ -1,23 +1,26 @@
 import React from 'react';
 import {
-  fireEvent,
   screen,
 } from '@testing-library/react';
 import App from '../../App';
 import { renderWithRouter } from '../utils/routing';
+import store from '../../app/store';
+import { noUser } from '../../slices/userSlice';
 
 describe('routing', () => {
-  it('login', async () => {
+  it('renders login', async () => {
     renderWithRouter(<App />, { route: '/login'});
-    expect(await screen.findByText('Sign In')).toBeInTheDocument();
+    store.dispatch(noUser());
+    const text = await screen.findByText('Sign In');
+    expect(text).toBeInTheDocument();
   });
 
-  it('faq', () => {
+  it('renders faq', () => {
     renderWithRouter(<App />, { route: '/faq'});
     expect(screen.getByText(/Faq page/i)).toBeInTheDocument();
   });
 
-  it('about', () => {
+  it('renders about', () => {
     renderWithRouter(<App />, { route: '/about' });
     expect(screen.getByText(/About page/i)).toBeInTheDocument();
   });
