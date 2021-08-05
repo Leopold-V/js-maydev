@@ -21,7 +21,6 @@ const user: userType = {
 };
 
 describe('Headerbar works correctly', () => {
-
   it('renders with no user login', async () => {
     render(
       <Provider store={store}>
