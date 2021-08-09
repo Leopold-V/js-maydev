@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { questionType } from '../app/types';
 import { QuestionsHeader, QuestionsList, QuestionsTimeFilter } from './Question';
-import { QuestionSkeleton } from './Question/QuestionSkeleton';
+import { QuestionSkeleton } from './Question';
 
 export const MainContent = () => {
   const loading: questionType[] = useSelector((state: any) => state.questions.loading);

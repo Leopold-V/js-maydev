@@ -8,8 +8,8 @@ import { QuestionListTags } from './QuestionListTags';
 import { QuestionSkeleton } from './QuestionSkeleton';
 
 export const QuestionsItem = ({ question }: { question: questionType }) => {
-  const [user, setUser] = useState<any>(null);
-  const [commentsCount, setCommentsCount] = useState(0);
+  const [user, setUser] = React.useState<any>(null);
+  const [commentsCount, setCommentsCount] = React.useState(0);
 
   const { id, title, authorId, date, tags } = question;
 
@@ -35,7 +35,7 @@ export const QuestionsItem = ({ question }: { question: questionType }) => {
       </div>
     );
   return (
-    <Link to={`/question/${id}`}>
+    <Link to={`/question/${id}`} data-testid="question-element">
       <div className="card my-2 min-h-40">
         <div className="flex items-center space-x-2">
           <Link to={`/profile/${authorId}`} className="w-8">

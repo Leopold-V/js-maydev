@@ -1,5 +1,6 @@
 export const QuestionSkeleton = () => (
   <svg
+    data-testid="question-element"
     role="img"
     width="721"
     height="160"
