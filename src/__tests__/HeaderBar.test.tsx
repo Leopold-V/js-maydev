@@ -7,7 +7,6 @@ import { loadUser, noUser } from '../slices/userSlice';
 import store from '../app/store';
 import user from './utils/user';
 
-
 describe('Headerbar works correctly', () => {
   it('renders with no user login', async () => {
     render(

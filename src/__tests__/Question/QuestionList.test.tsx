@@ -35,11 +35,11 @@ const questions: questionType[] = [
 ];
 
 describe('Question list renders', () => {
-    it('renders a list of questions', () => {
-        render(<QuestionsList questions={questions} />)
-        const questionItem = screen.getAllByTestId('question-element');
-        expect(questionItem).toHaveLength(2);
-    });
+  it('renders a list of questions', () => {
+    render(<QuestionsList questions={questions} />);
+    const questionItem = screen.getAllByTestId('question-element');
+    expect(questionItem).toHaveLength(2);
+  });
 
   /*it('renders a list of questions', () => {
 
@@ -54,4 +54,4 @@ describe('Question list renders', () => {
     const text = screen.getByText('this is a question');
     expect(text).toBeInTheDocument();
   });*/
-})
+});

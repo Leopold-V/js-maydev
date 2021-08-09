@@ -5,7 +5,6 @@ import App from '../App';
 afterEach(cleanup);
 
 describe('navbar is working', () => {
-
   it('go to about page', () => {
     render(<App />);
     fireEvent.click(screen.getByText('About'));
@@ -17,7 +16,6 @@ describe('navbar is working', () => {
     fireEvent.click(screen.getByText('Faq'));
     expect(screen.getByText(/Faq page/i)).toBeInTheDocument();
   });
-
 
   it('go to login page', async () => {
     render(<App />);
